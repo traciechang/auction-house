@@ -13,23 +13,38 @@ export const receiveErrors = (errors) => ({
     errors
 });
 
-// may need to change line 21
 export const signup = (user) => dispatch => (
     SessionAPIUtil.signup(user).then((response) => (
         dispatch(receiveCurrentUser(response))
     ), responseError => (
-        dispatch(receiveErrors(responseError))
+        dispatch(receiveErrors(responseError.responseJSON))
     ))
 );
 
-// same here
 export const login = (user) => dispatch => (
     SessionAPIUtil.login(user).then((response) => (
         dispatch(receiveCurrentUser(response))
     ), responseError => (
-        dispatch(receiveErrors(responseError))
+        dispatch(receiveErrors(responseError.responseJSON))
     ))
 );
+
+// export const login = (user) => dispatch => {
+//     console.log("in session actions, login method")
+//     console.log(user)
+//     return (
+//     SessionAPIUtil.login(user).then((response) => {
+//         console.log("in session actions, login method, then")
+//         console.log(response)
+//         return (
+//         dispatch(receiveCurrentUser(response))
+//     )}, responseError => {
+//         console.log("in session actions, login method, then error")
+//         console.log(responseError.responseJSON)
+//         return (
+//         dispatch(receiveErrors(responseError))
+//     )})
+// )};
 
 export const logout = () => dispatch => (
     SessionAPIUtil.logout().then((response) => (
