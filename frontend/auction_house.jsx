@@ -12,12 +12,21 @@ window.logout = logout;
 // TESTING END
 
 document.addEventListener('DOMContentLoaded', () => {
-    const store = configureStore();
+    let store;
 
-    // TESTING START
-    window.getState = store.getState;
-    window.dispatch = store.dispatch;
-    // TESTING END
+    console.log("in auction_house.js")
+        console.log(window.currentUser)
+    if (window.currentUser) {
+        const preloadedState = { session: { currentUser: window.currentUser } };
+        store = configureStore(preloadedState);
+        // why?
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    }
+
+    // for tsting
+    window.getState = store.getState()
 
     ReactDom.render(<Root store={store}/>, document.getElementById('root'));
 });

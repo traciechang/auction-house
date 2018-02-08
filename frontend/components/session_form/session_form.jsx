@@ -14,6 +14,19 @@ class SessionForm extends React.Component {
         this.updateInput = this.updateInput.bind(this);
     }
 
+    componentWillMount() {
+        console.log("component Will Mount")
+    }
+
+    componentDidMount() {
+        console.log("componenet did mount")
+    }
+    // componentWillReceiveProps(nextProps) {
+    //     if (nextProps.loggedIn) {
+    //         this.props.history.push('/');
+    //     }
+    // }
+
     button() {
         return (this.props.formType === "/") ? "Log In" : "Create Account"
     }
