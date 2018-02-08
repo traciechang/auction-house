@@ -28,7 +28,7 @@ class SessionForm extends React.Component {
     // }
 
     button() {
-        return (this.props.formType === "/") ? "Log In" : "Create Account"
+        return (this.props.formType === "/login") ? "Log In" : "Create Account"
     }
 
     errors() {
@@ -44,11 +44,11 @@ class SessionForm extends React.Component {
     }
 
     header() {
-        return (this.props.formType === "/") ? "Log In" : "Sign Up"
+        return (this.props.formType === "/login") ? "Log In" : "Sign Up"
     }
 
     navLink() {
-        return (this.props.formType === "/") ? <Link to="/signup">Create an Account</Link> : <Link to="/">Already have an account?</Link>
+        return (this.props.formType === "/login") ? <Link to="/signup">Create an Account</Link> : <Link to="/login">Already have an account?</Link>
     }
 
     render() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class NavigationBar extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class NavigationBar extends React.Component {
             )
         } else {
             return (
-                <button>Sign In</button>
+                <Link to="/login">Log In</Link>
             )
         }
     }
@@ -27,11 +27,11 @@ class NavigationBar extends React.Component {
         return (
             <div>
                 <ul>
-                    <li><Link to="#">Browse</Link></li>
+                    <li><Link to="/">Browse</Link></li>
                     <li><Link to="#">Sell</Link></li>
                     <li><Link to="#">My Bids</Link></li>
                     <li><Link to="#">My Auctions</Link></li>
-                    <li><Link to="#">Profile</Link></li>
+                    <li><Link to="profile">Profile</Link></li>
                 </ul>
 
                 {this.buttonDisplay()}

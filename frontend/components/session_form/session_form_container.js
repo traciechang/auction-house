@@ -9,7 +9,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     let typeString = ownProps.location.pathname;
-    let typeMethod = (typeString === "/") ? login : signup;
+    let typeMethod = (typeString === "/login") ? login : signup;
 
     return ({
         formType: typeString,
