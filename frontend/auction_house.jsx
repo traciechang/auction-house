@@ -15,13 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let store;
 
     console.log("in auction_house.js")
-    debugger;
         console.log(window.currentUser)
     if (window.currentUser) {
         const preloadedState = { session: { currentUser: window.currentUser } };
         store = configureStore(preloadedState);
-        // why?
-        // delete window.currentUser;
+        delete window.currentUser;
     } else {
         store = configureStore();
     }
