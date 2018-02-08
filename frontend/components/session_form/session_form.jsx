@@ -21,11 +21,13 @@ class SessionForm extends React.Component {
     componentDidMount() {
         console.log("componenet did mount")
     }
-    // componentWillReceiveProps(nextProps) {
-    //     if (nextProps.loggedIn) {
-    //         this.props.history.push('/');
-    //     }
-    // }
+
+    componentWillReceiveProps(nextProps) {
+        console.log("component will receive props")
+        if (nextProps.loggedIn) {
+            this.props.history.push('/');
+        }
+    }
 
     button() {
         return (this.props.formType === "/login") ? "Log In" : "Create Account"
