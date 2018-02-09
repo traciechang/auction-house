@@ -11,7 +11,7 @@ const App = () => (
         <header>
             <NavigationBarContainer />
         </header>
-        {/* <h1>Remote Auction House</h1> */}
+        
         <Switch>
             <AuthRoute path="/signup" component={SessionFormContainer} />
             <AuthRoute path="/login" component={SessionFormContainer} />
