@@ -1,0 +1,1 @@
+json.extract! auction, :id, :user_id, :item_id, :starting_bid, :buyout, :end_time
