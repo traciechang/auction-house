@@ -25,8 +25,9 @@ class NavigationBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <ul>
+            <div className="nav-bar">
+                <ul className="nav-bar-list">
+                    <li><img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/></li>
                     <li><Link to="/">Browse</Link></li>
                     <li><Link to="#">Sell</Link></li>
                     <li><Link to="#">My Bids</Link></li>
