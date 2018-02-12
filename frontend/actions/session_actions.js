@@ -29,23 +29,6 @@ export const login = (user) => dispatch => (
     ))
 );
 
-// export const login = (user) => dispatch => {
-//     console.log("in session actions, login method")
-//     console.log(user)
-//     return (
-//     SessionAPIUtil.login(user).then((response) => {
-//         console.log("in session actions, login method, then")
-//         console.log(response)
-//         return (
-//         dispatch(receiveCurrentUser(response))
-//     )}, responseError => {
-//         console.log("in session actions, login method, then error")
-//         console.log(responseError.responseJSON)
-//         return (
-//         dispatch(receiveErrors(responseError))
-//     )})
-// )};
-
 export const logout = () => dispatch => (
     SessionAPIUtil.logout().then((response) => (
         dispatch(receiveCurrentUser(null))

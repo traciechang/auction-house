@@ -13,7 +13,7 @@ export const auctionsReducer = (state = {}, action) => {
             let allAuctions = {};
 
             Object.keys(action.auctions).forEach(key => {
-                allAuctions[key] = omit(action.auctions[key], ['item'])
+                allAuctions[key] = omit(action.auctions[key], ['item', 'user'])
             })
 
             return allAuctions;

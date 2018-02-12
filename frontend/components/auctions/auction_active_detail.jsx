@@ -8,7 +8,7 @@ class AuctionActiveDetail extends React.Component {
     render() {
         const auction = this.props.auction;
         const item = this.props.items[auction.inventory_item_id];
-        
+        const user = this.props.users[auction.user_id];
 
         return (
             <div>
@@ -18,8 +18,8 @@ class AuctionActiveDetail extends React.Component {
                     <li>{item.level}</li>
                     <li>{typeof Date.parse(auction.end_time)}</li>
                     <li>{new Date(auction.end_time) - new Date()}</li>
-                    <li>Seller username!</li>
-                    <li>Current bid!</li>
+                    <li>{user.username}</li>
+                    <li>{auction.bid ? auction.bid.amount : 0}</li>
                     <li>{auction.buyout}</li>
                 </ul>
             </div>
