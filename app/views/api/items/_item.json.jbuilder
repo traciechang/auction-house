@@ -1,0 +1,1 @@
+json.extract! item, :id, :name, :level, :item_type, :image_url, :quality

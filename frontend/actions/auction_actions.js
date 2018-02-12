@@ -15,6 +15,7 @@ export const receiveAuctions = auctions => ({
 });
 
 // made a receiveAuction action to update state with new auction created - merges w/ old state of existing auctions.
+// But why would we even need this, if after we create an aution, we direct the user to say, my auctions, and it will request ALL their auctions again, which will update anyway?
 export const createAuction = auction => dispatch => (
     AuctionAPIUtil.createAuction(auction).then(response => (
         dispatch(receiveAuction(response))

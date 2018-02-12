@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209004404) do
+ActiveRecord::Schema.define(version: 20180211230521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "auctions", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "item_id", null: false
+    t.integer "inventory_item_id", null: false
     t.integer "starting_bid"
     t.integer "buyout"
     t.datetime "end_time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_auctions_on_item_id"
+    t.index ["inventory_item_id"], name: "index_auctions_on_inventory_item_id"
     t.index ["user_id"], name: "index_auctions_on_user_id"
   end
 
@@ -56,12 +56,12 @@ ActiveRecord::Schema.define(version: 20180209004404) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
-    t.string "quality", null: false
     t.integer "level", null: false
     t.string "item_type", null: false
     t.string "image_url", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quality", null: false
     t.index ["name"], name: "index_items_on_name"
   end
 

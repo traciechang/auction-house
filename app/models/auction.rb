@@ -1,12 +1,13 @@
 class Auction < ApplicationRecord
     attr_reader :duration
 
-    validates :user_id, :item_id, :end_time, presence: true
+    validates :user_id, :inventory_item_id, :end_time, presence: true
 
     after_initialize :ensure_end_time
 
     belongs_to :user
     has_many :bids
+    belongs_to :inventory_item
 
     def duration=(duration)
         @duration = duration
