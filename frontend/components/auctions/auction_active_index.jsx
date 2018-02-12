@@ -1,5 +1,5 @@
 import React from "react";
-import AuctionActiveDetail from "../auctions/auction_active_detail";
+import AuctionActiveDetailContainer from "./auction_active_detail_container";
 
 class AuctionActiveIndex extends React.Component {
     constructor(props) {
@@ -12,7 +12,7 @@ class AuctionActiveIndex extends React.Component {
         console.log("in allauctions function")
         console.log(this.props.auctions)
         return Object.keys(this.props.auctions).map(key => (
-            <li key={key}><AuctionActiveDetail auction={this.props.auctions[key]}/></li>
+            <li key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]}/></li>
         ))
     }
 
