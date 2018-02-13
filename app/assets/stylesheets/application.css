@@ -36,3 +36,39 @@
 .nav-bar-list li {
     padding: 5px;
 }
+
+/* Profile */
+.profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile * {
+    margin: 0 auto;
+}
+
+.sell-won {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sell-won span {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 3px;
+}
+
+/* Auction Detail */
+.auction-detail {
+    border: 1px solid black;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 2px;
+}
+
+.auction-detail ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}

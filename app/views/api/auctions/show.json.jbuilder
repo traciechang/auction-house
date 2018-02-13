@@ -1,0 +1,1 @@
+json.partial! 'api/auctions/auction', auction: @auction

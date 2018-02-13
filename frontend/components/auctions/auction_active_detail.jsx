@@ -11,19 +11,30 @@ class AuctionActiveDetail extends React.Component {
         const user = this.props.users[auction.user_id];
 
         return (
-            <div>
+            <div className="auction-detail">
                 <ul>
                     <li><img src={item.image_url}/></li>
                     <li>{item.name}</li>
                     <li>{item.level}</li>
-                    <li>{typeof Date.parse(auction.end_time)}</li>
-                    <li>{new Date(auction.end_time) - new Date()}</li>
+                    <li>{this.timeLeft()}</li>
                     <li>{user.username}</li>
-                    <li>{auction.bid ? auction.bid.amount : 0}</li>
-                    <li>{auction.buyout}</li>
+                    <div className="auction-detail-bid">
+                        <li>{auction.bid ? auction.bid.amount : 0}</li>
+                        <li>{auction.buyout}</li>
+                    </div>
                 </ul>
             </div>
         )
+    }
+
+    timeLeft() {
+        let mill = new Date(this.props.auction.end_time) - new Date();
+        let sec = Math.floor(mill / 1000);
+        let min = Math.floor(sec / 60);
+        sec = sec % 60;
+        let hour = Math.floor(min / 60);
+        min = min % 60;
+        return `${hour} hr ${min} min ${sec} sec`
     }
 }
 

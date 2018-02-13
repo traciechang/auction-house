@@ -14,16 +14,7 @@ class SessionForm extends React.Component {
         this.updateInput = this.updateInput.bind(this);
     }
 
-    componentWillMount() {
-        console.log("component Will Mount")
-    }
-
-    componentDidMount() {
-        console.log("componenet did mount")
-    }
-
     componentWillReceiveProps(nextProps) {
-        console.log("component will receive props")
         if (nextProps.loggedIn) {
             this.props.history.push('/');
         }
