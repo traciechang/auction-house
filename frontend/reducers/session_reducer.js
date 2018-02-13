@@ -1,3 +1,4 @@
+import omit from "lodash/omit";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 import merge from "lodash/merge";
 
@@ -10,9 +11,11 @@ export const sessionReducer = (state = defaultState, action) => {
 
     switch(action.type) {
         case RECEIVE_CURRENT_USER:
-            console.log("in session reducer")
-            console.log(action.currentUser)
-            return merge({}, {currentUser: action.currentUser});
+            if (action.currentUser) {
+                return merge({}, {currentUser: omit(action.currentUser, ['items'])});
+            } else {
+                return {currentUser: action.currentUser};
+            };
         default:
             return state;
     }

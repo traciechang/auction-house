@@ -14,8 +14,6 @@ window.logout = logout;
 document.addEventListener('DOMContentLoaded', () => {
     let store;
 
-    console.log("in auction_house.js")
-        console.log(window.currentUser)
     if (window.currentUser) {
         const preloadedState = { session: { currentUser: window.currentUser } };
         store = configureStore(preloadedState);
