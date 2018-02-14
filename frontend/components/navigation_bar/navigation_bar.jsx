@@ -31,7 +31,7 @@ class NavigationBar extends React.Component {
                     <li><Link to="/">Browse</Link></li>
                     <li><Link to="sell">Sell</Link></li>
                     <li><Link to="#">My Bids</Link></li>
-                    <li><Link to="#">My Auctions</Link></li>
+                    <li><Link to="auctions">My Auctions</Link></li>
                     <li><Link to="profile">Profile</Link></li>
                 </ul>
 

@@ -9,7 +9,8 @@ class AuctionActiveDetail extends React.Component {
         const auction = this.props.auction;
         const item = this.props.items[auction.inventory_item_id];
         const user = this.props.users[auction.user_id];
-
+        console.log("in auction active detail component")
+        console.log(auction)
         return (
             <div className="auction-detail">
                 <ul>

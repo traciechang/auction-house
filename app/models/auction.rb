@@ -20,6 +20,6 @@ class Auction < ApplicationRecord
 
     def generate_end_time
         # duration is in hours. 60min*60secs*number of hours
-        self.end_time = Time.now + duration * 3600
+        self.end_time = Time.now + duration.to_i * 3600
     end
 end

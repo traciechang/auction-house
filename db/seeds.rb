@@ -85,6 +85,11 @@ InventoryItem.create(item_id: 4, inventory_id: 1)
 InventoryItem.create(item_id: 5, inventory_id: 2)
 InventoryItem.create(item_id: 6, inventory_id: 2)
 
+InventoryItem.create(item_id: 12, inventory_id: 1)
+InventoryItem.create(item_id: 22, inventory_id: 1)
+InventoryItem.create(item_id: 36, inventory_id: 1)
+InventoryItem.create(item_id: 40, inventory_id: 1)
+
 # Pusheen's Auctions
 Auction.create(user_id: 1, inventory_item_id: 1, starting_bid: 1, buyout: 20, duration: 1)
 Auction.create(user_id: 1, inventory_item_id: 2, starting_bid: 4, buyout: 10, duration: 1)

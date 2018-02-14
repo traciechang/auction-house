@@ -23,15 +23,21 @@ class AuctionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        
+        // Object.keys(this.state).forEach(key => {
+        //     parseInt(this.state.key)
+        // });
+        console.log("in handle submit, auction form")
+        console.log(typeof this.state.buyout)
         this.props.createAuction(this.state);
     }
 
     itemDropdown() {
-        return this.props.currentUser.inventory_items.map(item => {
-            let itemObj = this.props.items[item.item_id];
+        return this.props.currentUser.inventory_items.map(invItem => {
+            let itemObj = this.props.items[invItem.item_id];
             
             return (
-                <option key={item.id} value={item.id}>{itemObj.name}</option>
+                <option key={invItem.id} value={invItem.id}>{itemObj.name}</option>
             )
         })
     }
@@ -41,7 +47,7 @@ class AuctionForm extends React.Component {
             <div>
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <select>
+                    <select onChange={this.update("inventory_item_id")}>
                         {this.itemDropdown()}
                     </select>
 
@@ -67,7 +73,7 @@ class AuctionForm extends React.Component {
     }
 
     update(key) {
-        return e => this.setState({[key]: e.target.value})
+        return e => this.setState({[key]: parseInt(e.target.value)})
     };
 }
 
