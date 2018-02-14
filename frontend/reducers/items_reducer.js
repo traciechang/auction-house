@@ -1,11 +1,13 @@
 import merge from "lodash/merge";
-import { RECEIVE_AUCTIONS } from "../actions/auction_actions";
+import { RECEIVE_AUCTION, RECEIVE_AUCTIONS } from "../actions/auction_actions";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const itemsReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
+        case RECEIVE_AUCTION:
+            return merge({}, state, action.auction.item);
         case RECEIVE_AUCTIONS:
             let items = {};
             

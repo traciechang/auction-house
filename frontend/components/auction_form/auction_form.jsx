@@ -18,7 +18,7 @@ class AuctionForm extends React.Component {
     }
 
     componentWillReceiveProps() {
-
+        this.props.history.push('/auctions');
     }
 
     handleSubmit(e) {

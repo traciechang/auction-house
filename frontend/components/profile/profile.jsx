@@ -8,7 +8,7 @@ const Profile = ({ currentUser }) => (
             <span>Selling 0</span>
             <span>Won 0</span>
         </div>
-        <span>Gold 0</span>
+        <span>Gold {currentUser.inventory.gold}</span>
     </div>
 )
 

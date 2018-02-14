@@ -9,6 +9,10 @@ json.items do
     end
 end
 
+json.inventory do
+    json.extract! user.inventory, :id, :gold
+end
+
 json.inventory_items do
     json.array! user.inventory_items, partial: 'api/inventory_items/inventory_item', as: :inventory_item
 end

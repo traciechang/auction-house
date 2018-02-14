@@ -12,7 +12,8 @@ class Browse extends React.Component {
 
     render() {
         return (
-            <div>Browse goes here!
+            <div>
+                <h1 className="browse-h1">Browse Auctions</h1>
                 <AuctionActiveIndex auctions={this.props.auctions}/>
             </div>
         )

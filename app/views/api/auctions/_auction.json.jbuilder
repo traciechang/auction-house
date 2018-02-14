@@ -8,6 +8,10 @@ json.user do
     json.partial! User.find(auction.user_id), partial: 'api/users/user', as: :user
 end
 
+json.item_id do
+    json.extract! Item.find(auction.inventory_item.item_id), :id
+end
+
 if auction.bids.last
     json.bid do
         json.partial! auction.bids.last, partial: 'api/bids/bid', as: :bid

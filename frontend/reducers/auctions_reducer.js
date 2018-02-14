@@ -8,7 +8,7 @@ export const auctionsReducer = (state = {}, action) => {
     switch (action.type) {
         // need or no?
         case RECEIVE_AUCTION:
-            return merge({}, state, action.auction)
+            return merge({}, state, {[action.auction.id]: omit(action.auction, ['item', 'user'])})
         case RECEIVE_AUCTIONS:
             let allAuctions = {};
 

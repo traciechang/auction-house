@@ -37,6 +37,11 @@
     padding: 5px;
 }
 
+/* Browse */
+.browse-h1 {
+    margin: 0 auto;
+}
+
 /* Profile */
 .profile {
     display: flex;
