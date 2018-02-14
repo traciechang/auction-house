@@ -1,15 +1,15 @@
 import React from "react";
 
-class FilterForm extends React.Component {
+class MyBids extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div>Filter form goes here!</div>
+            <div>My Bids goes here!</div>
         )
     }
 }
 
-export default FilterForm;
+export default MyBids;

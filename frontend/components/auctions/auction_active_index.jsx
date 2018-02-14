@@ -16,7 +16,7 @@ class AuctionActiveIndex extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="auction-index">
                 <ul className="column-headers">
                     <li>Item</li>
                     <li>Level</li>
@@ -24,7 +24,7 @@ class AuctionActiveIndex extends React.Component {
                     <li>Seller</li>
                     <li>Current Bid</li>
                 </ul>
-                <ul>{this.allAuctions()}</ul>
+                <ul className="auctions-list">{this.allAuctions()}</ul>
             </div>
         )
     }

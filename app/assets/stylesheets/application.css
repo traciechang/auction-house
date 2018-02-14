@@ -39,7 +39,7 @@
 
 /* Browse */
 .browse-h1 {
-    margin: 0 auto;
+    /* margin: 0 auto; */
 }
 
 /* Profile */
@@ -62,6 +62,30 @@
     border-radius: 5px;
     margin: 5px;
     padding: 3px;
+}
+
+/* Auction Index */
+.auction-index {
+    /* border: 1px solid black;
+    border-radius: 7px; */
+}
+
+.column-headers {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.column-headers li {
+    padding: 2px;
+    border-top: 1px solid lightgrey;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+    border-radius: 2px;
+}
+
+.auctions-list {
+    list-style: none;
 }
 
 /* Auction Detail */

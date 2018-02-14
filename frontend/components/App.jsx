@@ -6,6 +6,7 @@ import BrowseContainer from "./browse/browse_container";
 import ProfileContainer from "./profile/profile_container";
 import AuctionFormContainer from "./auction_form/auction_form_container";
 import MyAuctions from "./auctions/my_auctions";
+import MyBids from "./auctions/my_bids";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
@@ -19,6 +20,7 @@ const App = () => (
             <AuthRoute path="/login" component={SessionFormContainer} />
             <ProtectedRoute path="/profile" component={ProfileContainer} />
             <ProtectedRoute path="/sell" component={AuctionFormContainer} />
+            <ProtectedRoute path="/bids" component={MyBids} />
             <ProtectedRoute path="/auctions" component={MyAuctions} />
             <Route path="/" component={BrowseContainer}/>
         </Switch>

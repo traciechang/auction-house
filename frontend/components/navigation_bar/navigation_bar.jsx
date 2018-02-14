@@ -30,7 +30,7 @@ class NavigationBar extends React.Component {
                     <li><img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/></li>
                     <li><Link to="/">Browse</Link></li>
                     <li><Link to="sell">Sell</Link></li>
-                    <li><Link to="#">My Bids</Link></li>
+                    <li><Link to="bids">My Bids</Link></li>
                     <li><Link to="auctions">My Auctions</Link></li>
                     <li><Link to="profile">Profile</Link></li>
                 </ul>
