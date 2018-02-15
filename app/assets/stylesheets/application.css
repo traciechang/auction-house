@@ -42,6 +42,34 @@
     /* margin: 0 auto; */
 }
 
+.browse-filter-index {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Search Form */
+.search-form {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Filter Form */
+.filter-form-header {
+
+}
+
+.filter-form-list {
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.filter-form-list li {
+    border: 1px solid lightgrey;
+    padding: 2px;
+}
+
 /* Profile */
 .profile {
     display: flex;

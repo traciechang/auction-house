@@ -7,20 +7,40 @@ import BidFormContainer from "../bid/bid_form_container";
 class Browse extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            // selectedAuctionId: "",
+            // currentBid: ""
+            selectedAuction: ""
+        }
+
+        this.handleAuctionClick = this.handleAuctionClick.bind(this);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.fetchAuctions();
+    }
+
+    displayBidForm() {
+        if (this.props.currentUser && this.state.selectedAuction) {
+            return <BidFormContainer selectedAuction={this.state.selectedAuction}/>
+        }
+    };
+
+    handleAuctionClick(e) {
+        this.setState({"selectedAuction": e.auction});
     }
 
     render() {
         return (
-            <div>
+            <div className="browse">
                 <h1 className="browse-h1">Browse Auctions</h1>
                 <SearchFormContainer />
-                <FilterFormContainer />
-                <AuctionActiveIndex auctions={this.props.auctions}/>
-                <BidFormContainer />
+                <div className="browse-filter-index">
+                    <FilterFormContainer />
+                    <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
+                </div>
+                {this.displayBidForm()}
             </div>
         )
     }

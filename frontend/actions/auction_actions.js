@@ -28,3 +28,9 @@ export const fetchAuctions = auctions => dispatch => (
         dispatch(receiveAuctions(response))
     ))
 );
+
+export const updateAuction = auction => dispatch => (
+    AuctionAPIUtil.updateAuction(auction).then(response => (
+        dispatch(receiveAuction(response))
+    ))
+);

@@ -13,6 +13,16 @@ class Api::AuctionsController < ApplicationController
         end
     end
 
+    def update
+        @auction = Auction.find(params[:id])
+        
+        if @auction.update
+            render :show
+        else
+            render json: @auction, status: :unprocessable_entity
+        end
+    end
+
     private
     def auction_params
         params.require(:auction).permit(:user_id, :inventory_item_id, :starting_bid, :buyout, :duration)

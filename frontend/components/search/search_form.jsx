@@ -7,7 +7,20 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <div>Search form goes here!</div>
+            <div className="search-form">
+                <form>
+                    <label>Name
+                        <input />
+                    </label>
+                    <label>Level Range
+                        <input /> - <input />
+                    </label>
+                    <label>Rarity
+                        <select></select>
+                    </label>
+                    <button>Search</button>
+                </form>
+            </div>
         )
     }
 }

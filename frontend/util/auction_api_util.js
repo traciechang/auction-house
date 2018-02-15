@@ -6,14 +6,18 @@ export const fetchAuctions = data => (
     })
 );
 
-export const createAuction = auction => {
-    console.log("in auction api util")
-    console.log(auction)
-    console.log(typeof auction.duration)
-    return(
+export const createAuction = auction => (
     $.ajax({
         method: "POST",
         url: "api/auctions",
         data: {auction}
     })
-)};
+);
+
+export const updateAuction = auction => (
+    $.ajax({
+        method: "PATCH",
+        url: `api/auctions/${auction.id}`,
+        data: {auction}
+    })
+);
