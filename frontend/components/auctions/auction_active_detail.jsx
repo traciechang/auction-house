@@ -7,12 +7,11 @@ class AuctionActiveDetail extends React.Component {
 
     render() {
         const auction = this.props.auction;
-        console.log("in auction active detail component")
-        console.log(auction)
         const item = this.props.items[auction.item_id.id];
         const user = this.props.users[auction.user_id];
         return (
-            <div className="auction-detail">
+            <div className="auction-detail" 
+            onClick={this.props.handleAuctionClick.bind(this, this.props.auction)}>
                 <ul>
                     <li><img src={item.image_url}/></li>
                     <li>{item.name}</li>

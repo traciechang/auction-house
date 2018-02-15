@@ -101,7 +101,7 @@ Auction.create(user_id: 2, inventory_item_id: 6, starting_bid: 2, buyout: 30, du
 
 # Bids on Pusheen's Items
 Bid.create(user_id: 2, auction_id: 1, amount: 2)
-Bid.create(user_id: 3, auction_id: 1, amount: 1)
+Bid.create(user_id: 3, auction_id: 1, amount: 3)
 
 # Pusheen's Bids
 Bid.create(user_id: 1, auction_id: 4, amount: 1)

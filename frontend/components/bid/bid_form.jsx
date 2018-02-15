@@ -6,12 +6,22 @@ class BidForm extends React.Component {
 
         this.state ={
             user_id: this.props.currentUser.id,
-            auction_id: "",
-            amount: this.props.selectedAuction.bid.amount + 1
+            auction_id: 
+            this.props.selectedAuction.id,
+            amount: 
+            this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1
         }
         
         this.handleBid = this.handleBid.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps) {
+            this.setState({
+                "auction_id": nextProps.selectedAuction.id, 
+                "amount": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1})
+        }
     }
 
     handleBid(e) {
@@ -36,16 +46,20 @@ class BidForm extends React.Component {
         });
     };
 
-    handleUpdate(e) {
-        this.setState({[amount]: e.target.value})
+    handleUpdate(key) {
+        return e => this.setState({[key]: e.currentTarget.value})
     };
 
     render() {
+        // console.log("in bidform")
+        // console.log(this.props.selectedAuction.id)
+        // console.log(this.state.auction_id)
+        // console.log(this.state.amount)
         return (
             <div>
                 <form onSubmit={this.handleBid}>
                     <label>Bid Amount
-                        <input value={this.state.amount} onChange={this.handleUpdate} min={this.props.selectedAuction.bid.amount + 1} type="number"/>
+                        <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1} type="number"/>
                     </label>
                     <button>Bid</button>
                 </form>

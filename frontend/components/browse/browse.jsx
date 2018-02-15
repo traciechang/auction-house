@@ -9,8 +9,6 @@ class Browse extends React.Component {
         super(props);
 
         this.state = {
-            // selectedAuctionId: "",
-            // currentBid: ""
             selectedAuction: ""
         }
 
@@ -27,11 +25,13 @@ class Browse extends React.Component {
         }
     };
 
-    handleAuctionClick(e) {
-        this.setState({"selectedAuction": e.auction});
+    handleAuctionClick(auction) {
+        this.setState({"selectedAuction": auction});
     }
 
     render() {
+        console.log("in browse")
+        console.log(this.state.selectedAuction)
         return (
             <div className="browse">
                 <h1 className="browse-h1">Browse Auctions</h1>
