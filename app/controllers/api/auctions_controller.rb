@@ -16,7 +16,7 @@ class Api::AuctionsController < ApplicationController
     def update
         @auction = Auction.find(params[:id])
         
-        if @auction.update
+        if @auction.update(auction_params)
             render :show
         else
             render json: @auction, status: :unprocessable_entity

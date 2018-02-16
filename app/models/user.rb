@@ -6,11 +6,12 @@ class User < ApplicationRecord
     validates :password, length: { minimum: 6 }, allow_nil: true
 
     after_initialize :ensure_session_token
+    after_create :create_inventory
 
-    has_many :auctions
-    has_many :bids
-    has_one :inventory
-    has_many :inventory_items, through: :inventory
+    has_many :auctions, dependent: :destroy
+    has_many :bids, dependent: :destroy
+    has_one :inventory, dependent: :destroy
+    has_many :inventory_items, through: :inventory, dependent: :destroy
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
@@ -33,6 +34,10 @@ class User < ApplicationRecord
     end
 
     private
+    def create_inventory
+        Inventory.create("user_id": self.id, "gold": 50)
+    end
+
     def ensure_session_token
         generate_unique_session_token unless self.session_token
     end

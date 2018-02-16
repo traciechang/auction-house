@@ -17,7 +17,7 @@ const itemsReducer = (state = {}, action) => {
             
             return merge({}, state, items);
         case RECEIVE_CURRENT_USER:
-            if (action.currentUser) {
+            if (action.currentUser && action.currentUser.items) {
                 let userItems = {};
     
                 Object.keys(action.currentUser.items).forEach(key => {

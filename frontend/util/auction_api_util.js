@@ -6,6 +6,22 @@ export const fetchAuctions = data => (
     })
 );
 
+export const fetchMyAuctions = data => (
+    $.ajax({
+        method: "GET",
+        url: "api/auctions",
+        data
+    })
+);
+
+export const fetchMyBidAuctions = data => (
+    $.ajax({
+        method: "GET",
+        url: "api/auctions",
+        data
+    })
+);
+
 export const createAuction = auction => (
     $.ajax({
         method: "POST",

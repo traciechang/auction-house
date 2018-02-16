@@ -3,7 +3,6 @@ import * as AuctionAPIUtil from "../util/auction_api_util";
 export const RECEIVE_AUCTIONS = "RECEIVE_AUCTIONS";
 export const RECEIVE_AUCTION = "RECEIVE_AUCTION";
 
-// made this to go w/ createAuction - necessary or no?
 export const receiveAuction = auction => ({
     type: 'RECEIVE_AUCTION',
     auction
@@ -25,6 +24,12 @@ export const createAuction = auction => dispatch => (
 
 export const fetchAuctions = auctions => dispatch => (
     AuctionAPIUtil.fetchAuctions(auctions).then(response => (
+        dispatch(receiveAuctions(response))
+    ))
+);
+
+export const fetchMyAuctions = auctions => dispatch => (
+    AuctionAPIUtil.fetchMyAuctions(auctions).then(response => (
         dispatch(receiveAuctions(response))
     ))
 );

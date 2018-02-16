@@ -4,9 +4,10 @@ class Auction < ApplicationRecord
     validates :user_id, :inventory_item_id, :end_time, presence: true
 
     after_initialize :ensure_end_time
+    before_update :generate_end_time
 
     belongs_to :user
-    has_many :bids
+    has_many :bids, dependent: :destroy
     belongs_to :inventory_item
 
     def duration=(duration)
