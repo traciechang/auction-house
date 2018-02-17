@@ -9,6 +9,7 @@
 User.create(username: "pusheen", password: "pusheen")
 User.create(username: "stormy", password: "stormy")
 User.create(username: "pip", password: "pippip")
+User.create(username: "ian", password: "ianian")
 # User.create(username: "jonsnow", password: "jonsnow")
 # User.create(username: "daenerys", password: "daenerys")
 # User.create(username: "jlannister", password: "jlannister")
@@ -71,9 +72,9 @@ Item.create(name: "Warp Slicer", quality: 5, level: 70, item_type: "Sword", imag
 Item.create(name: "Cosmic Infuser", quality: 5, level: 100, item_type: "Mace", image_url: "http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518240382/inv_mace_48.jpg")
 Item.create(name: "Shattered Fragments of Sindragosa", quality: 5, level: 101, item_type: "Cloth", image_url: "http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518240389/inv_helmet_133.jpg")
 
-Inventory.create(user_id: 1, gold: 1000)
-Inventory.create(user_id: 2, gold: 500)
-Inventory.create(user_id: 3, gold: 450)
+# Inventory.update(id: 1, user_id: 1, gold: 1000)
+# Inventory.update(id: 2, user_id: 2, gold: 500)
+# Inventory.update(id: 3, user_id: 3, gold: 450)
 
 # Pusheen's Inventory
 InventoryItem.create(item_id: 1, inventory_id: 1)
@@ -85,10 +86,48 @@ InventoryItem.create(item_id: 4, inventory_id: 1)
 InventoryItem.create(item_id: 5, inventory_id: 2)
 InventoryItem.create(item_id: 6, inventory_id: 2)
 
+# Pusheen's Inv cont'd
 InventoryItem.create(item_id: 12, inventory_id: 1)
 InventoryItem.create(item_id: 22, inventory_id: 1)
 InventoryItem.create(item_id: 36, inventory_id: 1)
 InventoryItem.create(item_id: 40, inventory_id: 1)
+InventoryItem.create(item_id: 21, inventory_id: 1)
+InventoryItem.create(item_id: 29, inventory_id: 1)
+InventoryItem.create(item_id: 33, inventory_id: 1)
+InventoryItem.create(item_id: 42, inventory_id: 1)
+InventoryItem.create(item_id: 46, inventory_id: 1)
+InventoryItem.create(item_id: 48, inventory_id: 1)
+
+# Stormy's Inv cont'd
+InventoryItem.create(item_id: 7, inventory_id: 2)
+InventoryItem.create(item_id: 8, inventory_id: 2)
+InventoryItem.create(item_id: 9, inventory_id: 2)
+InventoryItem.create(item_id: 13, inventory_id: 2)
+InventoryItem.create(item_id: 15, inventory_id: 2)
+InventoryItem.create(item_id: 17, inventory_id: 2)
+InventoryItem.create(item_id: 19, inventory_id: 2)
+InventoryItem.create(item_id: 21, inventory_id: 2)
+InventoryItem.create(item_id: 47, inventory_id: 2)
+InventoryItem.create(item_id: 45, inventory_id: 2)
+
+# Pip's Inventory. left: 23-39
+InventoryItem.create(item_id: 11, inventory_id: 1)
+InventoryItem.create(item_id: 10, inventory_id: 1)
+InventoryItem.create(item_id: 14, inventory_id: 1)
+InventoryItem.create(item_id: 16, inventory_id: 1)
+InventoryItem.create(item_id: 18, inventory_id: 1)
+InventoryItem.create(item_id: 44, inventory_id: 1)
+InventoryItem.create(item_id: 20, inventory_id: 1)
+InventoryItem.create(item_id: 44, inventory_id: 1)
+InventoryItem.create(item_id: 43, inventory_id: 1)
+InventoryItem.create(item_id: 41, inventory_id: 1)
+
+# ian's inv
+InventoryItem.create(item_id: 23, inventory_id: 1)InventoryItem.create(item_id: 24, inventory_id: 1)InventoryItem.create(item_id: 25, inventory_id: 1)InventoryItem.create(item_id: 26, inventory_id: 1)InventoryItem.create(item_id: 27, inventory_id: 1)InventoryItem.create(item_id: 28, inventory_id: 1)InventoryItem.create(item_id: 30, inventory_id: 1)InventoryItem.create(item_id: 31, inventory_id: 1)InventoryItem.create(item_id: 32, inventory_id: 1)InventoryItem.create(item_id: 34, inventory_id: 1)
+InventoryItem.create(item_id: 35, inventory_id: 1)
+InventoryItem.create(item_id: 37, inventory_id: 1)
+InventoryItem.create(item_id: 38, inventory_id: 1)
+InventoryItem.create(item_id: 39, inventory_id: 1)
 
 # Pusheen's Auctions
 Auction.create(user_id: 1, inventory_item_id: 1, starting_bid: 1, buyout: 20, duration: 1)
@@ -106,3 +145,4 @@ Bid.create(user_id: 3, auction_id: 1, amount: 3)
 # Pusheen's Bids
 Bid.create(user_id: 1, auction_id: 4, amount: 1)
 Bid.create(user_id: 1, auction_id: 5, amount: 2)
+Bid.create(user_id: 1, auction_id: 5, amount: 3)

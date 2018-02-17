@@ -15,7 +15,7 @@ class Browse extends React.Component {
         this.handleAuctionClick = this.handleAuctionClick.bind(this);
     }
 
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchAuctions();
     }
 

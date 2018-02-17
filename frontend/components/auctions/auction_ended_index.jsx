@@ -1,7 +1,7 @@
 import React from "react";
-import AuctionActiveDetailContainer from "./auction_active_detail_container";
+import AuctionEndedDetailContainer from "./auction_ended_detail_container";
 
-class AuctionActiveIndex extends React.Component {
+class AuctionEndedIndex extends React.Component {
     constructor(props) {
         super(props);
 
@@ -9,11 +9,11 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions() {
-        console.log("in aucion active index, allauctions method")
+        console.log("in aucion ended index, allauctions method")
         console.log(this.props.auctions)
         return Object.keys(this.props.auctions).map(key => (
             <li 
-            key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick}/>
+            key={key}><AuctionEndedDetailContainer auction={this.props.auctions[key]}/>
             </li>
         ))
     }
@@ -24,9 +24,9 @@ class AuctionActiveIndex extends React.Component {
                 <ul className="column-headers">
                     <li>Item</li>
                     <li>Level</li>
-                    <li>Time Left</li>
-                    <li>Seller</li>
-                    <li>Current Bid</li>
+                    <li>Time Ended</li>
+                    <li>Buyer</li>
+                    <li>Sold Price</li>
                 </ul>
                 <ul className="auctions-list">{this.allAuctions()}</ul>
             </div>
@@ -34,4 +34,4 @@ class AuctionActiveIndex extends React.Component {
     }
 }
 
-export default AuctionActiveIndex;
+export default AuctionEndedIndex;

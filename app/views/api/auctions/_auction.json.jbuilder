@@ -15,5 +15,6 @@ end
 if auction.bids.last
     json.bid do
         json.partial! auction.bids.last, partial: 'api/bids/bid', as: :bid
+        json.extract! User.find(auction.bids.last.user_id), :username
     end
 end

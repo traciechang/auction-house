@@ -9,7 +9,7 @@ export const fetchAuctions = data => (
 export const fetchMyAuctions = data => (
     $.ajax({
         method: "GET",
-        url: "api/auctions",
+        url: "api/auctions?auc=myauctions",
         data
     })
 );
@@ -17,7 +17,7 @@ export const fetchMyAuctions = data => (
 export const fetchMyBidAuctions = data => (
     $.ajax({
         method: "GET",
-        url: "api/auctions",
+        url: "api/auctions?auc=mybids",
         data
     })
 );

@@ -35,7 +35,7 @@ class User < ApplicationRecord
 
     private
     def create_inventory
-        Inventory.create("user_id": self.id, "gold": 50)
+        Inventory.create("user_id": self.id, "gold": 100)
     end
 
     def ensure_session_token

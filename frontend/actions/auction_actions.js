@@ -13,9 +13,7 @@ export const receiveAuctions = auctions => ({
     auctions
 });
 
-// made a receiveAuction action to update state with new auction created - merges w/ old state of existing auctions.
-// But why would we even need this, if after we create an aution, we direct the user to say, my auctions, and it will request ALL their auctions again, which will update anyway?
-
+// really needed?
 export const createAuction = auction => dispatch => (
     AuctionAPIUtil.createAuction(auction).then(response => (
         dispatch(receiveAuction(response))
@@ -30,6 +28,12 @@ export const fetchAuctions = auctions => dispatch => (
 
 export const fetchMyAuctions = auctions => dispatch => (
     AuctionAPIUtil.fetchMyAuctions(auctions).then(response => (
+        dispatch(receiveAuctions(response))
+    ))
+);
+
+export const fetchMyBidAuctions = auctions => dispatch => (
+    AuctionAPIUtil.fetchMyBidAuctions(auctions).then(response => (
         dispatch(receiveAuctions(response))
     ))
 );
