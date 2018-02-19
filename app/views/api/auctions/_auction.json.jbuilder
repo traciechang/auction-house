@@ -1,20 +1,21 @@
 json.extract! auction, :id, :user_id, :inventory_item_id, :starting_bid, :buyout, :end_time
 
 json.item do
-    json.partial! Item.find(auction.inventory_item.item_id), partial: 'api/items/item', as: :item
+    json.partial! auction.inventory_item.item, partial: 'api/items/item', as: :item
 end
 
 json.user do
-    json.partial! User.find(auction.user_id), partial: 'api/users/user', as: :user
+    json.extract! auction.user, :username
+    # json.partial! auction.user, partial: 'api/users/user', as: :user
 end
 
 json.item_id do
-    json.extract! Item.find(auction.inventory_item.item_id), :id
+    json.extract! auction.inventory_item.item, :id
 end
 
 if auction.bids.last
     json.bid do
         json.partial! auction.bids.last, partial: 'api/bids/bid', as: :bid
-        json.extract! User.find(auction.bids.last.user_id), :username
+        json.extract! auction.bids.last.user, :username
     end
 end

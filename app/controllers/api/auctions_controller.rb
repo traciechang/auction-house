@@ -3,16 +3,12 @@ class Api::AuctionsController < ApplicationController
         if params[:auc] == "myauctions"
             @auctions = current_user.auctions
         elsif params[:auc] == "mybids"
-            @auctions = []
-            
-            current_user.bids.each do |bid|
-                @auctions << Auction.find(bid.auction_id)
-            end
-
-            @auctions = @auctions.uniq
+            auction_ids = current_user.bids.pluck(:auction_id).uniq
+            @auctions = Auction.where(id: auction_ids)
         else
             @auctions = Auction.all
         end
+        @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
     end
 
     def create

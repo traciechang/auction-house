@@ -8,7 +8,7 @@ class AuctionActiveDetail extends React.Component {
     render() {
         const auction = this.props.auction;
         const item = this.props.items[auction.item_id.id];
-        const user = this.props.users[auction.user_id];
+        // const user = this.props.users[auction.user_id];
         return (
             <div className="auction-detail" 
             onClick={this.props.handleAuctionClick.bind(this, this.props.auction)}>
@@ -17,7 +17,7 @@ class AuctionActiveDetail extends React.Component {
                     <li>{item.name}</li>
                     <li>{item.level}</li>
                     <li>{this.timeLeft()}</li>
-                    <li>{user.username}</li>
+                    <li>{auction.user.username}</li>
                     <div className="auction-detail-bid">
                         <li>{auction.bid ? auction.bid.amount : 0}</li>
                         <li>{auction.buyout}</li>

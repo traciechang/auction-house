@@ -23,16 +23,12 @@ class AuctionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        
-        // Object.keys(this.state).forEach(key => {
-        //     parseInt(this.state.key)
-        // });
-        console.log("in handle submit, auction form")
-        console.log(typeof this.state.buyout)
         this.props.createAuction(this.state);
     }
 
     itemDropdown() {
+        console.log("in auction form")
+        console.log(this.props.currentUser.inventory_items)
         return this.props.currentUser.inventory_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];
             
@@ -59,7 +55,7 @@ class AuctionForm extends React.Component {
                     </label>
                     <label>Duration
                         <select onChange={this.update("duration")}>
-                            <option value={this.state.duration} selected disabled hidden>--Select--</option>
+                            <option value={this.state.duration}  selected disabled hidden>--Select--</option>
                             <option value={1}>1 Hour</option>
                             <option value={12}>12 Hours</option>
                             <option value={24}>24 Hour</option>

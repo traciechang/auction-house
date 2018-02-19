@@ -10,6 +10,12 @@ class Auction < ApplicationRecord
     has_many :bids, dependent: :destroy
     belongs_to :inventory_item
 
+    # scope :user_bidded, -> (user_id) {
+    #     auction_ids = User.find(user_id).bids.pluck(:auction_id)
+
+    #     where(id: auction_ids)
+    # }
+
     def duration=(duration)
         @duration = duration
     end

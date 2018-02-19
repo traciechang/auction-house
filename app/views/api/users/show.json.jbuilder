@@ -1,1 +1,1 @@
-json.partial! "api/users/user", user: @user
+json.partial! "api/users/user", user: @user, inventory_items: @user.inventory_items.includes(:item)
