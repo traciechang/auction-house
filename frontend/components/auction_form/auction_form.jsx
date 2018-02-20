@@ -27,8 +27,6 @@ class AuctionForm extends React.Component {
     }
 
     itemDropdown() {
-        console.log("in auction form")
-        console.log(this.props.currentUser.inventory_items)
         return this.props.currentUser.inventory_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];
             
