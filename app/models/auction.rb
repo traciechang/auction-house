@@ -16,6 +16,28 @@ class Auction < ApplicationRecord
     #     where(id: auction_ids)
     # }
 
+    scope :item_name, -> (name) {
+
+    }
+
+    scope :item_quality, -> (quality) { 
+        item_ids = Item.where(quality: quality).pluck(:id)
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        where(inventory_item_id: inv_item_ids)
+     }
+
+     scope :item_level_min, -> (level_min) {
+
+     }
+
+     scope :item_level_max, -> (level_max) {
+
+     }
+
+     scope :item_type, -> (item_type) {
+
+     }
+
     def duration=(duration)
         @duration = duration
     end
