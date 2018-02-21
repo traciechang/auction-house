@@ -14,27 +14,55 @@
  *= require_self
  */
 
+/* General */
+a {
+    text-decoration: none;
+}
+
  /* Nav Bar */
 .nav-bar {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid lightgrey;
-    /* padding: 10px; */
+    /* border: 1px solid black; */
 }
 
  .nav-bar-logo {
     height: 50px;
     width: 50px;
+    /* border: 1px solid red; */
 }
 
 .nav-bar-list {
     display: flex;
     justify-content: space-between;
     list-style: none;
+    /* border: 1px solid blue; */
 }
 
 .nav-bar-list li {
     padding: 5px;
+    /* border: 1px solid black; */
+    margin: 5px;
+}
+
+.nav-bar-list > li:not(:first-child) {
+    padding-top: 20px;
+}
+
+.nav-bar-welcome-button {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.nav-bar-welcome-button * {
+    margin: auto 5px;
+    padding: 5px;
+}
+
+.nav-bar-welcome-button button {
+    /* height: 20px; */
 }
 
 /* Browse */
@@ -129,3 +157,48 @@
     display: flex;
     justify-content: space-between;
 }
+
+/* Auction Form */
+.auction-form {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.auction-form * {
+    margin: 0 auto;
+}
+
+.auction-form h1 {
+    margin-bottom: 50px;
+    color: gold;
+    text-shadow: 
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black;
+}
+
+.auction-form form {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.auction-form form * {
+    margin: 5px;
+}
+
+.auction-form-input {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auction-form-button {
+    background: darkred;
+    color: gold;
+}
+

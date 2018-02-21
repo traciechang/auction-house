@@ -11,8 +11,8 @@ class NavigationBar extends React.Component {
     buttonDisplay() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    <span>Welcome, {this.props.currentUser.username}</span>
+                <div className="nav-bar-welcome-button">
+                    <span>Welcome, {this.props.currentUser.username}!</span>
                     <button onClick={this.logout}>Log Out</button>
                 </div>
             )

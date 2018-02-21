@@ -38,20 +38,25 @@ class AuctionForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="auction-form">
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <select onChange={this.update("inventory_item_id")}>
                         {this.itemDropdown()}
                     </select>
 
-                    <label>Starting Bid
+                    <div className="auction-form-input">
+                        <label>Starting Bid</label>
                         <input onChange={this.update("starting_bid")} type="number" min="1" value={this.state.starting_bid}/>
-                    </label>
-                    <label>Buyout
+                    </div>
+
+                    <div className="auction-form-input">
+                        <label>Buyout</label>
                         <input onChange={this.update("buyout")} type="number" min="1" value={this.state.buyout}/>
-                    </label>
-                    <label>Duration
+                    </div>
+                    
+                    <div className="auction-form-input">
+                        <label>Duration</label>
                         <select onChange={this.update("duration")}>
                             <option selected disabled hidden>--Select--</option>
                             <option value={1}>1 Hour</option>
@@ -59,8 +64,8 @@ class AuctionForm extends React.Component {
                             <option value={24}>24 Hour</option>
                             <option value={48}>48 Hour</option>
                         </select>
-                    </label>
-                    <button>Create Auction</button>
+                    </div>
+                    <button className="auction-form-button">Create Auction</button>
                 </form>
             </div>
         )
