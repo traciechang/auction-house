@@ -16,17 +16,45 @@ class SearchForm extends React.Component {
         this.state = {
             item_level_min: "",
             item_level_max: "",
-            item_quality: ""
+            item_quality: "",
+            item_type: ""
         }
 
         this.displayQuality = this.displayQuality.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearFilters = this.clearFilters.bind(this);
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps) {
+            this.setState({
+                "item_type": nextProps.selectedFilter
+            })
+        }
+    };
+
+    clearFilters(e) {
+        e.preventDefault();
+        this.props.fetchAuctions().then(this.setState({
+            item_name: "",
+            item_level_min: "",
+            item_level_max: "",
+            item_quality: "",
+            item_type: ""
+        }));
+    };
+
     displayQuality() {
-        return Object.keys(QUALITY).map(key => (
+        const qualities = Object.keys(QUALITY).map(key => (
             <option value={key} key={key}>{QUALITY[key]}</option>
         ))
+
+        return (
+            <select onChange={this.update("item_quality")}>
+                <option selected disabled hidden>--Select--</option>
+                {qualities}
+            </select>
+        )
     };
 
     handleSubmit(e) {
@@ -35,21 +63,23 @@ class SearchForm extends React.Component {
     }
 
     render() {
+        console.log("in search form")
+        console.log(this.state)
         return (
             <div className="search-form">
                 <form onSubmit={this.handleSubmit}>
                     <label>Name
-                        <input />
+                        <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
                     </label>
                     <label>Level Range
                         <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/> - <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
                     </label>
                     <label>Quality
-                        {/* add value */}
-                        <select onChange={this.update("item_quality")}>{this.displayQuality()}</select>
+                        {this.displayQuality()}
                     </label>
                     <button>Search</button>
                 </form>
+                <button onClick={this.clearFilters}>Clear Filters</button>
             </div>
         )
     }

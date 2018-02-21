@@ -9,10 +9,12 @@ class Browse extends React.Component {
         super(props);
 
         this.state = {
-            selectedAuction: ""
+            selectedAuction: "",
+            selectedFilter: ""
         }
 
         this.handleAuctionClick = this.handleAuctionClick.bind(this);
+        this.handleFilterClick = this.handleFilterClick.bind(this);
     }
 
     componentWillMount() {
@@ -29,13 +31,19 @@ class Browse extends React.Component {
         this.setState({"selectedAuction": auction});
     }
 
+    handleFilterClick(filter) {
+        this.setState({"selectedFilter": filter})
+    };
+
     render() {
+        console.log("in browse")
+        console.log(this.state.selectedFilter)
         return (
             <div className="browse">
                 <h1 className="browse-h1">Browse Auctions</h1>
-                <SearchFormContainer />
+                <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
                 <div className="browse-filter-index">
-                    <FilterFormContainer />
+                    <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
                     <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
                 </div>
                 {this.displayBidForm()}

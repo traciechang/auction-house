@@ -13,9 +13,9 @@ class FilterForm extends React.Component {
         }
     };
 
-    filterList() {
+    filterList(e) {
         return FILTERS.map(filter => (
-            <li key={filter}>{filter}</li>
+            <li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)}>{filter}</li>
         ))
     };
 

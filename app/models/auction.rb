@@ -17,7 +17,9 @@ class Auction < ApplicationRecord
     # }
 
     scope :item_name, -> (name) {
-
+        item_ids = Item.where("name LIKE ?", "%#{name}%")
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        where(inventory_item_id: inv_item_ids)
     }
 
     scope :item_quality, -> (quality) { 
@@ -27,15 +29,21 @@ class Auction < ApplicationRecord
      }
 
      scope :item_level_min, -> (level_min) {
-
+        item_ids = Item.where("level >= ?", level_min)
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        where(inventory_item_id: inv_item_ids)
      }
 
      scope :item_level_max, -> (level_max) {
-
+        item_ids = Item.where("level <= ?", level_max)
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        where(inventory_item_id: inv_item_ids)
      }
 
      scope :item_type, -> (item_type) {
-
+        item_ids = Item.where("item_type = ?", item_type)
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        where(inventory_item_id: inv_item_ids)
      }
 
     def duration=(duration)

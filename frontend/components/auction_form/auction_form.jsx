@@ -53,7 +53,7 @@ class AuctionForm extends React.Component {
                     </label>
                     <label>Duration
                         <select onChange={this.update("duration")}>
-                            <option value={this.state.duration}  selected disabled hidden>--Select--</option>
+                            <option selected disabled hidden>--Select--</option>
                             <option value={1}>1 Hour</option>
                             <option value={12}>12 Hours</option>
                             <option value={24}>24 Hour</option>
