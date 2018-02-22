@@ -19,12 +19,16 @@ a {
     text-decoration: none;
 }
 
+ul {
+    padding-left: 0px;
+}
+
  /* Nav Bar */
 .nav-bar {
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid lightgrey;
-    /* border: 1px solid black; */
+    border: 1px solid goldenrod;
 }
 
  .nav-bar-logo {
@@ -37,7 +41,8 @@ a {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    /* border: 1px solid blue; */
+    margin: 0px;
+    border: 1px solid darkcyan;
 }
 
 .nav-bar-list li {
@@ -53,7 +58,7 @@ a {
 .nav-bar-welcome-button {
     display: flex;
     justify-content: space-between;
-    
+    border: 1px solid darkblue;
 }
 
 .nav-bar-welcome-button * {
@@ -66,8 +71,17 @@ a {
 }
 
 /* Browse */
+.browse {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
 .browse-h1 {
-    /* margin: 0 auto; */
+    margin: 0 auto;
+    border: 1px solid red;
+    padding: 10px;
 }
 
 .browse-filter-index {
@@ -77,24 +91,68 @@ a {
 
 /* Search Form */
 .search-form {
-    border: 1px solid black;
+    border: 1px solid pink;
     border-radius: 5px;
     padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.search-form form {
+    border: 1px solid purple;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-form form div {
+    margin-right: 30px;
+}
+
+.search-form form div label {
+    margin-right: 10px;
+}
+
+.reset-button {
+    margin-left: 30px;
 }
 
 /* Filter Form */
-.filter-form-header {
+.filter-form {
+    border: 1px solid blue;
+    position: relative;
+    width: 25%;
+    margin: 5px;
+}
 
+.filter-form-header {
+    border: 1px solid hotpink;
+    margin: 0 auto;
 }
 
 .filter-form-list {
     list-style: none;
     border: 1px solid black;
     border-radius: 5px;
+    margin: 0px;
 }
 
 .filter-form-list li {
     border: 1px solid lightgrey;
+    padding: 2px;
+    text-align: center;
+    background-color: lightgrey;
+    margin: 1px;
+}
+
+.filter-form-gold {
+    border: 2px solid gold;
+    background-color: black;
+    color: white;
+    position: absolute;
+    width: 94%;
+    text-align: right;
+    margin: 2px;
     padding: 2px;
 }
 
@@ -122,14 +180,19 @@ a {
 
 /* Auction Index */
 .auction-index {
-    /* border: 1px solid black;
-    border-radius: 7px; */
+    border: 1px solid black;
+    position: relative;
+    width: 75%;
+    margin: 5px;
+    /* border-radius: 7px; */
 }
 
 .column-headers {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    margin: 0px;
+    padding: 3px;
 }
 
 .column-headers li {
@@ -142,6 +205,11 @@ a {
 
 .auctions-list {
     list-style: none;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 20%;
+    border: 1px solid black;
+    margin: 0px;
 }
 
 /* Auction Detail */
@@ -156,6 +224,7 @@ a {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    border: 1px solid orange;
 }
 
 /* Auction Form */

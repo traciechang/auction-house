@@ -63,23 +63,29 @@ class SearchForm extends React.Component {
     }
 
     render() {
-        console.log("in search form")
-        console.log(this.state)
         return (
             <div className="search-form">
                 <form onSubmit={this.handleSubmit}>
-                    <label>Name
+                    <div>
+                        <label>Name</label>
                         <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
-                    </label>
-                    <label>Level Range
-                        <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/> - <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
-                    </label>
-                    <label>Quality
+                    </div>
+                    
+                    <div>
+                        <label>Level Range</label>
+                        <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/> - 
+                        <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
+                    </div>
+                    
+
+                    <div>
+                        <label>Quality</label>
                         {this.displayQuality()}
-                    </label>
+                    </div>
+                    
                     <button>Search</button>
                 </form>
-                <button onClick={this.clearFilters}>Clear Filters</button>
+                <button className="reset-button" onClick={this.clearFilters}>Reset</button>
             </div>
         )
     }

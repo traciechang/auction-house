@@ -9,8 +9,6 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions() {
-        console.log("in aucion active index, allauctions method")
-        console.log(this.props.auctions)
         return Object.keys(this.props.auctions).map(key => (
             <li 
             key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick}/>

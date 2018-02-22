@@ -9,7 +9,7 @@ class FilterForm extends React.Component {
 
     displayGold() {
         if (this.props.currentUser) {
-            return <span>Gold {this.props.currentUser.inventory.gold}</span>
+            return <span className="filter-form-gold">Gold {this.props.currentUser.inventory.gold}</span>
         }
     };
 

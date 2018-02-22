@@ -8,7 +8,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    // createBid: (bid) => dispatch(createBid(bid)),
     createBid: (bid) => createBid(bid),
     updateAuction: (auction) => dispatch(updateAuction(auction))
 });

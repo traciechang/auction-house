@@ -6,19 +6,17 @@ class Profile extends React.Component {
     }
 
     componentWillMount() {
-        this.props.fetchMyAuctions();
+        this.props.fetchAuctions();
     }
 
     render() {
-        console.log("in profile")
-        // console.log(this.props.items)
         return (
             <div className="profile">
                 <h1>{this.props.currentUser.username}'s Profile</h1>
         
                 <div className="sell-won">
                     <span>Selling {this.props.selling}</span>
-                    <span>Won 0</span>
+                    <span>Won {this.props.won}</span>
                 </div>
                 <span>Gold {this.props.currentUser.inventory.gold}</span>
             </div>

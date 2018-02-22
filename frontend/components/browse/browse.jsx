@@ -36,8 +36,6 @@ class Browse extends React.Component {
     };
 
     render() {
-        console.log("in browse")
-        console.log(this.state.selectedFilter)
         return (
             <div className="browse">
                 <h1 className="browse-h1">Browse Auctions</h1>

@@ -1,16 +1,16 @@
 import { connect } from "react-redux";
 import Profile from "./profile";
-import { selectActiveAuctions } from "../../reducers/selectors";
-import { fetchMyAuctions } from "../../actions/auction_actions";
+import { selectSellingAuctions, selectWonAuctions } from "../../reducers/selectors";
+import { fetchAuctions } from "../../actions/auction_actions";
 
 const mapStateToProps = state => ({
     currentUser: state.session.currentUser,
-    selling: Object.keys(selectActiveAuctions(state)).length,
-    // items: state.entities.items
+    selling: selectSellingAuctions(state),
+    won: selectWonAuctions(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    fetchMyAuctions: (auctions) => dispatch(fetchMyAuctions(auctions))
+    fetchAuctions: (auctions) => dispatch(fetchAuctions(auctions))
 });
 
 export default connect(

@@ -21,3 +21,29 @@ export const selectEndedAuctions = state => {
     });
     return endedAuctions;
 }
+
+export const selectSellingAuctions = state => {
+    const allActiveAuctions = selectActiveAuctions(state);
+    let selling = 0;
+
+    Object.keys(allActiveAuctions).forEach(key => {
+        if (allActiveAuctions[key].user_id === state.session.currentUser.id) {
+            selling += 1
+        }
+    })
+
+    return selling;
+}
+
+export const selectWonAuctions = state => {
+    const endAuctions = selectEndedAuctions(state);
+    let wonAuctions = 0;
+
+    Object.keys(endAuctions).forEach(key => {
+        if (endAuctions[key].bid && endAuctions[key].bid.user_id === state.session.currentUser.id) {
+            wonAuctions += 1;
+        }
+    })
+
+    return wonAuctions;
+}
