@@ -7,4 +7,3 @@ App.auction = App.cable.subscriptions.create "AuctionChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
-    alert data.amount
