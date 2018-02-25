@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   end
 
   mount ActionCable.server, at: '/cable'
+  # mount ActionCable.server => '/cable'
 end
