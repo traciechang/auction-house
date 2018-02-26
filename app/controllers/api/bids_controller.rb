@@ -4,8 +4,7 @@ class Api::BidsController < ApplicationController
 
         if @bid.save
             ActionCable.server.broadcast 'auction_channel',
-                amount: @bid.amount,
-                id: @bid.id
+                amount: @bid.amount
             # render :show
         else
             render json: @bid, status: :unprocessable_entity

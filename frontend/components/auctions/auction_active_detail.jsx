@@ -1,22 +1,34 @@
 import React from "react";
+import ActionCable from "actioncable";
 
 class AuctionActiveDetail extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            time: new Date()
+            time: new Date(),
+            bid: this.props.auction.bid ? this.props.auction.bid.amount : 0
         }
 
         this.tick = this.tick.bind(this);
+        this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
     };
 
     componentDidMount() {
         this.intervalId = setInterval(this.tick, 1000);
-    }
+
+        const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+        this.sub = cable.subscriptions.create('AuctionChannel', {
+            received: this.handleReceiveNewBid
+        })
+    };
 
     componentWillUnmount() {
         clearInterval(this.intervalId);
+    }
+
+    handleReceiveNewBid(bid) {
+        this.setState({"bid": bid.amount})
     }
 
     render() {
@@ -33,7 +45,7 @@ class AuctionActiveDetail extends React.Component {
                     <li>{this.displayTime()}</li>
                     <li>{auction.user.username}</li>
                     <div className="auction-detail-bid">
-                        <li>{auction.bid ? auction.bid.amount : 0}</li>
+                        <li>{this.state.bid}</li>
                         <li>{auction.buyout}</li>
                     </div>
                 </ul>

@@ -1,5 +1,4 @@
 import React from "react";
-import ActionCable from "actioncable";
 
 class BidForm extends React.Component {
     constructor(props) {
@@ -8,27 +7,12 @@ class BidForm extends React.Component {
         this.state ={
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
-            amount: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1,
-            message: ""
+            amount: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1
         }
         
         this.handleBid = this.handleBid.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleBuyout = this.handleBuyout.bind(this);
-        this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
-    }
-
-    componentDidMount() {
-        const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
-        this.sub = cable.subscriptions.create('AuctionChannel', {
-            received: this.handleReceiveNewBid
-        })
-    }
-
-    handleReceiveNewBid(stormy) {
-        console.log("inside handleReceiveNewBid")
-        console.log(stormy)
-        this.setState({"message": stormy.amount})
     }
 
     componentWillReceiveProps(nextProps) {
@@ -68,7 +52,6 @@ class BidForm extends React.Component {
     render() {
         return (
             <div>
-                <div>{this.state.message}</div>
                 <form onSubmit={this.handleBid}>
                     <label>Bid Amount
                         <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1} type="number"/>
