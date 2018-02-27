@@ -28,8 +28,10 @@ class AuctionActiveDetail extends React.Component {
     }
 
     handleReceiveNewBid(bid) {
-        this.setState({"bid": bid.amount})
-    }
+        if (bid.auction_id === this.props.auction.id) {
+            this.setState({"bid": bid.amount})
+        }
+    };
 
     render() {
         const auction = this.props.auction;

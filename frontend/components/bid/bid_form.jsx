@@ -4,28 +4,43 @@ class BidForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state ={
+        this.state = {
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
-            amount: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1
+            amount: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1,
+            minimum_bid: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1
         }
         
         this.handleBid = this.handleBid.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleBuyout = this.handleBuyout.bind(this);
+        this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
     }
+
+    componentDidMount() {
+        const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+        this.sub = cable.subscriptions.create('AuctionChannel', {
+            received: this.handleReceiveNewBid
+        })
+    };
 
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
+                "user_id": this.props.currentUser.id,
                 "auction_id": nextProps.selectedAuction.id, 
-                "amount": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1})
+                "amount": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1,
+                "minimum_bid": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1})
         }
     }
 
     handleBid(e) {
         e.preventDefault();
-        this.props.createBid(this.state).then(alert("Bid submitted successfully.")).then(this.resetState())
+        this.props.createBid(this.state).then(alert("Bid submitted successfully.")).then(this.setState({
+            "user_id": this.props.currentUser.id,
+            "auction_id": this.props.selectedAuction.id,
+            "amount": ""
+        }))
     };
 
     handleBuyout() {
@@ -45,16 +60,24 @@ class BidForm extends React.Component {
         }).then(alert("Buyout successful.")).then(this.resetState());
     };
 
+    handleReceiveNewBid(bid) {
+        if (bid.auction_id === this.props.selectedAuction.id) {
+            this.setState({"minimum_bid": bid.amount + 1})
+        }
+    }
+
     handleUpdate(key) {
         return e => this.setState({[key]: e.currentTarget.value})
     };
 
     render() {
+        console.log("in bid form, render")
+        console.log(this.state.minimum_bid)
         return (
             <div>
                 <form onSubmit={this.handleBid}>
                     <label>Bid Amount
-                        <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1} type="number"/>
+                        <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
                     </label>
                     <button>Bid</button>
                 </form>
