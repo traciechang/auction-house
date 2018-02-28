@@ -41,14 +41,23 @@ class AuctionActiveDetail extends React.Component {
             <div className="auction-detail" 
             onClick={this.props.handleAuctionClick.bind(this, this.props.auction)}>
                 <ul>
-                    <li><img src={item.image_url}/></li>
-                    <li>{item.name}</li>
-                    <li>{item.level}</li>
-                    <li>{this.displayTime()}</li>
-                    <li>{auction.user.username}</li>
-                    <div className="auction-detail-bid">
+                    <div className="item-div">
+                        <li className="auction-detail-image"><img src={item.image_url}/></li>
+                        <li>{item.name}</li>
+                    </div>
+
+                    <div className="level-time-user">
+                        <li>{item.level}</li>
+                        <li>{this.displayTime()}</li>
+                        <li>{auction.user.username}</li>
+                    </div>
+
+                    <div className="bid-buyout">
                         <li>{this.state.bid}</li>
-                        <li>{auction.buyout}</li>
+                        <div className="buyout">
+                            <li>Buyout</li>
+                            <li>{auction.buyout}</li>
+                        </div>
                     </div>
                 </ul>
             </div>

@@ -57,7 +57,7 @@ class BidForm extends React.Component {
             "starting_bid": this.props.selectedAuction.starting_bid,
             "buyout": this.props.selectedAuction.buyout,
             "duration": 0
-        }).then(alert("Buyout successful.")).then(this.resetState());
+        }).then(alert("Buyout successful."));
     };
 
     handleReceiveNewBid(bid) {
