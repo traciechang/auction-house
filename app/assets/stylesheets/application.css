@@ -23,12 +23,27 @@ ul {
     padding-left: 0px;
 }
 
+/* Auctions */
+
 .item-div {
     min-width: 270px;
 }
 
 .level-time-user {
     min-width: 356px;
+    text-align: center;
+}
+
+.level-time-user li:nth-child(1) {
+    min-width: 40px;
+}
+
+ .level-time-user li:nth-child(2) {
+    min-width: 170px;
+}
+
+ .level-time-user li:nth-child(3) {
+    min-width: 100px;
 }
 
  /* Nav Bar */
@@ -55,7 +70,7 @@ ul {
 
 .nav-bar-list li {
     padding: 5px;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     margin: 5px;
 }
 
@@ -84,6 +99,7 @@ ul {
     display: flex;
     flex-direction: column;
     margin: 10px;
+    /* height: 700px; */
 }
 
 .browse-h1 {
@@ -95,6 +111,7 @@ ul {
 .browse-filter-index {
     display: flex;
     justify-content: space-between;
+    height: 550px;
 }
 
 /* Search Form */
@@ -191,6 +208,8 @@ ul {
     border: 1px solid black;
     position: relative;
     width: 75%;
+    /* overflow: hidden;
+    overflow-y: scroll; */
     margin: 5px;
     /* border-radius: 7px; */
 }
@@ -213,11 +232,11 @@ ul {
 
 .auctions-list {
     list-style: none;
-    overflow: hidden;
-    overflow-y: scroll;
-    height: 50%;
     border: 1px solid black;
     margin: 0px;
+    height: 94%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 .column-headers .item-div li {
@@ -244,9 +263,9 @@ ul {
     border: 1px solid orange;
 }
 
-.auction-detail ul li {
+/* .auction-detail ul li {
     border: 1px solid pink;
-}
+} */
 
 .auction-detail .item-div {
     display: flex;
@@ -263,18 +282,6 @@ ul {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-}
-
-.auction-detail .level-time-user li:nth-child(1) {
-    min-width: 40px;
-}
-
-.auction-detail .level-time-user li:nth-child(2) {
-    min-width: 170px;
-}
-
-.auction-detail .level-time-user li:nth-child(3) {
-    min-width: 100px;
 }
 
 .auction-detail .level-time-user li:not(:last-child) {
