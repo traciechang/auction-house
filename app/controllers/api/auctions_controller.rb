@@ -15,6 +15,10 @@ class Api::AuctionsController < ApplicationController
         @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
     end
 
+    def show
+        @auction = Auction.find(params[:id])
+    end
+
     def create
         @auction = Auction.new(auction_params)
 

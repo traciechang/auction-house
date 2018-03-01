@@ -1,3 +1,14 @@
+export const fetchAuction = auction_id => {
+    console.log("in auction api util")
+    console.log(auction_id)
+return (
+    $.ajax({
+        method: "GET",
+        url: `api/auctions/${auction_id}`,
+        auction_id
+    })
+)};
+
 export const fetchAuctions = data => (
     $.ajax({
         method: "GET",

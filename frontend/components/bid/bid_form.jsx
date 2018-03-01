@@ -57,7 +57,7 @@ class BidForm extends React.Component {
             "starting_bid": this.props.selectedAuction.starting_bid,
             "buyout": this.props.selectedAuction.buyout,
             "duration": 0
-        }).then(alert("Buyout successful."));
+        }).then(alert("Buyout successful.")).then(this.props.handleAuctionClick.bind(this, ""));
     };
 
     handleReceiveNewBid(bid) {
@@ -86,13 +86,13 @@ class BidForm extends React.Component {
         )
     }
 
-    resetState() {
-        this.setState({
-            "user_id": "",
-            "auction_id": "",
-            "amount": ""
-        })
-    };
+    // resetState() {
+    //     this.setState({
+    //         "user_id": "",
+    //         "auction_id": "",
+    //         "amount": ""
+    //     })
+    // };
 }
 
 export default BidForm;

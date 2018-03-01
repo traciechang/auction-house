@@ -23,7 +23,7 @@ class Browse extends React.Component {
 
     displayBidForm() {
         if (this.props.currentUser && this.state.selectedAuction) {
-            return <BidFormContainer selectedAuction={this.state.selectedAuction}/>
+            return <BidFormContainer selectedAuction={this.state.selectedAuction} handleAuctionClick={this.handleAuctionClick}/>
         }
     };
 

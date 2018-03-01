@@ -20,6 +20,12 @@ export const createAuction = auction => dispatch => (
     ))
 );
 
+export const fetchAuction = auction_id => dispatch => (
+    AuctionAPIUtil.fetchAuction(auction_id).then(response => (
+        dispatch(receiveAuction(response))
+    ))
+);
+
 export const fetchAuctions = auctions => dispatch => (
     AuctionAPIUtil.fetchAuctions(auctions).then(response => (
         dispatch(receiveAuctions(response))
