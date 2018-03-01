@@ -23,18 +23,30 @@ class AuctionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createAuction(this.state);
+        this.props.createAuction(this.state)
+        .then(this.props.updateInventoryItem({
+            id: this.state.inventory_item_id,
+            for_sale: true
+        }))
     }
 
     itemDropdown() {
-        return this.props.currentUser.inventory_items.map(invItem => {
+        let sellable_items = [];
+
+        this.props.currentUser.inventory_items.forEach(inventoryItem => {
+            if (!inventoryItem.for_sale) {
+                sellable_items.push(inventoryItem)
+            }
+        });
+
+        return sellable_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];
-            
+
             return (
                 <option key={invItem.id} value={invItem.id}>{itemObj.name}</option>
             )
         })
-    }
+    };
 
     render() {
         return (

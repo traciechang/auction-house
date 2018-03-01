@@ -7,7 +7,7 @@ class AuctionActiveDetail extends React.Component {
 
         this.state = {
             time: new Date(),
-            bid: this.props.auction.bid ? this.props.auction.bid.amount : 0
+            // bid: this.props.auction.bid ? this.props.auction.bid.amount : 0
         }
 
         this.tick = this.tick.bind(this);
@@ -28,8 +28,6 @@ class AuctionActiveDetail extends React.Component {
     }
 
     handleReceiveNewBid(bid) {
-        console.log('in auction active detail, handleReceiveNewBid')
-        console.log(bid.auction_id)
         if (bid.auction_id === this.props.auction.id) {
             this.props.fetchAuction(bid.auction_id)
         }
@@ -38,7 +36,15 @@ class AuctionActiveDetail extends React.Component {
     render() {
         const auction = this.props.auction;
         const item = this.props.items[auction.item_id.id];
-        const bid_amount = auction.bid ? auction.bid.amount : 0;
+        let bid_amount;
+        
+        if (auction.bid) {
+            bid_amount = auction.bid.amount
+        } else if (auction.starting_bid) {
+            bid_amount = auction.starting_bid
+        } else {
+            bid_amount = 0
+        };
    
         return (
             <div className="auction-detail" 

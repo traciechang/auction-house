@@ -1,1 +1,1 @@
-json.extract! inventory_item, :id, :item_id
+json.extract! inventory_item, :id, :item_id, :for_sale

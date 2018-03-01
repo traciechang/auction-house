@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :auctions, only: [:index, :show, :create, :update]
     resources :bids, only: [:create]
+    resources :inventory_items, only: [:update]
   end
 
   mount ActionCable.server, at: '/cable'

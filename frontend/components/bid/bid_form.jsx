@@ -4,11 +4,20 @@ class BidForm extends React.Component {
     constructor(props) {
         super(props);
 
+        let min_bid;
+        if (this.props.selectedAuction.bid) {
+            min_bid = this.props.selectedAuction.bid.amount + 1
+        } else if (this.props.selectedAuction.starting_bid) {
+            min_bid = this.props.selectedAuction.starting_bid
+        } else {
+            min_bid = 1
+        };
+
         this.state = {
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
-            amount: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1,
-            minimum_bid: this.props.selectedAuction.bid ? this.props.selectedAuction.bid.amount + 1 : 1
+            amount: min_bid,
+            minimum_bid: min_bid
         }
         
         this.handleBid = this.handleBid.bind(this);
@@ -25,12 +34,22 @@ class BidForm extends React.Component {
     };
 
     componentWillReceiveProps(nextProps) {
+        let min_bid;
         if (nextProps) {
+
+            if (nextProps.selectedAuction.bid) {
+                min_bid = nextProps.selectedAuction.bid.amount + 1
+            } else if (nextProps.selectedAuction.starting_bid) {
+                min_bid = nextProps.selectedAuction.starting_bid
+            } else {
+                min_bid = 1
+            };
+            console.log(min_bid)
             this.setState({
                 "user_id": this.props.currentUser.id,
                 "auction_id": nextProps.selectedAuction.id, 
-                "amount": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1,
-                "minimum_bid": nextProps.selectedAuction.bid ? nextProps.selectedAuction.bid.amount + 1 : 1})
+                "amount": min_bid,
+                "minimum_bid": min_bid})
         }
     }
 
@@ -71,8 +90,6 @@ class BidForm extends React.Component {
     };
 
     render() {
-        console.log("in bid form, render")
-        console.log(this.state.minimum_bid)
         return (
             <div>
                 <form onSubmit={this.handleBid}>
@@ -85,14 +102,6 @@ class BidForm extends React.Component {
             </div>
         )
     }
-
-    // resetState() {
-    //     this.setState({
-    //         "user_id": "",
-    //         "auction_id": "",
-    //         "amount": ""
-    //     })
-    // };
 }
 
 export default BidForm;
