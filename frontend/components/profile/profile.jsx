@@ -5,7 +5,11 @@ class Profile extends React.Component {
         super(props);
     }
 
-    componentWillMount() {
+    // componentWillMount() {
+    //     this.props.fetchAuctions();
+    // }
+
+    componentDidMount() {
         this.props.fetchAuctions();
     }
 

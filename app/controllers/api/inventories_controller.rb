@@ -1,14 +1,4 @@
 class Api::InventoriesController < ApplicationController
-    # def create
-    #     @inventory = Inventory.new(inventory_params)
-
-    #     if @inventory.save
-    #         # ?
-    #         render 'api/users/show'
-    #     else
-    #         render json: @inventory, status: :unprocessable_entity
-    # end
-
     def update
         @inventory = Inventory.find(params[:id])
 

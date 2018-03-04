@@ -74,19 +74,19 @@ Item.create(name: "Shattered Fragments of Sindragosa", quality: 5, level: 101, i
 # Inventory.update(id: 3, user_id: 3, gold: 450)
 
 # Pusheen's Inventory
-InventoryItem.create(item_id: 1, inventory_id: 1)
-InventoryItem.create(item_id: 2, inventory_id: 1)
-InventoryItem.create(item_id: 3, inventory_id: 1)
-InventoryItem.create(item_id: 4, inventory_id: 1)
+InventoryItem.create(item_id: 1, inventory_id: 1, for_sale: true)
+InventoryItem.create(item_id: 2, inventory_id: 1, for_sale: true)
+InventoryItem.create(item_id: 3, inventory_id: 1, for_sale: true)
+InventoryItem.create(item_id: 4, inventory_id: 1, for_sale: true)
 
 # Stormy's Inventory
 InventoryItem.create(item_id: 5, inventory_id: 2)
 InventoryItem.create(item_id: 6, inventory_id: 2)
 
 # Pusheen's Inv cont'd
-InventoryItem.create(item_id: 12, inventory_id: 1)
-InventoryItem.create(item_id: 22, inventory_id: 1)
-InventoryItem.create(item_id: 36, inventory_id: 1)
+InventoryItem.create(item_id: 12, inventory_id: 1, for_sale: true)
+InventoryItem.create(item_id: 22, inventory_id: 1, for_sale: true)
+InventoryItem.create(item_id: 36, inventory_id: 1, for_sale: true)
 InventoryItem.create(item_id: 40, inventory_id: 1)
 InventoryItem.create(item_id: 21, inventory_id: 1)
 InventoryItem.create(item_id: 29, inventory_id: 1)
