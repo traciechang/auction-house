@@ -70,8 +70,6 @@ class BidForm extends React.Component {
         console.log("in bid form, handle bid")
         e.preventDefault();
         this.props.createBid(this.state)
-
-        // .then(this.props.updateInventory({"user_id": this.props.currentUser.id, "gold": this.calculateDeposit()}))
         .then(() => {
             return this.calculateDeposit()
         })
@@ -83,9 +81,8 @@ class BidForm extends React.Component {
             this.setState({
             "user_id": this.props.currentUser.id,
             "auction_id": this.props.selectedAuction.id,
-            "amount": ""
+            "amount": ""})
         })
-    })
     };
 
     handleBuyout() {
