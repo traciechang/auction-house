@@ -57,9 +57,10 @@ class BidForm extends React.Component {
     calculateDeposit() {
         return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             console.log("in bid form, calculateDeposit")
-            console.log(response.amount)
+            console.log(response)
             console.log(this.state.amount)
-            let deposit_amt = response ? this.state.amount - response.amount : this.state.amount;
+            let deposit_amt = response.amount ? this.state.amount - response.amount : this.state.amount;
+            // let deposit_amt = response ? this.state.amount - response.amount : this.state.amount;
             console.log(deposit_amt)
             return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
         });
