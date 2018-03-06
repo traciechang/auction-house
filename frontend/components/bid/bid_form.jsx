@@ -55,13 +55,13 @@ class BidForm extends React.Component {
     }
 
     calculateDeposit() {
-        this.props.fetchBid(this.props.selectedAuction.id).done(response => {
+        return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             console.log("in bid form, calculateDeposit")
             console.log(response.amount)
             console.log(this.state.amount)
             let deposit_amt = response ? this.state.amount - response.amount : this.state.amount;
             console.log(deposit_amt)
-            this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
+            return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
         });
     };
 
@@ -71,10 +71,13 @@ class BidForm extends React.Component {
         this.props.createBid(this.state)
 
         // .then(this.props.updateInventory({"user_id": this.props.currentUser.id, "gold": this.calculateDeposit()}))
-        .then(this.calculateDeposit())
-
-        .then(alert("Bid submitted successfully."))
-        .then(hi => {
+        .then(() => {
+            return this.calculateDeposit()
+        })
+        .then(() => {
+            return alert("Bid submitted successfully.")
+        })
+        .then(() => {
             console.log("in handleBid, about to reset state, after alerting succesful bid")
             this.setState({
             "user_id": this.props.currentUser.id,

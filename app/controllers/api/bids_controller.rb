@@ -15,8 +15,8 @@ class Api::BidsController < ApplicationController
     # purpose is to get current user's 2nd to last bid for a particular auction, if it exists, to determine how much deposit is taken
     def show
         # this got the 3rd to last, not sure why
-        @bid = current_user.bids.where(auction_id: params[:auction_id]).order(amount: :desc).offset(1).first
         # binding.pry
+        @bid = current_user.bids.where(auction_id: params[:auction_id]).order(amount: :desc).offset(1).first
         # @bid = current_user.bids.where(auction_id: params[:auction_id]).last
     end
 
