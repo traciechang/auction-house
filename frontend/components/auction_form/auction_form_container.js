@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     createAuction: (auction) => dispatch(createAuction(auction)),
     updateInventoryItem: (inventoryItem) => dispatch(updateInventoryItem(inventoryItem)),
-    fetchUser: (user) => dispatch(fetchUser(user))
+    fetchUser: (userId) => dispatch(fetchUser(userId))
 });
 
 export default connect(

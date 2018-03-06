@@ -1,6 +1,7 @@
 class Api::InventoriesController < ApplicationController
     def update
         @inventory = Inventory.find(params[:id])
+        @user = current_user
 
         if @inventory.update(inventory_params)
             render 'api/users/show'

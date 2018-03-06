@@ -17,6 +17,10 @@ class AuctionForm extends React.Component {
         this.itemDropdown = this.itemDropdown.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchUser(this.props.currentUser)
+    }
+
     componentWillReceiveProps() {
         this.props.history.push('/auctions');
     }

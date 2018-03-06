@@ -24,6 +24,7 @@ class BidForm extends React.Component {
         this.handleUpdate = this.handleUpdate.bind(this);
         this.handleBuyout = this.handleBuyout.bind(this);
         this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
+        this.calculateDeposit = this.calculateDeposit.bind(this);
     }
 
     componentDidMount() {
@@ -44,7 +45,7 @@ class BidForm extends React.Component {
             } else {
                 min_bid = 1
             };
-            console.log(min_bid)
+
             this.setState({
                 "user_id": this.props.currentUser.id,
                 "auction_id": nextProps.selectedAuction.id, 
@@ -53,13 +54,34 @@ class BidForm extends React.Component {
         }
     }
 
+    calculateDeposit() {
+        this.props.fetchBid(this.props.selectedAuction.id).done(response => {
+            console.log("in bid form, calculateDeposit")
+            console.log(response.amount)
+            console.log(this.state.amount)
+            let deposit_amt = response ? this.state.amount - response.amount : this.state.amount;
+            console.log(deposit_amt)
+            this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
+        });
+    };
+
     handleBid(e) {
+        console.log("in bid form, handle bid")
         e.preventDefault();
-        this.props.createBid(this.state).then(alert("Bid submitted successfully.")).then(this.setState({
+        this.props.createBid(this.state)
+
+        // .then(this.props.updateInventory({"user_id": this.props.currentUser.id, "gold": this.calculateDeposit()}))
+        .then(this.calculateDeposit())
+
+        .then(alert("Bid submitted successfully."))
+        .then(hi => {
+            console.log("in handleBid, about to reset state, after alerting succesful bid")
+            this.setState({
             "user_id": this.props.currentUser.id,
             "auction_id": this.props.selectedAuction.id,
             "amount": ""
-        }))
+        })
+    })
     };
 
     handleBuyout() {
