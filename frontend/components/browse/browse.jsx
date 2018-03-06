@@ -19,6 +19,9 @@ class Browse extends React.Component {
 
     componentWillMount() {
         this.props.fetchAuctions();
+        if (this.props.currentUser) {
+            this.props.fetchUser(this.props.currentUser.id);
+        }
     }
 
     displayBidForm() {

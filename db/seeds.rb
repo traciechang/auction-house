@@ -80,8 +80,8 @@ InventoryItem.create(item_id: 3, inventory_id: 1, for_sale: true)
 InventoryItem.create(item_id: 4, inventory_id: 1, for_sale: true)
 
 # Stormy's Inventory
-InventoryItem.create(item_id: 5, inventory_id: 2)
-InventoryItem.create(item_id: 6, inventory_id: 2)
+InventoryItem.create(item_id: 5, inventory_id: 2, for_sale: true)
+InventoryItem.create(item_id: 6, inventory_id: 2, for_sale: true)
 
 # Pusheen's Inv cont'd
 InventoryItem.create(item_id: 12, inventory_id: 1, for_sale: true)
@@ -198,10 +198,10 @@ Auction.create(user_id: 4, inventory_item_id: 49, starting_bid: 2, buyout: 29, d
 Auction.create(user_id: 4, inventory_item_id: 50, starting_bid: 2, buyout: 29, duration: 12)
 
 # Bids on Pusheen's Items
-Bid.create(user_id: 2, auction_id: 1, amount: 2)
-Bid.create(user_id: 3, auction_id: 1, amount: 3)
+# Bid.create(user_id: 2, auction_id: 1, amount: 2)
+# Bid.create(user_id: 3, auction_id: 1, amount: 3)
 
 # Pusheen's Bids
-Bid.create(user_id: pusheen.id, auction_id: 4, amount: 1)
-Bid.create(user_id: pusheen.id, auction_id: 5, amount: 2)
-Bid.create(user_id: pusheen.id, auction_id: 5, amount: 3)
+# Bid.create(user_id: pusheen.id, auction_id: 4, amount: 1)
+# Bid.create(user_id: pusheen.id, auction_id: 5, amount: 2)
+# Bid.create(user_id: pusheen.id, auction_id: 5, amount: 3)

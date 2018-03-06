@@ -17,9 +17,17 @@ class AuctionForm extends React.Component {
         this.itemDropdown = this.itemDropdown.bind(this);
     }
 
-    componentDidMount() {
-        this.props.fetchUser(this.props.currentUser)
-    }
+    // componentWillMount() {
+    //     console.log("in comopenentWillMount")
+    //     console.log(this.props.currentUser.id)
+    //     this.props.fetchUser(this.props.currentUser.id)
+    // }
+
+    // componentDidMount() {
+    //     console.log("in componentDidMount")
+    //     console.log(this.props.currentUser.id)
+    //     this.props.fetchUser(this.props.currentUser.id)
+    // }
 
     componentWillReceiveProps() {
         this.props.history.push('/auctions');
@@ -58,6 +66,7 @@ class AuctionForm extends React.Component {
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <select onChange={this.update("inventory_item_id")}>
+                        <option selected disabled hidden>-- Select Item --</option>
                         {this.itemDropdown()}
                     </select>
 

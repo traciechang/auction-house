@@ -15,6 +15,10 @@
  */
 
 /* General */
+* {
+    font-family: 'EB Garamond', serif;
+}
+
 a {
     text-decoration: none;
 }
