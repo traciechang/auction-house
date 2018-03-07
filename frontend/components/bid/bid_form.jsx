@@ -46,11 +46,17 @@ class BidForm extends React.Component {
                 min_bid = 1
             };
 
-            this.setState({
-                "user_id": this.props.currentUser.id,
-                "auction_id": nextProps.selectedAuction.id, 
-                "amount": min_bid,
-                "minimum_bid": min_bid})
+            if (nextProps.selectedAuction.id === this.props.selectedAuction.id) {
+                this.setState({
+                    "amount": ""
+                })
+            } else {
+                this.setState({
+                    "user_id": this.props.currentUser.id,
+                    "auction_id": nextProps.selectedAuction.id, 
+                    "amount": min_bid,
+                    "minimum_bid": min_bid})
+            }
         }
     }
 
@@ -60,7 +66,6 @@ class BidForm extends React.Component {
             console.log(response)
             console.log(this.state.amount)
             let deposit_amt = response.amount ? this.state.amount - response.amount : this.state.amount;
-            // let deposit_amt = response ? this.state.amount - response.amount : this.state.amount;
             console.log(deposit_amt)
             return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
         });
@@ -75,13 +80,6 @@ class BidForm extends React.Component {
         })
         .then(() => {
             return alert("Bid submitted successfully.")
-        })
-        .then(() => {
-            console.log("in handleBid, about to reset state, after alerting succesful bid")
-            this.setState({
-            "user_id": this.props.currentUser.id,
-            "auction_id": this.props.selectedAuction.id,
-            "amount": ""})
         })
     };
 
