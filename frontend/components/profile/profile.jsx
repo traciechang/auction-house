@@ -5,13 +5,15 @@ class Profile extends React.Component {
         super(props);
     }
 
-    // componentWillMount() {
-    //     this.props.fetchAuctions();
-    // }
-
-    componentDidMount() {
+    componentWillMount() {
         this.props.fetchAuctions();
+        this.props.fetchUser(this.props.currentUser.id);
     }
+
+    // componentDidMount() {
+    //     this.props.fetchAuctions();
+    //     this.props.fetchUser(this.props.currentUser.id);
+    // }
 
     render() {
         return (

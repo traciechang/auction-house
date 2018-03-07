@@ -28,8 +28,8 @@ namespace :auctionhouse do
                 # highest bid amount added to seller's gold
                 seller.inventory.update({gold: seller_gold_old + winning_bid.amount})
 
-                # same amount subtracted from buyer's gold
-                # need to implement way so that whenever u place bid, the amount u bid is automatically deducted from your gold. This is temporary and only serves as a "deposit" to ensure that you have anought gold. If you win, the gold just never gets returned to you. If you lose, you get the gold back.
+                # disperse deposits back to non winners
+                # winner's deposit is not returned
                 bidder_ids = auction.bids.where.not(user_id: buyer.id).pluck(:user_id).uniq
 
                 bidder_ids.each do |bidder_id|

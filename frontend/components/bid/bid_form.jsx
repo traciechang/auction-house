@@ -25,6 +25,7 @@ class BidForm extends React.Component {
         this.handleBuyout = this.handleBuyout.bind(this);
         this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
         this.calculateDeposit = this.calculateDeposit.bind(this);
+        this.calculateBuyoutDifference = this.calculateBuyoutDifference.bind(this);
     }
 
     componentDidMount() {
@@ -60,6 +61,13 @@ class BidForm extends React.Component {
         }
     }
 
+    calculateBuyoutDifference() {
+        this.props.fetchBid(this.props.selectedAuction.id).done(response => {
+            let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
+            this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
+        })
+    }
+
     calculateDeposit() {
         return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             console.log("in bid form, calculateDeposit")
@@ -74,28 +82,35 @@ class BidForm extends React.Component {
     handleBid(e) {
         console.log("in bid form, handle bid")
         e.preventDefault();
-        this.props.createBid(this.state)
-        .then(() => {
-            return this.calculateDeposit()
-        })
-        .then(() => {
-            return alert("Bid submitted successfully.")
-        })
+        if (this.state.amount > this.props.currentUser.inventory.gold) {
+            alert("You do not have enough gold to submit this bid.")
+        } else {
+            this.props.createBid(this.state)
+            .then(() => {
+                return this.calculateDeposit()
+            })
+            .then(() => {
+                return alert("Bid submitted successfully.")
+            })
+        }
     };
 
     handleBuyout() {
+        // if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
+        //     alert("You do not have enough gold for this buyout.")
+        // } else {
+
+        // }
         this.props.createBid({
             "user_id": this.props.currentUser.id,
             "auction_id": this.props.selectedAuction.id,
             "amount": this.props.selectedAuction.buyout
         })
    
+        this.calculateBuyoutDifference();
+
         this.props.updateAuction({
             "id": this.props.selectedAuction.id,
-            "user_id": this.props.selectedAuction.user_id,
-            "inventory_item_id": this.props.selectedAuction.inventory_item_id,
-            "starting_bid": this.props.selectedAuction.starting_bid,
-            "buyout": this.props.selectedAuction.buyout,
             "duration": 0
         }).then(alert("Buyout successful.")).then(this.props.handleAuctionClick.bind(this, ""));
     };

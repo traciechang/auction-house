@@ -17,17 +17,13 @@ class AuctionForm extends React.Component {
         this.itemDropdown = this.itemDropdown.bind(this);
     }
 
-    // componentWillMount() {
-    //     console.log("in comopenentWillMount")
-    //     console.log(this.props.currentUser.id)
-    //     this.props.fetchUser(this.props.currentUser.id)
-    // }
-
-    // componentDidMount() {
-    //     console.log("in componentDidMount")
-    //     console.log(this.props.currentUser.id)
-    //     this.props.fetchUser(this.props.currentUser.id)
-    // }
+    // if changed to this.props.fetchUser(this.props.currentUser.id), whenenver u click on Sell page, it immediately directs you to Auctions page.
+    // this way gets an error but it works, but how??
+    componentDidMount() {
+        console.log("in componentDidMount")
+        console.log(this.props.currentUser)
+        this.props.fetchUser(this.props.currentUser)
+    }
 
     componentWillReceiveProps() {
         this.props.history.push('/auctions');
