@@ -17,17 +17,15 @@ class AuctionForm extends React.Component {
         this.itemDropdown = this.itemDropdown.bind(this);
     }
 
-    // if changed to this.props.fetchUser(this.props.currentUser.id), whenenver u click on Sell page, it immediately directs you to Auctions page.
-    // this way gets an error but it works, but how??
     componentDidMount() {
-        console.log("in componentDidMount")
-        console.log(this.props.currentUser)
-        this.props.fetchUser(this.props.currentUser)
+        this.props.fetchUser(this.props.currentUser.id)
     }
 
     componentWillReceiveProps() {
-        this.props.history.push('/auctions');
-    }
+        if (this.state.inventory_item_id) {
+            this.props.history.push('/auctions')
+        }
+    };
 
     handleSubmit(e) {
         e.preventDefault();
@@ -40,12 +38,21 @@ class AuctionForm extends React.Component {
 
     itemDropdown() {
         let sellable_items = [];
+        const inventoryItems = this.props.currentUser.inventory_items;
 
-        this.props.currentUser.inventory_items.forEach(inventoryItem => {
-            if (!inventoryItem.for_sale) {
-                sellable_items.push(inventoryItem)
+        Object.keys(inventoryItems).forEach(key => {
+            if (!inventoryItems[key].for_sale) {
+                sellable_items.push(inventoryItems[key])
             }
-        });
+        })
+
+        // let sellable_items = [];
+
+        // this.props.currentUser.inventory_items.forEach(inventoryItem => {
+        //     if (!inventoryItem.for_sale) {
+        //         sellable_items.push(inventoryItem)
+        //     }
+        // });
 
         return sellable_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];

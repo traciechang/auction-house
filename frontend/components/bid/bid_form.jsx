@@ -96,23 +96,22 @@ class BidForm extends React.Component {
     };
 
     handleBuyout() {
-        // if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
-        //     alert("You do not have enough gold for this buyout.")
-        // } else {
-
-        // }
-        this.props.createBid({
-            "user_id": this.props.currentUser.id,
-            "auction_id": this.props.selectedAuction.id,
-            "amount": this.props.selectedAuction.buyout
-        })
-   
-        this.calculateBuyoutDifference();
-
-        this.props.updateAuction({
-            "id": this.props.selectedAuction.id,
-            "duration": 0
-        }).then(alert("Buyout successful.")).then(this.props.handleAuctionClick.bind(this, ""));
+        if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
+            alert("You do not have enough gold for this buyout.")
+        } else {
+            this.props.createBid({
+                "user_id": this.props.currentUser.id,
+                "auction_id": this.props.selectedAuction.id,
+                "amount": this.props.selectedAuction.buyout
+            })
+       
+            this.calculateBuyoutDifference();
+    
+            this.props.updateAuction({
+                "id": this.props.selectedAuction.id,
+                "duration": 0
+            }).then(alert("Buyout successful.")).then(this.props.handleAuctionClick.bind(this, ""));
+        }
     };
 
     handleReceiveNewBid(bid) {
