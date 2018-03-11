@@ -11,38 +11,22 @@ class NavigationBar extends React.Component {
     buttonDisplay() {
         if (this.props.loggedIn) {
             return (
-                <div className="nav-bar-welcome-button">
+                <li className="ml-auto nav-bar-welcome-button">
+                {/* <li> */}
                     <span class="text-light">Welcome, {this.props.currentUser.username}!</span>
                     <button class="btn btn-outline-light" onClick={this.logout}>Log Out</button>
-                </div>
+                </li>
             )
         } else {
             return (
-                <Link to="/login">Log In</Link>
+                <li class="ml-auto"><Link class="text-light" to="/login">Log In</Link></li>
             )
         }
     }
 
     render() {
-        // return (
-        //     <div className="nav-bar">
-        //         <ul className="nav-bar-list">
-        //             <li><img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/></li>
-        //             <li><Link to="/">Browse</Link></li>
-        //             <li><Link to="sell">Sell</Link></li>
-        //             <li><Link to="bids">My Bids</Link></li>
-        //             <li><Link to="auctions">My Auctions</Link></li>
-        //             <li><Link to="profile">Profile</Link></li>
-        //         </ul>
-
-        //         {this.buttonDisplay()}
-        //     </div>
-        // )
-
-        // 
-
         return (
-            <div class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="navbar navbar-expand-md navbar-dark bg-dark">
                 <span class="navbar-brand">
                     <img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/>
                 </span>
@@ -51,25 +35,17 @@ class NavigationBar extends React.Component {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="nav navbar-nav">
-                        <li><Link class="text-light" to="/">Browse</Link></li>
-                        <li><Link class="text-light" to="sell">Sell</Link></li>
-                        <li><Link class="text-light" to="bids">My Bids</Link></li>
-                        <li><Link class="text-light" to="auctions">My Auctions</Link></li>
-                        <li><Link class="text-light" to="profile">Profile</Link></li>
+                    <ul class="nav navbar-nav d-flex">
+                        <li class="p-2"><Link class="text-light" to="/">Browse</Link></li>
+                        <li class="p-2"><Link class="text-light" to="sell">Sell</Link></li>
+                        <li class="p-2"><Link class="text-light" to="bids">My Bids</Link></li>
+                        <li class="p-2"><Link class="text-light" to="auctions">My Auctions</Link></li>
+                        <li class="p-2"><Link class="text-light" to="profile">Profile</Link></li>
+
+                        {this.buttonDisplay()}
                     </ul>
                 </div>
             </div>
-
-            // <div className="navbar-collapse navbar-expand-md navbar-dark bg-dark">
-            // {/* <div class="navbar"> */}
-           
-            //     {/* <ul class="nav-bar-list"> */}
-            //     {/* <ul class="navbar-nav"> */}
-
-            //     {this.buttonDisplay()}
-               
-            // </div>
         )
     }
 }
