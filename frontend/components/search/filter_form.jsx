@@ -20,8 +20,18 @@ class FilterForm extends React.Component {
     };
 
     render() {
+        // return (
+        //     <div className="filter-form">
+        //         <span className="filter-form-header">Filters</span>
+        //         <ul className="filter-form-list">{this.filterList()}</ul>
+        //         {this.displayGold()}
+        //     </div>
+        // )
+
+        // 
+
         return (
-            <div className="filter-form">
+            <div class="col-md-4">
                 <span className="filter-form-header">Filters</span>
                 <ul className="filter-form-list">{this.filterList()}</ul>
                 {this.displayGold()}

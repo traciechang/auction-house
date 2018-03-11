@@ -1,3 +1,5 @@
+@import "bootstrap";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -16,15 +18,25 @@
 
 /* General */
 * {
+    // color: white;
     font-family: 'EB Garamond', serif;
+    font-weight: bold;
 }
 
-a {
+a:hover {
     text-decoration: none;
 }
 
 ul {
     padding-left: 0px;
+}
+
+.container {
+    // background-image: url("http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png")
+}
+
+.navbar {
+    border-bottom: 1px solid white;
 }
 
 /* Auctions */
@@ -51,36 +63,57 @@ ul {
 }
 
  /* Nav Bar */
-.nav-bar {
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid lightgrey;
-    border: 1px solid goldenrod;
+// .nav-bar {
+//     display: flex;
+//     justify-content: space-between;
+//     border-bottom: 2px solid lightgrey;
+//     border: 1px solid goldenrod;
+// }
+
+.navbar {
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
- .nav-bar-logo {
-    height: 50px;
-    width: 50px;
-    /* border: 1px solid red; */
-}
-
-.nav-bar-list {
-    display: flex;
-    justify-content: space-between;
+.navbar-nav {
     list-style: none;
     margin: 0px;
     border: 1px solid darkcyan;
 }
 
-.nav-bar-list li {
+.navbar-nav li {
     padding: 5px;
-    border: 1px solid black;
-    margin: 5px;
+    border: 1px solid pink;
+    margin: 0 5px;
 }
 
-.nav-bar-list > li:not(:first-child) {
-    padding-top: 20px;
+// .navbar-nav > li:not(:first-child) {
+//     padding-top: 18px;
+// }
+
+ .nav-bar-logo {
+    height: 50px;
+    width: 50px;
+    border: 1px solid red;
 }
+
+// .nav-bar-list {
+//     display: flex;
+//     justify-content: space-between;
+//     list-style: none;
+//     margin: 0px;
+//     border: 1px solid darkcyan;
+// }
+
+// .nav-bar-list li {
+//     padding: 5px;
+//     border: 1px solid pink;
+//     margin: 0 5px;
+// }
+
+// .nav-bar-list > li:not(:first-child) {
+//     padding-top: 20px;
+// }
 
 .nav-bar-welcome-button {
     display: flex;
