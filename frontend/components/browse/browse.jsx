@@ -55,7 +55,7 @@ class Browse extends React.Component {
 
         return (
             <div>
-                <h1 className="browse-h1">Browse Auctions</h1>
+                <h1 className="text-center browse-h1">Browse Auctions</h1>
                 <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
                 <div class="row">
                     <FilterFormContainer handleFilterClick={this.handleFilterClick}/>

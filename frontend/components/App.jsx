@@ -10,7 +10,7 @@ import MyBidsContainer from "./auctions/my_bids_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
-    <div>
+    <div class="app">
         <header>
             <NavigationBarContainer />
         </header>

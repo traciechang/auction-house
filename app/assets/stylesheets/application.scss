@@ -17,6 +17,10 @@
  */
 
 /* General */
+body, html, #root, .app {
+    height: 100%;
+}
+
 * {
     // color: white;
     font-family: 'EB Garamond', serif;
@@ -95,16 +99,15 @@ ul {
 }
 
 /* Browse */
-.browse {
-    border: 1px solid green;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    /* height: 700px; */
-}
+// .browse {
+//     border: 1px solid green;
+//     display: flex;
+//     flex-direction: column;
+//     margin: 10px;
+//     height: 700px;
+// }
 
 .browse-h1 {
-    margin: 0 auto;
     border: 1px solid red;
     padding: 10px;
 }
@@ -116,6 +119,20 @@ ul {
 }
 
 /* Search Form */
+.name-div {
+    border: 1px solid green;
+}
+
+.level-div {
+    border: 1px solid teal;
+}
+.quality-div {
+    border: 1px solid red;
+}
+.search-button {
+    border: 1px solid orange;
+}
+
 .search-form {
     border: 1px solid pink;
     border-radius: 5px;
@@ -133,6 +150,7 @@ ul {
 
 .search-form form div {
     margin-right: 30px;
+    padding: 0;
 }
 
 .search-form form div label {
@@ -186,6 +204,12 @@ ul {
 .profile {
     display: flex;
     flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+    color: goldenrod;
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
+    min-height: 100%;
+    // border: 1px solid blue;
 }
 
 .profile * {
@@ -194,14 +218,43 @@ ul {
 
 .sell-won {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    // border: 1px solid red;
 }
 
-.sell-won span {
-    border: 1px solid black;
+.sell-won > span {
+    border: 1px solid goldenrod;
     border-radius: 5px;
     margin: 5px;
+    margin-bottom: 20px;
     padding: 3px;
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+}
+
+.gold {
+    width: 100%;
+}
+
+.gold > span {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    border: 1px solid goldenrod;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.profile > span {
+    // border: 1px solid purple;
+}
+
+.profile h1 {
+    padding: 20px;
+    margin-bottom: 50px;
+    // border: 1px solid pink;
 }
 
 /* Auction Index */

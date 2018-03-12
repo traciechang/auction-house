@@ -64,28 +64,28 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <div className="search-form">
+            <div className="row search-form">
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div class="col-lg-4 col-md-12 name-div">
                         <label>Name</label>
                         <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
                     </div>
                     
-                    <div>
+                    <div class="col-lg-4 col-md-12 level-div">
                         <label>Level Range</label>
                         <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/> - 
                         <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
                     </div>
                     
 
-                    <div>
+                    <div class="col-lg-3 quality-div">
                         <label>Quality</label>
                         {this.displayQuality()}
                     </div>
                     
-                    <button>Search</button>
+                    <button class="col-lg-0.5 search-button">Search</button>
                 </form>
-                <button className="reset-button" onClick={this.clearFilters}>Reset</button>
+                <button class="col-lg-0.5 reset-button" onClick={this.clearFilters}>Reset</button>
             </div>
         )
     }

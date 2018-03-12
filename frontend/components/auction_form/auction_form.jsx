@@ -46,14 +46,6 @@ class AuctionForm extends React.Component {
             }
         })
 
-        // let sellable_items = [];
-
-        // this.props.currentUser.inventory_items.forEach(inventoryItem => {
-        //     if (!inventoryItem.for_sale) {
-        //         sellable_items.push(inventoryItem)
-        //     }
-        // });
-
         return sellable_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];
 
