@@ -56,42 +56,6 @@ class AuctionForm extends React.Component {
     };
 
     render() {
-        // return (
-        //     <div className="auction-form">
-        //         <h1>Create an Auction</h1>
-        //         <form onSubmit={this.handleSubmit}>
-        //             <select onChange={this.update("inventory_item_id")}>
-        //                 <option selected disabled hidden>-- Select Item --</option>
-        //                 {this.itemDropdown()}
-        //             </select>
-
-        //             <div className="auction-form-input">
-        //                 <label>Starting Bid</label>
-        //                 <input onChange={this.update("starting_bid")} type="number" min="1" value={this.state.starting_bid}/>
-        //             </div>
-
-        //             <div className="auction-form-input">
-        //                 <label>Buyout</label>
-        //                 <input onChange={this.update("buyout")} type="number" min="1" value={this.state.buyout}/>
-        //             </div>
-                    
-        //             <div className="auction-form-input">
-        //                 <label>Duration</label>
-        //                 <select onChange={this.update("duration")}>
-        //                     <option selected disabled hidden>--Select--</option>
-        //                     <option value={1}>1 Hour</option>
-        //                     <option value={12}>12 Hours</option>
-        //                     <option value={24}>24 Hour</option>
-        //                     <option value={48}>48 Hour</option>
-        //                 </select>
-        //             </div>
-        //             <button className="auction-form-button">Create Auction</button>
-        //         </form>
-        //     </div>
-        // )
-
-        // 
-
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>

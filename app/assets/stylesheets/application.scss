@@ -211,25 +211,37 @@ ul {
     min-height: 100%;
 }
 
+.dashboard {
+    width: 100%;
+}
+
+.dashboard > div {
+    margin-bottom: 10px;
+}
+
+.dashboard > div > div {
+    padding: 0;
+}
+
 .profile * {
     margin: 0 auto;
 }
 
 .sell-won {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
 }
 
 .sell-won > span {
     border: 1px solid goldenrod;
     border-radius: 5px;
-    margin: 5px;
-    margin-bottom: 20px;
+    margin: 0;
     padding: 3px;
     display: flex;
     justify-content: space-between;
     background-color: black;
+    width: 49%;
 }
 
 .gold {
@@ -387,7 +399,6 @@ ul {
 
 .auction-form form * {
     margin: 5px;
-    // border: 1px solid greenyellow;
 }
 
 .auction-form > form {
