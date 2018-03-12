@@ -209,7 +209,6 @@ ul {
     color: goldenrod;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
     min-height: 100%;
-    // border: 1px solid blue;
 }
 
 .profile * {
@@ -220,7 +219,6 @@ ul {
     display: flex;
     justify-content: center;
     width: 100%;
-    // border: 1px solid red;
 }
 
 .sell-won > span {
@@ -247,14 +245,9 @@ ul {
     padding: 3px;
 }
 
-.profile > span {
-    // border: 1px solid purple;
-}
-
 .profile h1 {
     padding: 20px;
     margin-bottom: 50px;
-    // border: 1px solid pink;
 }
 
 /* Auction Index */
@@ -361,12 +354,16 @@ ul {
 
 /* Auction Form */
 .auction-form {
-    border: 1px solid black;
-    border-radius: 5px;
-    margin-top: 10px;
     display: flex;
     flex-direction: column;
     padding: 20px;
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
+    height: 100%;
+}
+
+.auction-form form > * {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .auction-form * {
@@ -375,22 +372,26 @@ ul {
 
 .auction-form h1 {
     margin-bottom: 50px;
-    color: gold;
-    text-shadow: 
-        -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-        1px 1px 0 black;
+    color: goldenrod;
+    padding: 20px;
 }
 
 .auction-form form {
-    width: 400px;
     display: flex;
     flex-direction: column;
 }
 
+.auction-form > form > div > * {
+    padding: 0px;
+}
+
 .auction-form form * {
     margin: 5px;
+    // border: 1px solid greenyellow;
+}
+
+.auction-form > form {
+    width: 100%;
 }
 
 .auction-form-input {
@@ -401,5 +402,7 @@ ul {
 .auction-form-button {
     background: darkred;
     color: gold;
+    border: 0.5px solid gold;
+    border-radius: 5px;
 }
 
