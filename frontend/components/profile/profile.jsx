@@ -20,12 +20,12 @@ class Profile extends React.Component {
                 <div class="dashboard">
                     <div class="row">
                     <div className="col-md-6 sell-won">
-                        <span>
+                        <span class="sell-won-span">
                             <div>Selling</div>
                             <div>{this.props.selling}</div>
                         </span>
 
-                        <span>
+                        <span class="sell-won-span">
                             <div>Won</div>
                             <div>{this.props.won}</div>
                         </span>
@@ -34,7 +34,7 @@ class Profile extends React.Component {
 
                     <div class="row">
                     <div class="col-md-6 gold">
-                        <span>
+                        <span class="gold-span">
                             <div>Gold</div>
                             <div>{this.props.currentUser.inventory.gold}</div>
                         </span>

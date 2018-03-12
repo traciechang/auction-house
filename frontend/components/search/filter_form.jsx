@@ -9,7 +9,11 @@ class FilterForm extends React.Component {
 
     displayGold() {
         if (this.props.currentUser) {
-            return <span className="filter-form-gold">Gold {this.props.currentUser.inventory.gold}</span>
+            return (
+                <div class="filter-form-gold-div row">
+                    <span className="filter-form-gold col-xs-3 mx-auto">Gold {this.props.currentUser.inventory.gold}</span>
+                </div>
+            )
         }
     };
 
@@ -31,9 +35,13 @@ class FilterForm extends React.Component {
         // 
 
         return (
-            <div class="col-md-4">
-                <span className="filter-form-header">Filters</span>
+            <div class="col-md-3 filter-form">
+                <div class="filter-form-header-div row">
+                <span className="col-xs-3 mx-auto text-light filter-form-header">Filters</span>
+                </div>
+
                 <ul className="filter-form-list">{this.filterList()}</ul>
+                
                 {this.displayGold()}
             </div>
         )

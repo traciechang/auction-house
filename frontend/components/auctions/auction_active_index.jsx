@@ -37,7 +37,7 @@ class AuctionActiveIndex extends React.Component {
         // 
 
         return (
-            <div class="col-md-8">
+            <div class="col-md-9">
                 <ul className="column-headers">
                     <div className="item-div">
                         <li>Item</li>
