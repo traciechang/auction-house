@@ -43,8 +43,8 @@ class SessionForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Remote Auction House</h1>
+            <div class="session-form">
+                <h1 class="text-center">Remote Auction House</h1>
                 <h3>{this.header()}</h3>
 
                 <ul>{this.errors()}</ul>

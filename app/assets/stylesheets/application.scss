@@ -75,6 +75,22 @@ ul {
     width: 100%;
 }
 
+// Session Form
+.session-form {
+    padding: 20px;
+}
+
+.search-form * {
+    // margin: 0 auto;
+}
+
+.session-form > h1 {
+    border: 1px solid red;
+    padding: 20px;
+    margin-bottom: 50px;
+    color: gold;
+}
+
 /* Browse */
 .browse {
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
@@ -134,7 +150,6 @@ ul {
 }
 
 .search-form > form > div {
-    // margin-right: 10px;
     padding: 0;
 }
 
@@ -143,7 +158,6 @@ ul {
 }
 
 .reset-button {
-    // margin-left: 30px;
     background: darkred;
     color: gold;
     border: 1px solid lightgrey;
