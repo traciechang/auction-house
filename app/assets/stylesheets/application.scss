@@ -75,6 +75,10 @@ ul {
     width: 100%;
 }
 
+.navbar-brand > span {
+    margin-left: 5px;
+}
+
 // Session Form
 .session-form {
     padding: 20px;
@@ -134,16 +138,16 @@ ul {
 }
 
 /* Search Form */
-.name-div {
-    border: 1px solid green;
-}
+// .name-div {
+//     border: 1px solid green;
+// }
 
-.level-div {
-    border: 1px solid teal;
-}
-.quality-div {
-    border: 1px solid red;
-}
+// .level-div {
+//     border: 1px solid teal;
+// }
+// .quality-div {
+//     border: 1px solid red;
+// }
 .search-button {
     background: darkred;
     color: gold;
@@ -152,7 +156,7 @@ ul {
 }
 
 .search-form {
-    border: 1px solid pink;
+    // border: 1px solid pink;
     border-radius: 5px;
     padding: 10px;
     display: flex;
@@ -161,7 +165,7 @@ ul {
 }
 
 .search-form > form {
-    border: 1px solid lightgreen;
+    // border: 1px solid lightgreen;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -169,6 +173,7 @@ ul {
 
 .search-form > form > div {
     padding: 0;
+    margin-bottom: 5px;
 }
 
 .search-form form div label {
@@ -182,8 +187,10 @@ ul {
     border-radius: 5px;
 }
 
-.filter-form-auction-index-div {
-    // width: 100%;
+.search-reset-buttons > button {
+    margin-right: 10px;
+    // display: flex;
+    // justify-content: start;
 }
 
 /* Filter Form */

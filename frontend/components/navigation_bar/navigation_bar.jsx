@@ -29,6 +29,7 @@ class NavigationBar extends React.Component {
             <div class="navbar navbar-expand-md navbar-dark bg-dark">
                 <span class="navbar-brand">
                     <img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/>
+                    <span>Remote Auction House</span>
                 </span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>

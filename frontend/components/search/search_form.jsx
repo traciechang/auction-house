@@ -65,29 +65,27 @@ class SearchForm extends React.Component {
     render() {
         return (
             <div className="search-form text-light">
-                <form class="row" onSubmit={this.handleSubmit}>
-                    <div class="col-xs-12 col-lg-3  name-div">
+                <form class="form-row align-items-center d-flex justify-content-start" onSubmit={this.handleSubmit}>
+                    <div class="col-xs-12 col-md-4 col-lg-3 name-div">
                         <label>Name</label>
                         <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
                     </div>
                     
-                    <div class="col-lg-3 col-xs-12 level-div">
+                    <div class="col-lg-3 col-xs-12 col-md-4 level-div">
                         <label>Level Range</label>
                         <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/>&nbsp; - &nbsp;
                         <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
                     </div>
                     
 
-                    <div class="col-lg-3 col-xs-12 quality-div">
+                    <div class="col-lg-3 col-xs-12 col-md-3 quality-div">
                         <label>Quality</label>
                         {this.displayQuality()}
                     </div>
                     
-                    <div class="col-lg-1 col-xs-12">
-                        <button class="search-button">Search</button>
-                    </div>
-
-                    <div class="col-lg-1 col-xs-12">
+                    <div class="col-lg-2 col-xs-12 col-md-1 search-reset-buttons">
+                        <button class="mb-md-2 search-button">Search</button>
+                        
                         <button class="reset-button" onClick={this.clearFilters}>Reset</button>
                     </div>
                 </form>
