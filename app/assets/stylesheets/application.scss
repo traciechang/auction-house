@@ -39,29 +39,6 @@ ul {
     // background-image: url("http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png")
 }
 
-/* Auctions */
-
-.item-div {
-    min-width: 270px;
-}
-
-.level-time-user {
-    min-width: 356px;
-    text-align: center;
-}
-
-.level-time-user li:nth-child(1) {
-    min-width: 40px;
-}
-
- .level-time-user li:nth-child(2) {
-    min-width: 170px;
-}
-
- .level-time-user li:nth-child(3) {
-    min-width: 100px;
-}
-
  /* Nav Bar */
 .navbar {
     padding-bottom: 0;
@@ -134,7 +111,6 @@ ul {
     border: 1px solid red;
 }
 .search-button {
-    // border: 1px solid orange;
     background: darkred;
     color: gold;
     border: 1px solid lightgrey;
@@ -150,14 +126,15 @@ ul {
     margin: 10px;
 }
 
-.search-form form {
-    border: 1px solid purple;
+.search-form > form {
+    border: 1px solid lightgreen;
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
-.search-form form div {
-    margin-right: 30px;
+.search-form > form > div {
+    // margin-right: 10px;
     padding: 0;
 }
 
@@ -166,7 +143,7 @@ ul {
 }
 
 .reset-button {
-    margin-left: 30px;
+    // margin-left: 30px;
     background: darkred;
     color: gold;
     border: 1px solid lightgrey;
@@ -347,7 +324,15 @@ ul {
     justify-content: space-between;
 }
 
+.column-headers > * {
+    border: 1px solid lightpink;
+}
+
 /* Auction Detail */
+.auction-detail * {
+    border: 1px solid pink;
+}
+
 .auction-detail {
     border: 1px solid lightgray;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
@@ -360,7 +345,6 @@ ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    // border: 1px solid orange;
 }
 
 .auction-detail-image {
@@ -429,6 +413,27 @@ ul {
 
 .auction-detail .bid-buyout .buyout li:last-child {
     margin-left: 5px;
+}
+
+.item-div {
+    min-width: 270px;
+}
+
+.level-time-user {
+    min-width: 356px;
+    text-align: center;
+}
+
+.level-time-user li:nth-child(1) {
+    min-width: 40px;
+}
+
+ .level-time-user li:nth-child(2) {
+    min-width: 170px;
+}
+
+ .level-time-user li:nth-child(3) {
+    min-width: 100px;
 }
 
 .buyout {

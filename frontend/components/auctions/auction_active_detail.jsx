@@ -55,9 +55,13 @@ class AuctionActiveDetail extends React.Component {
                     </div>
 
                     <div className="level-time-user text-light">
+                        {/* <div class="container-fluid"> */}
+                        {/* <div class="row level-time-user-div"> */}
                         <li>{item.level}</li>
                         <li>{this.displayTime()}</li>
                         <li>{auction.user.username}</li>
+                        {/* </div> */}
+                        {/* </div> */}
                     </div>
 
                     <div className="bid-buyout">

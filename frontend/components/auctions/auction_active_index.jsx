@@ -28,7 +28,9 @@ class AuctionActiveIndex extends React.Component {
                         <li>Time Left</li>
                         <li>Seller</li>
                     </div>
+                    <div>
                     <li>Current Bid</li>
+                    </div>
                 </ul>
                 <ul className="auctions-list">{this.allAuctions()}</ul>
             </div>
