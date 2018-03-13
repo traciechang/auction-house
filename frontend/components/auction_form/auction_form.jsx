@@ -38,7 +38,7 @@ class AuctionForm extends React.Component {
 
     itemDropdown() {
         let sellable_items = [];
-        const inventoryItems = this.props.currentUser.inventory_items;
+        const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
 
         Object.keys(inventoryItems).forEach(key => {
             if (!inventoryItems[key].for_sale) {
