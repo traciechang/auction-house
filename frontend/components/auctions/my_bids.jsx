@@ -35,7 +35,7 @@ class MyBids extends React.Component {
         // 
 
         return (
-            <div class="container">
+            <div>
                 <h1>My Bids</h1>
                 <div>
                     <h3>Active Bids</h3>

@@ -64,7 +64,7 @@ class SearchForm extends React.Component {
 
     render() {
         return (
-            <div className="row search-form">
+            <div className="row search-form text-light">
                 <form onSubmit={this.handleSubmit}>
                     <div class="col-lg-4 col-md-12 name-div">
                         <label>Name</label>

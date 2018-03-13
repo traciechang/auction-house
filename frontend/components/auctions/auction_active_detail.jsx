@@ -7,7 +7,6 @@ class AuctionActiveDetail extends React.Component {
 
         this.state = {
             time: new Date(),
-            // bid: this.props.auction.bid ? this.props.auction.bid.amount : 0
         }
 
         this.tick = this.tick.bind(this);
@@ -51,19 +50,18 @@ class AuctionActiveDetail extends React.Component {
             onClick={this.props.handleAuctionClick.bind(this, this.props.auction)}>
                 <ul>
                     <div className="item-div">
-                        <li className="auction-detail-image"><img src={item.image_url}/></li>
-                        <li>{item.name}</li>
+                        <li><img className="auction-detail-image" src={item.image_url} item-quality={item.quality}/></li>
+                        <li class="text-light">{item.name}</li>
                     </div>
 
-                    <div className="level-time-user">
+                    <div className="level-time-user text-light">
                         <li>{item.level}</li>
                         <li>{this.displayTime()}</li>
                         <li>{auction.user.username}</li>
                     </div>
 
                     <div className="bid-buyout">
-                        {/* <li>{this.state.bid}</li> */}
-                        <li>{bid_amount}</li>
+                        <li class="text-light">{bid_amount}</li>
                         <div className="buyout">
                             <li>Buyout</li>
                             <li>{auction.buyout}</li>

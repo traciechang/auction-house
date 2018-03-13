@@ -39,27 +39,17 @@ class Browse extends React.Component {
     };
 
     render() {
-        // return (
-        //     <div className="browse">
-        //         <h1 className="browse-h1">Browse Auctions</h1>
-        //         <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
-        //         <div className="browse-filter-index">
-        //             <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
-        //             <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
-        //         </div>
-        //         {this.displayBidForm()}
-        //     </div>
-        // )
-
-        // 
-
         return (
             <div class="browse">
                 <h1 className="text-center browse-h1">Browse Auctions</h1>
                 <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
-                <div class="row">
-                    <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
-                    <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
+                <div class="container-fluid">
+                    <div class="row filter-form-auction-index-div">
+                        <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
+                        <div class="col-md-9">
+                            <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
+                        </div>
+                    </div>
                 </div>
                 {this.displayBidForm()}
             </div>

@@ -100,6 +100,7 @@ ul {
 
 /* Browse */
 .browse {
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
     // border: 1px solid green;
     // display: flex;
     // flex-direction: column;
@@ -112,7 +113,7 @@ ul {
     border: 1px solid red;
     padding: 20px;
     margin-bottom: 50px;
-    color: goldenrod;
+    color: gold;
 }
 
 .browse-filter-index {
@@ -133,7 +134,11 @@ ul {
     border: 1px solid red;
 }
 .search-button {
-    border: 1px solid orange;
+    // border: 1px solid orange;
+    background: darkred;
+    color: gold;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
 .search-form {
@@ -162,6 +167,14 @@ ul {
 
 .reset-button {
     margin-left: 30px;
+    background: darkred;
+    color: gold;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.filter-form-auction-index-div {
+    // width: 100%;
 }
 
 /* Filter Form */
@@ -282,12 +295,11 @@ ul {
 
 /* Auction Index */
 .auction-index {
-    border: 1px solid black;
-    position: relative;
-    width: 75%;
+    // position: relative;
+    // width: 75%;
     /* overflow: hidden;
     overflow-y: scroll; */
-    margin: 5px;
+    // margin: 5px;
     /* border-radius: 7px; */
 }
 
@@ -296,20 +308,30 @@ ul {
     display: flex;
     justify-content: space-between;
     margin: 0px;
-    padding: 3px 5px;
+    // padding: 3px 5px;
 }
 
 .column-headers li {
     padding: 2px;
-    border-top: 1px solid lightgrey;
-    border-left: 1px solid lightgrey;
-    border-right: 1px solid lightgrey;
-    border-radius: 2px;
+    border: 1px solid black;
+    // border-top: 1px solid lightgrey;
+    // border-left: 1px solid lightgrey;
+    // border-right: 1px solid lightgrey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: black;
+    padding: 2px 10px;
 }
 
 .auctions-list {
     list-style: none;
-    border: 1px solid black;
+    border-top: 1px solid lightgray;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     margin: 0px;
     height: 94%;
     overflow: hidden;
@@ -327,7 +349,8 @@ ul {
 
 /* Auction Detail */
 .auction-detail {
-    border: 1px solid black;
+    border: 1px solid lightgray;
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
     border-radius: 7px;
     margin: 5px;
     padding: 2px;
@@ -340,9 +363,35 @@ ul {
     // border: 1px solid orange;
 }
 
-/* .auction-detail ul li {
-    border: 1px solid pink;
-} */
+.auction-detail-image {
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 3px;
+}
+
+.auction-detail-image[item-quality="0"] {
+    border: 2px solid grey;
+}
+
+.auction-detail-image[item-quality="1"] {
+    border: 2px solid white;
+}
+
+.auction-detail-image[item-quality="2"] {
+    border: 2px solid green;
+}
+
+.auction-detail-image[item-quality="3"] {
+    border: 2px solid blue;
+}
+
+.auction-detail-image[item-quality="4"] {
+    border: 2px solid purple;
+}
+
+.auction-detail-image[item-quality="5"] {
+    border: 2px solid orangered;
+}
 
 .auction-detail .item-div {
     display: flex;
@@ -380,6 +429,10 @@ ul {
 
 .auction-detail .bid-buyout .buyout li:last-child {
     margin-left: 5px;
+}
+
+.buyout {
+    color: gold;
 }
 
 /* Auction Form */
@@ -431,6 +484,25 @@ ul {
 .auction-form-button {
     background: darkred;
     color: gold;
-    border: 0.5px solid gold;
+    border: 1px solid lightgrey;
     border-radius: 5px;
+}
+
+// My Auctions
+.my-auctions {
+    padding: 20px;
+}
+
+.my-auctions > * {
+    // width: 100%;
+}
+
+.my-auctions * {
+    border: 1px solid lightcoral;
+}
+
+.my-auctions h1 {
+    padding: 20px;
+    margin-bottom: 50px;
+    color: gold;
 }
