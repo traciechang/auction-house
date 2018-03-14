@@ -122,10 +122,10 @@ ul {
     // margin: 10px;
     // height: 700px;
     padding: 20px;
+    height: 100%;
 }
 
 .browse-h1 {
-    border: 1px solid red;
     padding: 20px;
     margin-bottom: 50px;
     color: gold;
@@ -157,7 +157,7 @@ ul {
 
 .search-form {
     // border: 1px solid pink;
-    border-radius: 5px;
+    // border-radius: 5px;
     padding: 10px;
     display: flex;
     justify-content: flex-start;
@@ -189,8 +189,10 @@ ul {
 
 .search-reset-buttons > button {
     margin-right: 10px;
-    // display: flex;
-    // justify-content: start;
+}
+
+.search-reset-buttons > button:hover {
+    cursor: pointer;
 }
 
 /* Filter Form */
@@ -312,11 +314,12 @@ ul {
 /* Auction Index */
 .auction-index {
     // position: relative;
-    // width: 75%;
-    /* overflow: hidden;
-    overflow-y: scroll; */
+    // overflow: hidden;
+    // overflow-y: scroll;
     // margin: 5px;
     /* border-radius: 7px; */
+    height: 55vh;
+    border: 1px solid lightseagreen;
 }
 
 .column-headers {
@@ -341,15 +344,16 @@ ul {
 
 .auctions-list {
     list-style: none;
-    border-top: 1px solid lightgray;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    // border-top: 1px solid lightgray;
+    // border-left: 1px solid black;
+    // border-right: 1px solid black;
+    // border-bottom: 1px solid black;
+    border: 1px solid lightgray;
     background-color: black;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin: 0px;
-    height: 94%;
+    height: 92%;
     overflow: hidden;
     overflow-y: scroll;
 }
@@ -549,4 +553,20 @@ ul {
     padding: 20px;
     margin-bottom: 50px;
     color: gold;
+}
+
+// Bid Form
+.bid-form * {
+    border: 1px solid lightsalmon;
+}
+
+.bid-button, .buyout-button {
+    background: darkred;
+    color: gold;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.bid-button:hover, .buyout-button:hover {
+    cursor: pointer;
 }

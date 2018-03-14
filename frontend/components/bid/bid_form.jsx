@@ -70,17 +70,13 @@ class BidForm extends React.Component {
 
     calculateDeposit() {
         return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
-            console.log("in bid form, calculateDeposit")
-            console.log(response)
-            console.log(this.state.amount)
             let deposit_amt = response.amount ? this.state.amount - response.amount : this.state.amount;
-            console.log(deposit_amt)
+
             return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
         });
     };
 
     handleBid(e) {
-        console.log("in bid form, handle bid")
         e.preventDefault();
         if (this.state.amount > this.props.currentUser.inventory.gold) {
             alert("You do not have enough gold to submit this bid.")
@@ -126,14 +122,15 @@ class BidForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleBid}>
-                    <label>Bid Amount
-                        <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
-                    </label>
-                    <button>Bid</button>
+            <div class="container-fluid">
+            <div class="container-fluid row bid-form">
+                <form class="row col-md-6" onSubmit={this.handleBid}>
+                    <label class="col-md-3 text-light">Bid Amount</label>
+                    <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
+                    <button class="col-md-1 bid-button">Bid</button>
                 </form>
-                <button onClick={this.handleBuyout}>Buyout</button>
+                <button class="col-md-1 buyout-button" onClick={this.handleBuyout}>Buyout</button>
+            </div>
             </div>
         )
     }

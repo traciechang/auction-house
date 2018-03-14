@@ -43,6 +43,7 @@ class Browse extends React.Component {
             <div class="browse">
                 <h1 className="text-center browse-h1">Browse Auctions</h1>
                 <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
+
                 <div class="container-fluid">
                     <div class="row filter-form-auction-index-div">
                         <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
@@ -51,6 +52,7 @@ class Browse extends React.Component {
                         </div>
                     </div>
                 </div>
+                
                 {this.displayBidForm()}
             </div>
         )
