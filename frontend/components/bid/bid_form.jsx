@@ -91,7 +91,8 @@ class BidForm extends React.Component {
         }
     };
 
-    handleBuyout() {
+    handleBuyout(e) {
+        e.preventDefault();
         if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
             alert("You do not have enough gold for this buyout.")
         } else {
@@ -122,16 +123,18 @@ class BidForm extends React.Component {
 
     render() {
         return (
-            <div class="container-fluid">
-            <div class="container-fluid row bid-form">
-                <form class="row col-md-6" onSubmit={this.handleBid}>
-                    <label class="col-md-3 text-light">Bid Amount</label>
+            // <div class="container-fluid">
+            <div class="container-fluid bid-form">
+                <form class="row d-flex justify-content-end" onSubmit={this.handleBid}>
+                    <div class="col-md-4">
+                    <label class="text-light bid-amount-label">Bid Amount</label>
                     <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
+                    </div>
                     <button class="col-md-1 bid-button">Bid</button>
+                    <button class="col-md-1 buyout-button" onClick={this.handleBuyout}>Buyout</button>
                 </form>
-                <button class="col-md-1 buyout-button" onClick={this.handleBuyout}>Buyout</button>
             </div>
-            </div>
+            // </div>
         )
     }
 }

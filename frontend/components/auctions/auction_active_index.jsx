@@ -19,18 +19,12 @@ class AuctionActiveIndex extends React.Component {
     render() {
         return (
             <div class="auction-index">
-                <ul className="column-headers text-light">
-                    <div className="item-div">
-                        <li>Item</li>
-                    </div>
-                    <div className="level-time-user">
-                        <li>Level</li>
-                        <li>Time Left</li>
-                        <li>Seller</li>
-                    </div>
-                    <div>
-                    <li>Current Bid</li>
-                    </div>
+                <ul className="row column-headers text-light justify-content-between">
+                    <li class="col-xs-12 col-sm-7 col-md-4">Item</li>
+                    <li class="col-lg-1 d-none d-lg-block">Level</li>
+                    <li class="col-md-3 d-none d-md-block">Time Left</li>
+                    <li class="col-lg-1 d-none d-lg-block">Seller</li>
+                    <li class="col-sm-3 col-md-2 d-none d-sm-block">Current Bid</li>
                 </ul>
                 <ul className="auctions-list">{this.allAuctions()}</ul>
             </div>
