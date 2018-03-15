@@ -54,9 +54,9 @@ class AuctionActiveDetail extends React.Component {
                         <li class="text-light">{item.name}</li>
                     </div>
 
-                        <li class="text-light col-lg-1 d-none d-lg-block level-li">{item.level}</li>
-                        <li class="text-light col-md-3 d-none d-md-block time-li">{this.displayTime()}</li>
-                        <li class="text-light col-lg-1 d-none d-lg-block user-li">{auction.user.username}</li>
+                    <li class="text-light col-lg-1 d-none d-lg-block level-li">{item.level}</li>
+                    <li class="text-light col-md-3 d-none d-md-block time-li">{this.displayTime()}</li>
+                    <li class="text-light col-lg-1 d-none d-lg-block user-li">{auction.user.username}</li>
 
                     <div className="col-sm-3 col-md-2 d-none d-sm-block bid-buyout">
                         <li class="text-light">{bid_amount}</li>

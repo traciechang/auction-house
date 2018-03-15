@@ -26,14 +26,14 @@ class MyAuctions extends React.Component {
 
                 <div class="container-fluid">
                     <div class="row">
-                        <h3 class="col-md-12">Active Auctions</h3>
+                        <h3 class="col-md-12 text-light">Active Auctions</h3>
                         <div class="col-md-12">
                             <AuctionActiveIndex auctions={this.props.activeAuctions} handleAuctionClick={this.handleAuctionClick}/>
                         </div>
                     </div>
 
                     <div class="row">
-                        <h3 class="col-md-12">Ended Auctions</h3>
+                        <h3 class="col-md-12 text-light">Ended Auctions</h3>
                         <div class="col-md-12">
                             <AuctionEndedIndex auctions={this.props.endedAuctions}/>
                         </div>
