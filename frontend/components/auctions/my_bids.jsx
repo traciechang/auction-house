@@ -17,33 +17,16 @@ class MyBids extends React.Component {
     }
 
     render() {
-        // return (
-        //     <div>
-        //         <h1>My Bids</h1>
-        //         <div>
-        //             <h3>Active Bids</h3>
-        //             <AuctionActiveIndex auctions={this.props.activeAuctions} handleAuctionClick={this.handleAuctionClick}/>
-        //         </div>
-
-        //         <div>
-        //             <h3>Ended Auctions</h3>
-        //             <AuctionEndedIndex auctions={this.props.endedAuctions}/>
-        //         </div>
-        //     </div>
-        // )
-
-        // 
-
         return (
-            <div>
-                <h1>My Bids</h1>
+            <div class="my-bids">
+                <h1 class="text-center">My Bids</h1>
                 <div>
-                    <h3>Active Bids</h3>
+                    <h3 class="text-light">Active Bids</h3>
                     <AuctionActiveIndex auctions={this.props.activeAuctions} handleAuctionClick={this.handleAuctionClick}/>
                 </div>
 
                 <div>
-                    <h3>Ended Auctions</h3>
+                    <h3 class="text-light">Ended Auctions</h3>
                     <AuctionEndedIndex auctions={this.props.endedAuctions}/>
                 </div>
             </div>

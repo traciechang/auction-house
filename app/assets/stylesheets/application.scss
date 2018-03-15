@@ -251,7 +251,7 @@ ul {
     flex-direction: column;
     padding: 20px;
     font-size: 20px;
-    color: goldenrod;
+    color: gold;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
     min-height: 100%;
 }
@@ -496,7 +496,7 @@ ul {
 
 .auction-form h1 {
     margin-bottom: 50px;
-    color: goldenrod;
+    color: gold;
     padding: 20px;
 }
 
@@ -530,6 +530,16 @@ ul {
 }
 
 // My Bids
+.my-bids {
+    padding: 20px;
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
+}
+
+.my-bids h1 {
+    padding: 20px;
+    margin-bottom: 50px;
+    color: gold;
+}
 
 // My Auctions
 .my-auctions {
