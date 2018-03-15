@@ -533,12 +533,18 @@ ul {
 .my-bids {
     padding: 20px;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
+    height: 100%;
 }
 
 .my-bids h1 {
     padding: 20px;
     margin-bottom: 50px;
     color: gold;
+}
+
+.no-active-bids, .no-ended-bids {
+    color: gold;
+    margin-bottom: 50px;
 }
 
 // My Auctions
