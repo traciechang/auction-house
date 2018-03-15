@@ -197,8 +197,9 @@ ul {
 
 /* Filter Form */
 .filter-form {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     padding: 0;
+    margin-bottom: 10px;
 }
 
 .filter-form-header {
@@ -319,7 +320,8 @@ ul {
     // margin: 5px;
     /* border-radius: 7px; */
     height: 55vh;
-    border: 1px solid lightseagreen;
+    margin-bottom: 5px;
+    // border: 1px solid lightseagreen;
 }
 
 .column-headers {
@@ -339,7 +341,6 @@ ul {
     border-top-right-radius: 5px;
     background-color: black;
     padding: 2px 0 2px 10px;
-    border: 1px solid lightpink;
 }
 
 .auctions-list {
@@ -363,10 +364,6 @@ ul {
 }
 
 /* Auction Detail */
-.auction-detail * {
-    border: 1px solid pink;
-}
-
 .auction-detail {
     border: 1px solid lightgray;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
@@ -541,10 +538,6 @@ ul {
     // width: 100%;
 }
 
-.my-auctions * {
-    border: 1px solid lightcoral;
-}
-
 .my-auctions h1 {
     padding: 20px;
     margin-bottom: 50px;
@@ -554,15 +547,9 @@ ul {
 // Bid Form
 .bid-form {
     width: 100%;
-    border: 1px solid lightseagreen;
-}
-
-.bid-form * {
-    border: 1px solid lightsalmon;
 }
 
 .bid-form > form {
-    border: 1px solid yellow;
     width: 100%;
 }
 
@@ -579,8 +566,13 @@ ul {
 
 .bid-button {
     margin-right: 10px;
+    padding: 0 20px;
 }
 
 .bid-button:hover, .buyout-button:hover {
     cursor: pointer;
+}
+
+.bid-form-label-input {
+    margin-right: 40px;
 }

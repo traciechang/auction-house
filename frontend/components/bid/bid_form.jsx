@@ -126,12 +126,14 @@ class BidForm extends React.Component {
             // <div class="container-fluid">
             <div class="container-fluid bid-form">
                 <form class="row d-flex justify-content-end" onSubmit={this.handleBid}>
-                    <div class="col-md-4">
+                    <div class="col-s-4 bid-form-label-input">
                     <label class="text-light bid-amount-label">Bid Amount</label>
                     <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
                     </div>
-                    <button class="col-md-1 bid-button">Bid</button>
-                    <button class="col-md-1 buyout-button" onClick={this.handleBuyout}>Buyout</button>
+                    <div class="col-s-4">
+                    <button class="bid-button">Bid</button>
+                    <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
+                    </div>
                 </form>
             </div>
             // </div>
