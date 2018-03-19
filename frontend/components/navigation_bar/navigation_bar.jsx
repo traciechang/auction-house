@@ -12,7 +12,6 @@ class NavigationBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <li className="ml-auto nav-bar-welcome-button">
-                {/* <li> */}
                     <span class="text-light">Welcome, {this.props.currentUser.username}!</span>
                     <button class="btn btn-outline-light" onClick={this.logout}>Log Out</button>
                 </li>
@@ -26,7 +25,7 @@ class NavigationBar extends React.Component {
 
     render() {
         return (
-            <div class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <span class="navbar-brand">
                     <img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1518216515/Logos/wow_high_rez_icon_by_jocpoc-d39jgl5.png" className="nav-bar-logo"/>
                     <span>Remote Auction House</span>
