@@ -366,10 +366,17 @@ ul {
 /* Auction Detail */
 .auction-detail {
     border: 1px solid lightgray;
-    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
     border-radius: 7px;
     margin: 5px;
     padding: 2px;
+}
+
+.auction-detail[selected-auction="true"] {
+    background: linear-gradient(to right, black, gold, black);
+}
+
+.auction-detail[selected-auction="false"] {
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
 }
 
 .auction-detail ul {
@@ -449,23 +456,6 @@ ul {
 .item-div {
     min-width: 270px;
 }
-
-// .level-time-user {
-//     min-width: 356px;
-//     text-align: center;
-// }
-
-// .level-time-user li:nth-child(1) {
-//     min-width: 40px;
-// }
-
-//  .level-time-user li:nth-child(2) {
-//     min-width: 170px;
-// }
-
-//  .level-time-user li:nth-child(3) {
-//     min-width: 100px;
-// }
 
 .buyout {
     color: gold;

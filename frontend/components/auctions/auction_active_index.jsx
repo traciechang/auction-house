@@ -9,11 +9,20 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions() {
-        return Object.keys(this.props.auctions).map(key => (
-            <li 
-            key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick}/>
-            </li>
-        ))
+        let arr = [];
+        const selectedAuction = this.props.selectedAuction;
+
+        Object.keys(this.props.auctions).forEach(key => {
+            if (selectedAuction && (selectedAuction.id === this.props.auctions[key].id)) {
+                arr.push(<li 
+                    key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="true"/></li>);
+            } else {
+                arr.push(<li 
+                    key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="false"/></li>)
+            }
+        })
+
+        return arr;
     }
 
     render() {

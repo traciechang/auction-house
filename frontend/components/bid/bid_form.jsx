@@ -123,7 +123,6 @@ class BidForm extends React.Component {
 
     render() {
         return (
-            // <div class="container-fluid">
             <div class="container-fluid bid-form">
                 <form class="row d-flex justify-content-end" onSubmit={this.handleBid}>
                     <div class="col-s-4 bid-form-label-input">
@@ -136,7 +135,6 @@ class BidForm extends React.Component {
                     </div>
                 </form>
             </div>
-            // </div>
         )
     }
 }

@@ -48,11 +48,11 @@ class Browse extends React.Component {
                     <div class="row filter-form-auction-index-div">
                         <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
                         <div class="col-md-9">
-                            <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick}/>
+                            <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick} selectedAuction={this.state.selectedAuction}/>
                         </div>
                     </div>
                 </div>
-                
+
                 {this.displayBidForm()}
             </div>
         )

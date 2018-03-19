@@ -44,10 +44,10 @@ class AuctionActiveDetail extends React.Component {
         } else {
             bid_amount = 0
         };
-   
+
         return (
             <div className="auction-detail" 
-            onClick={this.props.handleAuctionClick.bind(this, this.props.auction)}>
+            onClick={this.props.handleAuctionClick.bind(this, this.props.auction)} selected-auction={this.props.selectedAuction}>
                 <ul class="row">
                     <div className="col-xs-12 col-sm-7 col-md-4 item-div">
                         <li><img className="auction-detail-image" src={item.image_url} item-quality={item.quality}/></li>
