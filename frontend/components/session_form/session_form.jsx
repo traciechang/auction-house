@@ -7,7 +7,8 @@ class SessionForm extends React.Component {
 
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            errors: []
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -18,6 +19,20 @@ class SessionForm extends React.Component {
         if (nextProps.loggedIn) {
             this.props.history.push('/');
         }
+
+        if (nextProps.errors) {
+            this.setState({
+                "errors": nextProps.errors
+            })
+        }
+
+        if (nextProps.formType !== this.props.formType) {
+            this.setState({
+                "username": "",
+                "password": "",
+                "errors": []
+            })
+        }
     }
 
     button() {
@@ -25,7 +40,8 @@ class SessionForm extends React.Component {
     }
 
     errors() {
-        return this.props.errors.map(err => <li class="text-light" key={err}>{err}</li>)
+        return this.state.errors.map(err => <li class="text-light" key={err}>{err}</li>)
+        // return this.props.errors.map(err => <li class="text-light" key={err}>{err}</li>)
     }
 
     handleSubmit(e) {

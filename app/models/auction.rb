@@ -10,14 +10,8 @@ class Auction < ApplicationRecord
     has_many :bids, dependent: :destroy
     belongs_to :inventory_item
 
-    # scope :user_bidded, -> (user_id) {
-    #     auction_ids = User.find(user_id).bids.pluck(:auction_id)
-
-    #     where(id: auction_ids)
-    # }
-
     scope :item_name, -> (name) {
-        item_ids = Item.where("name LIKE ?", "%#{name}%")
+        item_ids = Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
     }

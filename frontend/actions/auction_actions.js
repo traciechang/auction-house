@@ -13,7 +13,6 @@ export const receiveAuctions = auctions => ({
     auctions
 });
 
-// really needed?
 export const createAuction = auction => dispatch => (
     AuctionAPIUtil.createAuction(auction).then(response => (
         dispatch(receiveAuction(response))
