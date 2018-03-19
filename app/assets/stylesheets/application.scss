@@ -35,10 +35,6 @@ ul {
     padding-left: 0px;
 }
 
-.container {
-    // background-image: url("http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png")
-}
-
  /* Nav Bar */
 .navbar {
     padding-bottom: 0;
@@ -113,14 +109,14 @@ ul {
     padding: 0;
 }
 
+.session-link {
+    color: #00CCFF;
+    font-size: 18px;
+}
+
 /* Browse */
 .browse {
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
-    // border: 1px solid green;
-    // display: flex;
-    // flex-direction: column;
-    // margin: 10px;
-    // height: 700px;
     padding: 20px;
     height: 100%;
 }
@@ -314,11 +310,6 @@ ul {
 
 /* Auction Index */
 .auction-index {
-    // position: relative;
-    // overflow: hidden;
-    // overflow-y: scroll;
-    // margin: 5px;
-    /* border-radius: 7px; */
     height: 55vh;
     margin-bottom: 5px;
     // border: 1px solid lightseagreen;
@@ -326,10 +317,7 @@ ul {
 
 .column-headers {
     list-style: none;
-    // display: flex;
-    // justify-content: space-between;
     margin: 0px;
-    // padding: 3px 5px;
 }
 
 .column-headers > li {
@@ -361,6 +349,12 @@ ul {
 
 .column-headers > li:not(:last-child) {
     margin-right: 10px;
+}
+
+.no-auctions {
+    color: gold;
+    font-size: 18px;
+    margin-top: 50px;
 }
 
 /* Auction Detail */
@@ -523,18 +517,12 @@ ul {
 .my-bids {
     padding: 20px;
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520573820/french-stucco-1920x1080.png);
-    height: 100%;
 }
 
 .my-bids h1 {
     padding: 20px;
     margin-bottom: 50px;
     color: gold;
-}
-
-.no-active-bids, .no-ended-bids {
-    color: gold;
-    margin-bottom: 50px;
 }
 
 // My Auctions

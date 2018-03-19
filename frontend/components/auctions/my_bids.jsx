@@ -18,7 +18,7 @@ class MyBids extends React.Component {
     displayActiveBids() {
         if (Object.keys(this.props.activeAuctions).length === 0) {
             return (
-                <div class="no-active-bids">You currently have no active bids. Visit the Browse page and select an item to start bidding!</div>
+                <div>There are currently no active auctions.</div>
             )
         } else {
             return (
@@ -30,7 +30,7 @@ class MyBids extends React.Component {
     displayEndedBids() {
         if (Object.keys(this.props.endedAuctions).length === 0) {
             return (
-                <div class="no-ended-bids">No bids to display.</div>
+                <div>No bids to display.</div>
             )
         } else {
             return (
@@ -49,12 +49,13 @@ class MyBids extends React.Component {
                 <h1 class="text-center">My Bids</h1>
                 <div>
                     <h3 class="text-light">Active Bids</h3>
-                    {this.displayActiveBids()}
+                    <AuctionActiveIndex auctions={this.props.activeAuctions} handleAuctionClick={this.handleAuctionClick}/>
                 </div>
 
                 <div>
                     <h3 class="text-light">Ended Auctions</h3>
-                    {this.displayEndedBids()}
+                    <AuctionEndedIndex auctions={this.props.endedAuctions}/>
+                    {/* {this.displayEndedBids()} */}
                 </div>
             </div>
         )

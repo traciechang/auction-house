@@ -9,11 +9,17 @@ class AuctionEndedIndex extends React.Component {
     }
 
     allAuctions() {
-        return Object.keys(this.props.auctions).map(key => (
-            <li 
-            key={key}><AuctionEndedDetailContainer auction={this.props.auctions[key]}/>
-            </li>
-        ))
+        if (Object.keys(this.props.auctions).length === 0) {
+            return (
+                <div className="text-center no-auctions">None to display.</div>
+            )
+        } else {
+            return Object.keys(this.props.auctions).map(key => (
+                <li 
+                key={key}><AuctionEndedDetailContainer auction={this.props.auctions[key]}/>
+                </li>
+            ))
+        }
     }
 
     render() {

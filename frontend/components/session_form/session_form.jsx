@@ -38,7 +38,7 @@ class SessionForm extends React.Component {
     }
 
     navLink() {
-        return (this.props.formType === "/login") ? <Link to="/signup" class="col-sm-5 mx-auto text-center">Create an Account</Link> : <Link to="/login" class="col-sm-5 mx-auto text-center">Already have an account?</Link>
+        return (this.props.formType === "/login") ? <Link to="/signup" class="col-sm-5 mx-auto text-center session-link">Create an Account</Link> : <Link to="/login" class="col-sm-5 mx-auto text-center session-link">Already have an account?</Link>
     }
 
     render() {

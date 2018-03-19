@@ -10,7 +10,7 @@ class AuctionEndedDetail extends React.Component {
         const item = this.props.items[auction.item_id.id];
 
         return (
-            <div className="auction-detail">
+            <div className="auction-detail" selected-auction="false">
                 <ul class="row">
                     <div class="col-xs-12 col-sm-7 col-md-4 item-div">
                         <li><img class="auction-detail-image" src={item.image_url} item-quality={item.quality}/></li>
