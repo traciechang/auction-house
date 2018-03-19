@@ -50,8 +50,8 @@ class SearchForm extends React.Component {
         ))
 
         return (
-            <select onChange={this.update("item_quality")}>
-                <option selected disabled hidden>--Select--</option>
+            <select onChange={this.update("item_quality")} value={this.state.item_quality}>
+                <option value="" selected disabled hidden>--Select--</option>
                 {qualities}
             </select>
         )

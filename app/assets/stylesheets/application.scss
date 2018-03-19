@@ -220,8 +220,18 @@ ul {
     color: gold;
     padding: 2px;
     text-align: center;
+}
+
+.filter-form-list li[selected-filter="true"] {
+    background: linear-gradient(to right, gold, black, gold);
+}
+
+.filter-form-list li[selected-filter="false"] {
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
-    // margin: 1px;
+}
+
+.filter-form-list li:hover {
+    cursor: pointer;
 }
 
 .filter-form-gold {
@@ -363,6 +373,10 @@ ul {
     border-radius: 7px;
     margin: 5px;
     padding: 2px;
+}
+
+.auction-detail:hover {
+    cursor: pointer;
 }
 
 .auction-detail[selected-auction="true"] {

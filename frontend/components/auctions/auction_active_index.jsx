@@ -12,7 +12,7 @@ class AuctionActiveIndex extends React.Component {
         let arr = [];
         const selectedAuction = this.props.selectedAuction;
 
-        if (Object.keys(this.props.auctions).length === 0) {
+        if (!this.props.isBrowse && (Object.keys(this.props.auctions).length === 0)) {
             return (
                 <div className="text-center no-auctions">There are currently no active auctions.</div>
             )

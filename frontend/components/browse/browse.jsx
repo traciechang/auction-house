@@ -46,9 +46,9 @@ class Browse extends React.Component {
 
                 <div class="container-fluid">
                     <div class="row filter-form-auction-index-div">
-                        <FilterFormContainer handleFilterClick={this.handleFilterClick}/>
+                        <FilterFormContainer handleFilterClick={this.handleFilterClick} selectedFilter={this.state.selectedFilter}/>
                         <div class="col-md-9">
-                            <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick} selectedAuction={this.state.selectedAuction}/>
+                            <AuctionActiveIndex auctions={this.props.auctions} handleAuctionClick={this.handleAuctionClick} selectedAuction={this.state.selectedAuction} isBrowse={true}/>
                         </div>
                     </div>
                 </div>

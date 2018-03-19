@@ -18,22 +18,20 @@ class FilterForm extends React.Component {
     };
 
     filterList(e) {
-        return FILTERS.map(filter => (
-            <li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)}>{filter}</li>
-        ))
+        let arr = [];
+
+        FILTERS.forEach(filter => {
+            if (this.props.selectedFilter === filter) {
+                arr.push(<li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)} selected-filter="true">{filter}</li>);
+            } else {
+                arr.push(<li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)} selected-filter="false">{filter}</li>);
+            }
+        })
+
+        return arr;
     };
 
     render() {
-        // return (
-        //     <div className="filter-form">
-        //         <span className="filter-form-header">Filters</span>
-        //         <ul className="filter-form-list">{this.filterList()}</ul>
-        //         {this.displayGold()}
-        //     </div>
-        // )
-
-        // 
-
         return (
             <div class="col-md-3 filter-form">
                 <div class="filter-form-header-div row">

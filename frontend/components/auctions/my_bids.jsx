@@ -15,30 +15,6 @@ class MyBids extends React.Component {
         this.props.fetchMyBidAuctions();
     }
 
-    displayActiveBids() {
-        if (Object.keys(this.props.activeAuctions).length === 0) {
-            return (
-                <div>There are currently no active auctions.</div>
-            )
-        } else {
-            return (
-                <AuctionActiveIndex auctions={this.props.activeAuctions} handleAuctionClick={this.handleAuctionClick}/>
-            )
-        }
-    }
-
-    displayEndedBids() {
-        if (Object.keys(this.props.endedAuctions).length === 0) {
-            return (
-                <div>No bids to display.</div>
-            )
-        } else {
-            return (
-                <AuctionEndedIndex auctions={this.props.endedAuctions}/>
-            )
-        }
-    }
-
     handleAuctionClick() {
 
     }
@@ -55,7 +31,6 @@ class MyBids extends React.Component {
                 <div>
                     <h3 class="text-light">Ended Auctions</h3>
                     <AuctionEndedIndex auctions={this.props.endedAuctions}/>
-                    {/* {this.displayEndedBids()} */}
                 </div>
             </div>
         )
