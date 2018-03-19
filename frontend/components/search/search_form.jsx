@@ -42,6 +42,7 @@ class SearchForm extends React.Component {
             item_quality: "",
             item_type: ""
         }));
+        this.props.handleFilterClick("");
     };
 
     displayQuality() {

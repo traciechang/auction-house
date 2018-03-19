@@ -42,7 +42,7 @@ class Browse extends React.Component {
         return (
             <div class="browse">
                 <h1 className="text-center browse-h1">Browse Auctions</h1>
-                <SearchFormContainer selectedFilter={this.state.selectedFilter}/>
+                <SearchFormContainer selectedFilter={this.state.selectedFilter} handleFilterClick={this.handleFilterClick}/>
 
                 <div class="container-fluid">
                     <div class="row filter-form-auction-index-div">
