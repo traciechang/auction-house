@@ -132,33 +132,33 @@ class BidForm extends React.Component {
             <div class="container-fluid bid-form">
                 <form class="row d-flex justify-content-end" onSubmit={this.handleBid}>
                     <div class="col-s-4 bid-form-label-input">
-                    <label class="text-light bid-amount-label">Bid Amount</label>
-                    <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
+                        <label class="text-light bid-amount-label">Bid Amount</label>
+                        <input value={this.state.amount} onChange={this.handleUpdate("amount")} min={this.state.minimum_bid} type="number"/>
                     </div>
                     <div class="col-s-4">
-                    <button class="bid-button">Bid</button>
-                    <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
+                        <button class="bid-button">Bid</button>
+                        <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
                     </div>
                 </form>
 
                 {/* Modal */}
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {this.state.modal_message}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        {this.state.modal_message}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
         )

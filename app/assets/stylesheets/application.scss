@@ -27,7 +27,6 @@ body {
 }
 
 * {
-    // color: white;
     font-family: 'EB Garamond', serif;
     font-weight: bold;
 }
@@ -110,7 +109,6 @@ ul {
 
 .session-form-errors {
     list-style: none;
-    // border: 1px solid greenyellow;
     padding: 0;
 }
 
@@ -138,17 +136,6 @@ ul {
     height: 550px;
 }
 
-/* Search Form */
-// .name-div {
-//     border: 1px solid green;
-// }
-
-// .level-div {
-//     border: 1px solid teal;
-// }
-// .quality-div {
-//     border: 1px solid red;
-// }
 .search-button {
     background: darkred;
     color: gold;
@@ -157,8 +144,6 @@ ul {
 }
 
 .search-form {
-    // border: 1px solid pink;
-    // border-radius: 5px;
     padding: 10px;
     display: flex;
     justify-content: flex-start;
@@ -166,7 +151,6 @@ ul {
 }
 
 .search-form > form {
-    // border: 1px solid lightgreen;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -198,7 +182,6 @@ ul {
 
 /* Filter Form */
 .filter-form {
-    // border: 1px solid blue;
     padding: 0;
     margin-bottom: 10px;
 }
@@ -251,7 +234,6 @@ ul {
 }
 
 .filter-form-header-div, .filter-form-gold-div {
-    // border: 1px solid lightgreen;
     width: 100%;
     margin: 0;
 }
@@ -327,7 +309,6 @@ ul {
 .auction-index {
     height: 55vh;
     margin-bottom: 5px;
-    // border: 1px solid lightseagreen;
 }
 
 .column-headers {
@@ -337,9 +318,6 @@ ul {
 
 .column-headers > li {
     border: 1px solid black;
-    // border-top: 1px solid lightgrey;
-    // border-left: 1px solid lightgrey;
-    // border-right: 1px solid lightgrey;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: black;
@@ -348,10 +326,6 @@ ul {
 
 .auctions-list {
     list-style: none;
-    // border-top: 1px solid lightgray;
-    // border-left: 1px solid black;
-    // border-right: 1px solid black;
-    // border-bottom: 1px solid black;
     border: 1px solid lightgray;
     background-color: black;
     border-bottom-left-radius: 5px;
@@ -436,18 +410,7 @@ ul {
 .auction-detail .item-div li:last-child {
     margin-left: 10px;
     padding-top: 20px;
-    // min-width: 200px;
 }
-
-// .auction-detail .level-time-user {
-//     display: flex;
-//     justify-content: center;
-//     margin-top: 20px;
-// }
-
-// .auction-detail .level-time-user li:not(:last-child) {
-//     margin-right: 20px;
-// }
 
 .auction-detail .bid-buyout {
     margin-top: 20px;

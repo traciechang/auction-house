@@ -41,7 +41,6 @@ class SessionForm extends React.Component {
 
     errors() {
         return this.state.errors.map(err => <li class="text-light" key={err}>{err}</li>)
-        // return this.props.errors.map(err => <li class="text-light" key={err}>{err}</li>)
     }
 
     handleSubmit(e) {
