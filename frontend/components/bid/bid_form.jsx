@@ -27,12 +27,6 @@ class BidForm extends React.Component {
         this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
         this.calculateDeposit = this.calculateDeposit.bind(this);
         this.calculateBuyoutDifference = this.calculateBuyoutDifference.bind(this);
-        // this.bidSuccessfullMessage = this.bidSuccessfullMessage.bind(this);
-        // this.bidUnsuccessfulMessage = this.bidUnsuccessfulMessage.bind(this);
-        // this.buyoutSuccessfulMessage = this.buyoutSuccessfulMessage.bind(this);
-
-        // this.modalStatus;
-        // this.modalMessage;
     }
 
     componentDidMount() {
@@ -45,7 +39,6 @@ class BidForm extends React.Component {
     componentWillReceiveProps(nextProps) {
         let min_bid;
         if (nextProps) {
-
             if (nextProps.selectedAuction.bid) {
                 min_bid = nextProps.selectedAuction.bid.amount + 1
             } else if (nextProps.selectedAuction.starting_bid) {
@@ -68,32 +61,6 @@ class BidForm extends React.Component {
         }
     }
 
-    // bidSuccessfullMessage() {
-    //     this.modalStatus = "Success!";
-    //     this.modalMessage = "Your bid was submitted.";
-    //     return $("#exampleModal").modal("show");
-    // }
-
-    // bidUnsuccessfulMessage() {
-    //     this.modalStatus = "l";
-    //     this.modalMessage = "You do not have enough gold to submit this bid.";
-    //     return $("#exampleModal").modal("show");
-    // }
-
-    // buyoutUnsuccessfulMessage() {
-    //     return (
-    //         <p>Buyout successful.</p>
-    //     )
-    // }
-
-    // buyoutSuccessfulMessage() {
-    //     console.log("in bidform, handlebuyout")
-    //     this.modalStatus = "";
-    //     this.modalMessage = "Buyout successful.";
-    //     console.log(this.modalMessage)
-    //     $("#exampleModal").modal("show");
-    // }
-
     calculateBuyoutDifference() {
         this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
@@ -112,10 +79,6 @@ class BidForm extends React.Component {
     handleBid(e) {
         e.preventDefault();
         if (this.state.amount > this.props.currentUser.inventory.gold) {
-            // alert("You do not have enough gold to submit this bid.")
-            // this.modalStatus = "l";
-            // this.modalMessage = "You do not have enough gold to submit this bid.";
-            // return $("#exampleModal").modal("show");
             this.setState({"modal_message": "You do not have enough gold to submit this bid."});
             $("#exampleModal").modal("show");
         } else {
@@ -124,11 +87,7 @@ class BidForm extends React.Component {
                 return this.calculateDeposit()
             })
             .then(() => {
-                // return alert("Bid submitted successfully.")
-                // this.modalStatus = "Success!";
-                // this.modalMessage = "Your bid was submitted.";
-                // return $("#exampleModal").modal("show");
-                this.setState({"modal_message": "Your bid was  submitted successfully."});
+                this.setState({"modal_message": "Your bid was submitted successfully."});
                 $("#exampleModal").modal("show");
             })
         }
@@ -137,7 +96,8 @@ class BidForm extends React.Component {
     handleBuyout(e) {
         e.preventDefault();
         if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
-            alert("You do not have enough gold for this buyout.")
+            this.setState({"modal_message": "You do not have enough gold for this buyout."});
+            $("#exampleModal").modal("show");
         } else {
             this.props.createBid({
                 "user_id": this.props.currentUser.id,
@@ -146,31 +106,13 @@ class BidForm extends React.Component {
             })
        
             this.calculateBuyoutDifference();
-    
-            // this.props.updateAuction({
-            //     "id": this.props.selectedAuction.id,
-            //     "duration": 0
-            // }).then(() => {
-            //     this.modalStatus = "";
-            //     this.modalMessage = "Buyout successful.";
-            //     return $("#exampleModal").modal("show");
-            // }).then(this.props.handleAuctionClick.bind(this, ""));
-            const modal = $("#exampleModal");
 
             this.props.updateAuction({
                 "id": this.props.selectedAuction.id,
                 "duration": 0
             }).then(() => this.props.handleAuctionClick.bind(this, "")).then(() => {
-                // console.log("in bidform, handlebuyout")
-                // this.modalStatus = "";
-                // this.modalMessage = "Buyout successful.";
-                // console.log(this.modalMessage)
-                // $("#exampleModal").modal("show");
-                console.log('sup');
-                console.log("in bidFOrm, handleBuyout");
                 this.setState({"modal_message": "Buyout successful."});
-                modal.modal("show")
-                console.log(this.state.modal_message)
+                $("#exampleModal").modal("show")
             })
         }
     };
@@ -204,7 +146,7 @@ class BidForm extends React.Component {
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Sup</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
