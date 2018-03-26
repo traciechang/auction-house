@@ -9,12 +9,15 @@ class AuctionForm extends React.Component {
             inventory_item_id: "",
             starting_bid: "",
             buyout: "",
-            duration: ""
+            duration: "",
+
+            selected_item: ""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
-        this.itemDropdown = this.itemDropdown.bind(this);
+        // this.itemDropdown = this.itemDropdown.bind(this);
+        this.itemModal = this.itemModal.bind(this);
     }
 
     componentDidMount() {
@@ -27,6 +30,14 @@ class AuctionForm extends React.Component {
         }
     };
 
+    handleItemClick() {
+
+    };
+
+    handleModalSubmit() {
+
+    };
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.createAuction(this.state)
@@ -36,7 +47,26 @@ class AuctionForm extends React.Component {
         }))
     }
 
-    itemDropdown() {
+    // itemDropdown() {
+    //     let sellable_items = [];
+    //     const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
+
+    //     Object.keys(inventoryItems).forEach(key => {
+    //         if (!inventoryItems[key].for_sale) {
+    //             sellable_items.push(inventoryItems[key])
+    //         }
+    //     })
+
+    //     return sellable_items.map(invItem => {
+    //         let itemObj = this.props.items[invItem.item_id];
+
+    //         return (
+    //             <option key={invItem.id} value={invItem.id}>{itemObj.name}</option>
+    //         )
+    //     })
+    // };
+
+    itemModal() {
         let sellable_items = [];
         const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
 
@@ -50,10 +80,10 @@ class AuctionForm extends React.Component {
             let itemObj = this.props.items[invItem.item_id];
 
             return (
-                <option key={invItem.id} value={invItem.id}>{itemObj.name}</option>
+                <li key={invItem.id} value={invItem.id} class="tooltip-test auction-form-img" title={itemObj.name}><img className="" src={itemObj.image_url} item-quality={itemObj.quality}/></li>
             )
         })
-    };
+    }
 
     render() {
         return (
@@ -61,10 +91,15 @@ class AuctionForm extends React.Component {
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
-                        <select class="col-md-5 mx-auto" onChange={this.update("inventory_item_id")}>
+                        {/* <select class="col-md-5 mx-auto" onChange={this.update("inventory_item_id")}>
                             <option selected disabled hidden>-- Select Item --</option>
                             {this.itemDropdown()}
-                        </select>
+                        </select> */}
+                      
+                        {/* Modal trigger button */}
+                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Select Item
+                </button>
                     </div>
 
                     <div class="row">
@@ -98,6 +133,28 @@ class AuctionForm extends React.Component {
                         <button className="col-md-5 mx-auto auction-form-button">Create Auction</button>
                     </div>
                 </form>
+
+                {/* <!-- Modal --> */}
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">My Inventory</h5>
+                       
+                    </div>
+                    <div class="modal-body">
+                    
+                    <ul className="auction-form-modal-list">{this.itemModal()}</ul>
+                    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Ok</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
             </div>
         )
     }
