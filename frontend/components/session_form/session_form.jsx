@@ -71,15 +71,15 @@ class SessionForm extends React.Component {
 
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
-                    <input class="col-sm-5 mx-auto" placeholder="Username" value={this.state.username} onChange={this.updateInput("username")}/>
+                    <input class="col-sm-5 col-md-4 col-lg-3 mx-auto" placeholder="Username" value={this.state.username} onChange={this.updateInput("username")}/>
                     </div>
                     
                     <div class="row">
-                    <input class="col-sm-5 mx-auto" placeholder="Password" type="password" value={this.state.password} onChange={this.updateInput("password")}/>
+                    <input class="col-sm-5 col-md-4 col-lg-3 mx-auto" placeholder="Password" type="password" value={this.state.password} onChange={this.updateInput("password")}/>
                     </div>
 
                     <div class="row">
-                    <button class="col-sm-5 mx-auto session-form-button">{this.button()}</button>
+                    <button class="col-sm-5 col-md-4 col-lg-3 mx-auto session-form-button">{this.button()}</button>
                     </div>
                 </form>
                 <div class="row">
