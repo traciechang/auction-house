@@ -503,6 +503,24 @@ ul {
     list-style: none;
 }
 
+.auction-form-modal-list > li {
+    border-radius: 5px;
+    border: 4px solid;
+    margin: 0 7px 7px 0;
+}
+
+.auction-form-modal-list > li[selected-item="false"] {
+    border-color: grey;
+}
+
+.auction-form-modal-list > li[selected-item="true"] {
+    border-color: gold;
+}
+
+.modal-auction-form {
+    background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
+}
+
 // My Bids
 .my-bids {
     padding: 20px;

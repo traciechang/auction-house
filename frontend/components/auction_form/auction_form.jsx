@@ -11,13 +11,15 @@ class AuctionForm extends React.Component {
             buyout: "",
             duration: "",
 
-            selected_item: ""
+            selected_inventory_item_id: ""
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         // this.itemDropdown = this.itemDropdown.bind(this);
         this.itemModal = this.itemModal.bind(this);
+        this.handleItemClick = this.handleItemClick.bind(this);
+        this.handleModalSubmit = this.handleModalSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -30,12 +32,17 @@ class AuctionForm extends React.Component {
         }
     };
 
-    handleItemClick() {
-
+    handleItemClick(e) {
+        this.setState({
+            "selected_inventory_item_id": e.currentTarget.value
+        })
     };
 
-    handleModalSubmit() {
-
+    handleModalSubmit(e) {
+        e.preventDefault();
+        this.setState({
+            "inventory_item_id": this.state.selected_inventory_item_id
+        })
     };
 
     handleSubmit(e) {
@@ -78,9 +85,14 @@ class AuctionForm extends React.Component {
 
         return sellable_items.map(invItem => {
             let itemObj = this.props.items[invItem.item_id];
+            let selectedItem = "false";
+
+            if (invItem.id === this.state.selected_inventory_item_id) {
+                selectedItem = "true";
+            }
 
             return (
-                <li key={invItem.id} value={invItem.id} class="tooltip-test auction-form-img" title={itemObj.name}><img className="" src={itemObj.image_url} item-quality={itemObj.quality}/></li>
+                <li onClick={this.handleItemClick} key={invItem.id} value={invItem.id} class="col-xs-3 tooltip-test auction-form-img" title={itemObj.name} selected-item={selectedItem}><img className="" src={itemObj.image_url} item-quality={itemObj.quality}/></li>
             )
         })
     }
@@ -91,15 +103,19 @@ class AuctionForm extends React.Component {
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
+                        <div class="auction-form-input mx-auto">
+                            <div class="text-light">{this.state.inventory_item_id}</div>
+                            
+                            {/* Modal trigger button */}
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Select Item
+                            </button>
+                        </div>
                         {/* <select class="col-md-5 mx-auto" onChange={this.update("inventory_item_id")}>
                             <option selected disabled hidden>-- Select Item --</option>
                             {this.itemDropdown()}
                         </select> */}
-                      
-                        {/* Modal trigger button */}
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Select Item
-                </button>
+                        
                     </div>
 
                     <div class="row">
@@ -136,20 +152,20 @@ class AuctionForm extends React.Component {
 
                 {/* <!-- Modal --> */}
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content modal-auction-form">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">My Inventory</h5>
+                        <h5 class="modal-title text-light" id="exampleModalLabel">My Inventory</h5>
                        
                     </div>
                     <div class="modal-body">
                     
-                    <ul className="auction-form-modal-list">{this.itemModal()}</ul>
+                    <ul className="row justify-content-center auction-form-modal-list">{this.itemModal()}</ul>
                     
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Ok</button>
+                        <button onClick={this.handleModalSubmit} type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                     </div>
                     </div>
                 </div>
