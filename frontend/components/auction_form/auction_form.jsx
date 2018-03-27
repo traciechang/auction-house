@@ -83,51 +83,58 @@ class AuctionForm extends React.Component {
         let sellable_items = [];
         const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
 
-        Object.keys(inventoryItems).forEach(key => {
-            if (!inventoryItems[key].for_sale) {
-                sellable_items.push(inventoryItems[key])
-            }
-        })
-
-        return sellable_items.map(invItem => {
-            let itemObj = this.props.items[invItem.item_id];
-            let selectedItem = "false";
-
-            if (invItem.id === this.state.selected_inventory_item_id) {
-                selectedItem = "true";
-            }
-
+        if (Object.keys(inventoryItems).length === 0) {
             return (
-                <li onClick={this.handleItemClick} key={invItem.id} value={invItem.id} class="col-xs-3 tooltip-test auction-form-img" title={itemObj.name} selected-item={selectedItem}><img className="" src={itemObj.image_url} item-quality={itemObj.quality}/></li>
+                <div class="text-light">Your inventory is empty.</div>
             )
-        })
+        } else {
+            Object.keys(inventoryItems).forEach(key => {
+                if (!inventoryItems[key].for_sale) {
+                    sellable_items.push(inventoryItems[key])
+                }
+            })
+    
+            return sellable_items.map(invItem => {
+                let itemObj = this.props.items[invItem.item_id];
+                let selectedItem = "false";
+    
+                if (invItem.id === this.state.selected_inventory_item_id) {
+                    selectedItem = "true";
+                }
+    
+                return (
+                    <li onClick={this.handleItemClick} key={invItem.id} value={invItem.id} class="col-xs-3 tooltip-test auction-form-img" title={itemObj.name} selected-item={selectedItem}><img className="" src={itemObj.image_url} item-quality={itemObj.quality}/></li>
+                )
+            })
+        }
     }
 
     render() {
-        // this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id
+        let itm = {};
+        if (this.state.inventory_item_id) {
+            itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
+        }
+        // let hasInv = this.props.currentUser.inventory_items ? true : false;
+        
+        // this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id
 
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
-                        <div class="auction-form-input mx-auto">
-                            <div>
-                            <div>
-
-                            </div>
-                            <div class="text-light"> {this.state.inventory_item_id}</div>
+                        <div class="auction-form-input col-md-5 mx-auto">
+                            <div class="row item-box">
+                                <div class="item-img">
+                                    <img src={itm.image_url}/>
+                                </div>
+                                <div class="text-light item-name">{itm.name}</div>
                             </div>
                             {/* Modal trigger button */}
                             <button type="button" class="btn btn-primary auction-form-modal-trigger" data-toggle="modal" data-target="#exampleModal">
                             Select Item
                             </button>
                         </div>
-                        {/* <select class="col-md-5 mx-auto" onChange={this.update("inventory_item_id")}>
-                            <option selected disabled hidden>-- Select Item --</option>
-                            {this.itemDropdown()}
-                        </select> */}
-                        
                     </div>
 
                     <div class="row">

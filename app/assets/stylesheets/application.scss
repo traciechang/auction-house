@@ -532,6 +532,19 @@ ul {
     border-radius: 5px;
 }
 
+.auction-form .item-box {
+    background-color: black;
+}
+
+.auction-form .item-box .item-img {
+    border: 4px solid grey;
+    border-radius: 5px;
+}
+
+.auction-form .item-box .item-name {
+    padding-top: 25px;
+}
+
 // My Bids
 .my-bids {
     padding: 20px;
