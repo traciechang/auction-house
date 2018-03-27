@@ -5,9 +5,6 @@ import AuctionEndedIndex from "./auction_ended_index";
 class MyBids extends React.Component {
     constructor(props) {
         super(props);
-
-        // this.displayActiveBids = this.displayActiveBids.bind(this);
-        // this.displayEndedBids = this.displayEndedBids.bind(this);
     }
 
     // Note: I started putting the fetch in componentDidMount, resulting in errors. It worked w/ WillMount, however.

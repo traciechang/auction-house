@@ -9,7 +9,7 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions() {
-        let arr = [];
+        // let arr = [];
         const selectedAuction = this.props.selectedAuction;
 
         if (!this.props.isBrowse && (Object.keys(this.props.auctions).length === 0)) {
@@ -17,16 +17,23 @@ class AuctionActiveIndex extends React.Component {
                 <div className="text-center no-auctions">There are currently no active auctions.</div>
             )
         } else {
-            Object.keys(this.props.auctions).forEach(key => {
+            return Object.keys(this.props.auctions).map(key => {
+                let auc = "false";
                 if (selectedAuction && (selectedAuction.id === this.props.auctions[key].id)) {
-                    arr.push(<li 
-                        key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="true"/></li>);
-                } else {
-                    arr.push(<li 
-                        key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="false"/></li>)
-                }
+                    auc = "true";
+                    // arr.push(<li 
+                    //     key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="true"/></li>);
+                } 
+
+                return (
+                    <li key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction={auc}/></li>
+                )
+                // else {
+                //     arr.push(<li 
+                //         key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="false"/></li>)
+                // }
             })
-            return arr;
+            // return arr;
         }
     }
 

@@ -495,6 +495,10 @@ ul {
     border-radius: 5px;
 }
 
+.auction-form-button:hover {
+    cursor: pointer;
+}
+
 .auction-form-img:hover {
     cursor: pointer;
 }
@@ -519,6 +523,13 @@ ul {
 
 .modal-auction-form {
     background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
+}
+
+.auction-form-modal-trigger {
+    background: darkred;
+    color: gold;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
 }
 
 // My Bids

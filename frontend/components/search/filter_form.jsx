@@ -18,17 +18,16 @@ class FilterForm extends React.Component {
     };
 
     filterList(e) {
-        let arr = [];
-
-        FILTERS.forEach(filter => {
+        return FILTERS.map(filter => {
+            let filt = "false";
             if (this.props.selectedFilter === filter) {
-                arr.push(<li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)} selected-filter="true">{filter}</li>);
-            } else {
-                arr.push(<li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)} selected-filter="false">{filter}</li>);
+                filt = "true"
             }
-        })
 
-        return arr;
+            return (
+                <li key={filter} onClick={this.props.handleFilterClick.bind(this, filter)} selected-filter={filt}>{filter}</li>
+            )
+        })
     };
 
     render() {

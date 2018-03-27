@@ -23,14 +23,20 @@ class AuctionForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.currentUser.id)
+        this.props.fetchUser(this.props.currentUser.id);
+
+        $('#exampleModal').on('hidden.bs.modal', () => {
+            this.setState({
+                "selected_inventory_item_id": ""
+            })
+        })
     }
 
     componentWillReceiveProps() {
         if (this.state.inventory_item_id) {
             this.props.history.push('/auctions')
         }
-    };
+    }; 
 
     handleItemClick(e) {
         this.setState({
@@ -98,16 +104,22 @@ class AuctionForm extends React.Component {
     }
 
     render() {
+        // this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id
+
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
                         <div class="auction-form-input mx-auto">
-                            <div class="text-light">{this.state.inventory_item_id}</div>
-                            
+                            <div>
+                            <div>
+
+                            </div>
+                            <div class="text-light"> {this.state.inventory_item_id}</div>
+                            </div>
                             {/* Modal trigger button */}
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary auction-form-modal-trigger" data-toggle="modal" data-target="#exampleModal">
                             Select Item
                             </button>
                         </div>
@@ -152,25 +164,23 @@ class AuctionForm extends React.Component {
 
                 {/* <!-- Modal --> */}
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content modal-auction-form">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-light" id="exampleModalLabel">My Inventory</h5>
-                       
-                    </div>
-                    <div class="modal-body">
-                    
-                    <ul className="row justify-content-center auction-form-modal-list">{this.itemModal()}</ul>
-                    
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button onClick={this.handleModalSubmit} type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-                    </div>
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content modal-auction-form">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-light" id="exampleModalLabel">My Inventory</h5>
+                        
+                        </div>
+                        <div class="modal-body">
+                        
+                        <ul className="row justify-content-center auction-form-modal-list">{this.itemModal()}</ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button onClick={this.handleModalSubmit} type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                        </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-
             </div>
         )
     }
