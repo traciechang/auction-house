@@ -59,10 +59,10 @@ class AuctionActiveDetail extends React.Component {
                     <li class="text-light col-lg-1 d-none d-lg-block user-li">{auction.user.username}</li>
 
                     <div className="col-sm-3 col-md-2 d-none d-sm-block bid-buyout">
-                        <li class="text-light">{bid_amount}</li>
+                        <li class="text-light">{bid_amount.toLocaleString()}</li>
                         <div className="buyout">
                             <li>Buyout</li>
-                            <li>{auction.buyout}</li>
+                            <li>{auction.buyout.toLocaleString()}</li>
                         </div>
                     </div>
                 </ul>

@@ -11,7 +11,7 @@ class FilterForm extends React.Component {
         if (this.props.currentUser) {
             return (
                 <div class="filter-form-gold-div row">
-                    <span className="filter-form-gold col-xs-3 mx-auto">Gold {this.props.currentUser.inventory.gold}</span>
+                    <span className="filter-form-gold col-xs-3 mx-auto">Gold {this.props.currentUser.inventory.gold.toLocaleString()}</span>
                 </div>
             )
         }

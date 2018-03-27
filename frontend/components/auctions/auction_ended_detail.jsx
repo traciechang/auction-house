@@ -22,10 +22,10 @@ class AuctionEndedDetail extends React.Component {
                     <li class="text-light col-lg-1 d-none d-lg-block user-li">{auction.bid ? auction.bid.username : "-"}</li>
 
                     <div className="col-sm-3 col-md-2 d-none d-sm-block bid-buyout">
-                        <li class="text-light">{auction.bid ? auction.bid.amount : 0}</li>
+                        <li class="text-light">{auction.bid ? auction.bid.amount.toLocaleString() : 0}</li>
                         <div class="buyout">
                             <li>Buyout Price</li>
-                            <li>{auction.buyout}</li>
+                            <li>{auction.buyout.toLocaleString()}</li>
                         </div>
                     </div>
                 </ul>

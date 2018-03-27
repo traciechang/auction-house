@@ -36,7 +36,7 @@ class Profile extends React.Component {
                     <div class="col-md-6 gold">
                         <span class="gold-span">
                             <div>Gold</div>
-                            <div>{this.props.currentUser.inventory.gold}</div>
+                            <div>{this.props.currentUser.inventory.gold.toLocaleString()}</div>
                         </span>
                     </div>
                     </div>
