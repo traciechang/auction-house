@@ -128,12 +128,15 @@ class AuctionForm extends React.Component {
                                 <div class="item-img">
                                     <img src={itm.image_url}/>
                                 </div>
-                                <div class="text-light item-name">{itm.name}</div>
+                                <div class="item-name">{itm.name}</div>
                             </div>
+
+                            <div class="button-div">
                             {/* Modal trigger button */}
                             <button type="button" class="btn btn-primary auction-form-modal-trigger" data-toggle="modal" data-target="#exampleModal">
                             Select Item
                             </button>
+                            </div>
                         </div>
                     </div>
 

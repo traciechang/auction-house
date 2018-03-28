@@ -530,19 +530,25 @@ ul {
     color: gold;
     border: 1px solid lightgrey;
     border-radius: 5px;
+    height: 45px;
 }
 
-.auction-form .item-box {
-    background-color: black;
+.auction-form .button-div {
+    margin-top: 20px;
 }
 
 .auction-form .item-box .item-img {
-    border: 4px solid grey;
+    border: 4px solid lightgrey;
     border-radius: 5px;
+    // background-image: url(http://res.cloudinary.com/dcf4iyb6t/image/upload/v1520884511/bedge-grunge-520x260.png);
+    margin-right: 10px;
+    min-height: 74x;
+    min-width: 74px;
 }
 
 .auction-form .item-box .item-name {
     padding-top: 25px;
+    color: gold;
 }
 
 // My Bids
