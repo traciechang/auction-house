@@ -25,15 +25,15 @@ class SearchForm extends React.Component {
         this.clearFilters = this.clearFilters.bind(this);
     }
 
+    componentDidUpdate() {
+        this.props.fetchAuctions(this.state);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
                 "item_type": nextProps.selectedFilter
             })
-        }
-
-        if (this.props.selectedFilter !== nextProps.selectedFilter) {
-            this.props.fetchAuctions(this.state);
         }
     };
 
