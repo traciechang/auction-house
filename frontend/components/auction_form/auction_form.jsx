@@ -19,6 +19,7 @@ class AuctionForm extends React.Component {
         this.itemModal = this.itemModal.bind(this);
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleModalSubmit = this.handleModalSubmit.bind(this);
+        this.displayItem = this.displayItem.bind(this);
     }
 
     componentDidMount() {
@@ -37,6 +38,23 @@ class AuctionForm extends React.Component {
         }
     }; 
 
+    displayItem() {
+        let itm;
+        if (this.state.inventory_item_id) {
+            itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
+
+            return (
+                <div class="row item-box">
+                    <div class="item-img">
+                        <img src={itm.image_url}/>
+                    </div>
+                    <div class="item-name">{itm.name}</div>
+                </div>
+            )
+        }
+
+    }
+    
     handleItemClick(e) {
         this.setState({
             "selected_inventory_item_id": e.currentTarget.value
@@ -90,26 +108,15 @@ class AuctionForm extends React.Component {
     }
 
     render() {
-        let itm = {};
-        if (this.state.inventory_item_id) {
-            itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
-        }
-
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
-                        <div class="auction-form-input col-md-5 mx-auto">
-                            <div class="row item-box">
-                                <div class="item-img">
-                                    <img src={itm.image_url}/>
-                                </div>
-                                <div class="item-name">{itm.name}</div>
-                            </div>
+                        <div class="auction-form-input col-md-5 mx-auto d-flex">
+                            {this.displayItem()}
 
-                            <div class="button-div">
-                            {/* Modal trigger button */}
+                            <div class="button-div ml-auto">
                             <button type="button" class="btn btn-primary auction-form-modal-trigger" data-toggle="modal" data-target="#exampleModal">
                             Select Item
                             </button>
