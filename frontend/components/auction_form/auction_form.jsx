@@ -16,7 +16,6 @@ class AuctionForm extends React.Component {
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
-        // this.itemDropdown = this.itemDropdown.bind(this);
         this.itemModal = this.itemModal.bind(this);
         this.handleItemClick = this.handleItemClick.bind(this);
         this.handleModalSubmit = this.handleModalSubmit.bind(this);
@@ -60,25 +59,6 @@ class AuctionForm extends React.Component {
         }))
     }
 
-    // itemDropdown() {
-    //     let sellable_items = [];
-    //     const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
-
-    //     Object.keys(inventoryItems).forEach(key => {
-    //         if (!inventoryItems[key].for_sale) {
-    //             sellable_items.push(inventoryItems[key])
-    //         }
-    //     })
-
-    //     return sellable_items.map(invItem => {
-    //         let itemObj = this.props.items[invItem.item_id];
-
-    //         return (
-    //             <option key={invItem.id} value={invItem.id}>{itemObj.name}</option>
-    //         )
-    //     })
-    // };
-
     itemModal() {
         let sellable_items = [];
         const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
@@ -114,9 +94,6 @@ class AuctionForm extends React.Component {
         if (this.state.inventory_item_id) {
             itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
         }
-        // let hasInv = this.props.currentUser.inventory_items ? true : false;
-        
-        // this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id
 
         return (
             <div class="container-fluid auction-form">
