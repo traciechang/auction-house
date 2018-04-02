@@ -8,7 +8,7 @@ class AuctionChannel < ApplicationCable::Channel
   end
 
   def receive
-    puts "In auction channel"
-    binding.pry
+    # puts "In auction channel"
+    # binding.pry
   end
 end
