@@ -30,7 +30,7 @@ class AuctionActiveDetail extends React.Component {
         if (this.props.auction && this.props.auction.buyout) {
             return <li>{this.props.auction.buyout.toLocaleString()}</li>
         } else {
-            return <li>&nbsp; - </li>
+            return <li>&nbsp; -- </li>
         }
     }
 

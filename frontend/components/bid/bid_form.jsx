@@ -62,10 +62,12 @@ class BidForm extends React.Component {
     }
 
     calculateBuyoutDifference() {
-        this.props.fetchBid(this.props.selectedAuction.id).done(response => {
+        return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
+            console.log("in bid form, calculatebuyoutdiff")
+            console.log(response)
             let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
-            
-            this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
+
+            return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
         })
     }
 
@@ -112,17 +114,27 @@ class BidForm extends React.Component {
                 "user_id": this.props.currentUser.id,
                 "auction_id": this.props.selectedAuction.id,
                 "amount": this.props.selectedAuction.buyout
-            })
-       
-            this.calculateBuyoutDifference();
-
-            this.props.updateAuction({
-                "id": this.props.selectedAuction.id,
-                "duration": 0
-            }).then(() => this.props.handleAuctionClick.bind(this, "")).then(() => {
+            }).then(() => {
+                return this.calculateBuyoutDifference()
+            }).then(() => {
+                this.props.updateAuction({
+                    "id": this.props.selectedAuction.id,
+                    "duration": 0
+                })
+            }).then(() => {
                 this.setState({"modal_message": "Buyout successful."});
                 $("#exampleModal").modal("show")
             })
+       
+            // this.calculateBuyoutDifference();
+
+            // this.props.updateAuction({
+            //     "id": this.props.selectedAuction.id,
+            //     "duration": 0
+            // }).then(() => this.props.handleAuctionClick.bind(this, "")).then(() => {
+            //     this.setState({"modal_message": "Buyout successful."});
+            //     $("#exampleModal").modal("show")
+            // })
         }
     };
 

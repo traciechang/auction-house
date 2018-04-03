@@ -28,6 +28,9 @@ namespace :auctionhouse do
                 # highest bid amount added to seller's gold
                 seller.inventory.update({gold: seller_gold_old + winning_bid.amount})
 
+                # auction is marked as paid
+                auction.update({paid: true, duration: 0})
+
                 # disperse deposits back to non winners
                 # winner's deposit is not returned
                 bidder_ids = auction.bids.where.not(user_id: buyer.id).pluck(:user_id).uniq
@@ -39,9 +42,6 @@ namespace :auctionhouse do
 
                     bidder.inventory.update({gold: bidder.inventory.gold + last_bid.amount})
                 end
-
-                # auction is marked as paid
-                auction.update({paid: true})
             end
         end
     end

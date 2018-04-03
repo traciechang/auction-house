@@ -41,7 +41,7 @@ class Api::AuctionsController < ApplicationController
 
     private
     def auction_params
-        params.require(:auction).permit(:user_id, :inventory_item_id, :starting_bid, :buyout, :duration, :auc)
+        params.require(:auction).permit(:user_id, :inventory_item_id, :starting_bid, :buyout, :duration, :paid, :auc)
     end
 
     def filtering_params(params)
