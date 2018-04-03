@@ -30,8 +30,8 @@ class BidForm extends React.Component {
     }
 
     componentDidMount() {
-        const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
-        this.sub = cable.subscriptions.create('AuctionChannel', {
+        // const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+        this.sub = App.cable.subscriptions.create('AuctionChannel', {
             received: this.handleReceiveNewBid
         })
     };

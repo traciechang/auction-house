@@ -16,8 +16,9 @@ class AuctionActiveDetail extends React.Component {
     componentDidMount() {
         this.intervalId = setInterval(this.tick, 1000);
 
-        const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
-        this.sub = cable.subscriptions.create('AuctionChannel', {
+        // const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
+        // const cable = ActionCable.createConsumer();
+        this.sub = App.cable.subscriptions.create('AuctionChannel', {
             received: this.handleReceiveNewBid
         })
     };
