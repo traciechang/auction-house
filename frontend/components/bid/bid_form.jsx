@@ -27,10 +27,10 @@ class BidForm extends React.Component {
         this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
         this.calculateDeposit = this.calculateDeposit.bind(this);
         this.calculateBuyoutDifference = this.calculateBuyoutDifference.bind(this);
+        this.disableBuyoutButton = this.disableBuyoutButton.bind(this);
     }
 
     componentDidMount() {
-        // const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
         this.sub = App.cable.subscriptions.create('AuctionChannel', {
             received: this.handleReceiveNewBid
         })
@@ -75,6 +75,14 @@ class BidForm extends React.Component {
             return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - deposit_amt})
         });
     };
+
+    disableBuyoutButton() {
+        if (this.props.selectedAuction.buyout) {
+            return (
+                <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
+            )
+        }
+    }
 
     handleBid(e) {
         e.preventDefault();
@@ -137,7 +145,7 @@ class BidForm extends React.Component {
                     </div>
                     <div class="col-s-4">
                         <button class="bid-button">Bid</button>
-                        <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
+                        {this.disableBuyoutButton()}
                     </div>
                 </form>
 

@@ -13,12 +13,12 @@ class NavigationBar extends React.Component {
             return (
                 <li className="ml-auto nav-bar-welcome-button">
                     <span class="text-light">Welcome, {this.props.currentUser.username}!</span>
-                    <button class="btn btn-outline-light" onClick={this.logout}>Log Out</button>
+                    <button class="btn btn-outline-light" onClick={this.logout} data-toggle="collapse" data-target="#navbarSupportedContent">Log Out</button>
                 </li>
             )
         } else {
             return (
-                <li class="ml-auto"><Link class="text-light" to="/login">Log In</Link></li>
+                <li class="ml-auto" data-toggle="collapse" data-target="#navbarSupportedContent"><Link class="text-light" to="/login">Log In</Link></li>
             )
         }
     }
@@ -37,10 +37,10 @@ class NavigationBar extends React.Component {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav d-flex">
                         <li class="p-2"><Link class="text-light" to="/">Browse</Link></li>
-                        <li class="p-2"><Link class="text-light" to="sell">Sell</Link></li>
-                        <li class="p-2"><Link class="text-light" to="bids">My Bids</Link></li>
-                        <li class="p-2"><Link class="text-light" to="auctions">My Auctions</Link></li>
-                        <li class="p-2"><Link class="text-light" to="profile">Profile</Link></li>
+                        <li class="p-2" data-toggle="collapse" data-target="#navbarSupportedContent"><Link class="text-light" to="sell">Sell</Link></li>
+                        <li class="p-2" data-toggle="collapse" data-target="#navbarSupportedContent"><Link class="text-light" to="bids">My Bids</Link></li>
+                        <li class="p-2" data-toggle="collapse" data-target="#navbarSupportedContent"><Link class="text-light" to="auctions">My Auctions</Link></li>
+                        <li class="p-2" data-toggle="collapse" data-target="#navbarSupportedContent"><Link class="text-light" to="profile">Profile</Link></li>
 
                         {this.buttonDisplay()}
                     </ul>

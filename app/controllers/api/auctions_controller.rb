@@ -25,7 +25,7 @@ class Api::AuctionsController < ApplicationController
         if @auction.save
             render :show
         else
-            render json: @auction, status: :unprocessable_entity
+            render json: @auction.errors.full_messages, status: 422
         end
     end
 

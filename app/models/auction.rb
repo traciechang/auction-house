@@ -1,7 +1,7 @@
 class Auction < ApplicationRecord
     attr_reader :duration
 
-    validates :user_id, :inventory_item_id, :end_time, presence: true
+    validates :user_id, :inventory_item_id, :end_time, :duration, presence: true
 
     after_initialize :ensure_end_time
     before_update :generate_end_time

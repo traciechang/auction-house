@@ -2,6 +2,7 @@ import * as AuctionAPIUtil from "../util/auction_api_util";
 
 export const RECEIVE_AUCTIONS = "RECEIVE_AUCTIONS";
 export const RECEIVE_AUCTION = "RECEIVE_AUCTION";
+export const RECEIVE_AUCTION_ERRORS = "RECEIVE_AUCTION_ERRORS";
 
 export const receiveAuction = auction => ({
     type: 'RECEIVE_AUCTION',
@@ -13,9 +14,16 @@ export const receiveAuctions = auctions => ({
     auctions
 });
 
+export const receiveAuctionErrors = errors => ({
+    type: "RECEIVE_AUCTION_ERRORS",
+    errors
+});
+
 export const createAuction = auction => dispatch => (
     AuctionAPIUtil.createAuction(auction).then(response => (
         dispatch(receiveAuction(response))
+    ), responseError => (
+        dispatch(receiveAuctionErrors(responseError.responseJSON))
     ))
 );
 

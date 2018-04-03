@@ -11,13 +11,12 @@ class AuctionActiveDetail extends React.Component {
 
         this.tick = this.tick.bind(this);
         this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
+        this.displayBuyout = this.displayBuyout.bind(this);
     };
 
     componentDidMount() {
         this.intervalId = setInterval(this.tick, 1000);
 
-        // const cable = ActionCable.createConsumer('ws://localhost:3000/cable')
-        // const cable = ActionCable.createConsumer();
         this.sub = App.cable.subscriptions.create('AuctionChannel', {
             received: this.handleReceiveNewBid
         })
@@ -25,6 +24,14 @@ class AuctionActiveDetail extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.intervalId);
+    }
+
+    displayBuyout() {
+        if (this.props.auction && this.props.auction.buyout) {
+            return <li>{this.props.auction.buyout.toLocaleString()}</li>
+        } else {
+            return <li>&nbsp; - </li>
+        }
     }
 
     handleReceiveNewBid(bid) {
@@ -63,7 +70,7 @@ class AuctionActiveDetail extends React.Component {
                         <li class="text-light">{bid_amount.toLocaleString()}</li>
                         <div className="buyout">
                             <li>Buyout</li>
-                            <li>{auction.buyout.toLocaleString()}</li>
+                            {this.displayBuyout()}
                         </div>
                     </div>
                 </ul>

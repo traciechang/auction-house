@@ -11,7 +11,8 @@ class AuctionForm extends React.Component {
             buyout: "",
             duration: "",
 
-            selected_inventory_item_id: ""
+            selected_inventory_item_id: "",
+            errors: []
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,9 +33,15 @@ class AuctionForm extends React.Component {
         })
     }
 
-    componentWillReceiveProps() {
-        if (this.state.inventory_item_id) {
+    componentWillReceiveProps(nextProps) {
+        if (this.state.inventory_item_id && this.state.duration) {
             this.props.history.push('/auctions')
+        }
+
+        if (nextProps.errors) {
+            this.setState({
+                "errors": nextProps.errors
+            })
         }
     }; 
 
@@ -55,6 +62,10 @@ class AuctionForm extends React.Component {
 
     }
     
+    errors() {
+        return this.state.errors.map(err => <li class="text-center text-light" key={err}>{err}</li>)
+    }
+
     handleItemClick(e) {
         this.setState({
             "selected_inventory_item_id": e.currentTarget.value
@@ -111,6 +122,11 @@ class AuctionForm extends React.Component {
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>
+
+                <div class="row">
+                    <ul class="mx-auto session-form-errors">{this.errors()}</ul>
+                </div>
+
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
                         <div class="auction-form-input col-md-5 mx-auto d-flex">

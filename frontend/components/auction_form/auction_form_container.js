@@ -6,7 +6,8 @@ import { fetchUser } from "../../actions/user_actions";
 
 const mapStateToProps = state => ({
     currentUser: state.session.currentUser,
-    items: state.entities.items
+    items: state.entities.items,
+    errors: state.errors.auction
 });
 
 const mapDispatchToProps = dispatch => ({

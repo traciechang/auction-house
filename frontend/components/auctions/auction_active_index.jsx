@@ -9,7 +9,6 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions() {
-        // let arr = [];
         const selectedAuction = this.props.selectedAuction;
 
         if (!this.props.isBrowse && (Object.keys(this.props.auctions).length === 0)) {
@@ -21,19 +20,12 @@ class AuctionActiveIndex extends React.Component {
                 let auc = "false";
                 if (selectedAuction && (selectedAuction.id === this.props.auctions[key].id)) {
                     auc = "true";
-                    // arr.push(<li 
-                    //     key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="true"/></li>);
                 } 
 
                 return (
                     <li key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction={auc}/></li>
                 )
-                // else {
-                //     arr.push(<li 
-                //         key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction="false"/></li>)
-                // }
             })
-            // return arr;
         }
     }
 
