@@ -64,6 +64,7 @@ class BidForm extends React.Component {
     calculateBuyoutDifference() {
         this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
+            
             this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
         })
     }
