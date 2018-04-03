@@ -59,6 +59,9 @@ class SessionForm extends React.Component {
     render() {
         return (
             <div class="session-form">
+                <div className="text-center">
+                    <img src="http://res.cloudinary.com/dcf4iyb6t/image/upload/v1522723405/Logos/New_WorldOfWarcraft_logo_small.png"/>
+                </div>
                 <h1 class="text-center">Remote Auction House</h1>
 
                 <div class="row">
