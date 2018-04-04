@@ -26,7 +26,6 @@ class AuctionEndedDetail extends React.Component {
                         <div class="buyout">
                             <li>Buyout Price</li>
                             <li>{auction.buyout ? auction.buyout.toLocaleString() : "--"}</li>
-                            {/* <li>{auction.buyout.toLocaleString()}</li> */}
                         </div>
                     </div>
                 </ul>

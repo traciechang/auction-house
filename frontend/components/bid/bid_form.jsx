@@ -63,8 +63,6 @@ class BidForm extends React.Component {
 
     calculateBuyoutDifference() {
         return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
-            console.log("in bid form, calculatebuyoutdiff")
-            console.log(response)
             let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
 
             return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
@@ -125,16 +123,6 @@ class BidForm extends React.Component {
                 this.setState({"modal_message": "Buyout successful."});
                 $("#exampleModal").modal("show")
             })
-       
-            // this.calculateBuyoutDifference();
-
-            // this.props.updateAuction({
-            //     "id": this.props.selectedAuction.id,
-            //     "duration": 0
-            // }).then(() => this.props.handleAuctionClick.bind(this, "")).then(() => {
-            //     this.setState({"modal_message": "Buyout successful."});
-            //     $("#exampleModal").modal("show")
-            // })
         }
     };
 
