@@ -17,8 +17,9 @@ class BidForm extends React.Component {
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
             amount: min_bid,
+
             minimum_bid: min_bid,
-            modal_message: ""
+            modal_message: "",
         }
         
         this.handleBid = this.handleBid.bind(this);

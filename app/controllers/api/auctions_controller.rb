@@ -33,6 +33,9 @@ class Api::AuctionsController < ApplicationController
         @auction = Auction.find(params[:id])
         
         if @auction.update(auction_params)
+            ActionCable.server.broadcast 'auction_channel',
+                id: @auction.id,
+                end_time: @auction.end_time
             render :show
         else
             render json: @auction, status: :unprocessable_entity
