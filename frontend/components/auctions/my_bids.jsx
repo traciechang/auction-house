@@ -7,7 +7,6 @@ class MyBids extends React.Component {
         super(props);
     }
 
-    // Note: I started putting the fetch in componentDidMount, resulting in errors. It worked w/ WillMount, however.
     componentWillMount() {
         this.props.fetchMyBidAuctions();
     }

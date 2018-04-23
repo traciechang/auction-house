@@ -6,7 +6,6 @@ end
 
 json.user do
     json.extract! auction.user, :username
-    # json.partial! auction.user, partial: 'api/users/user', as: :user
 end
 
 json.item_id do

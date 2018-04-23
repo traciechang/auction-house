@@ -1,6 +1,5 @@
 class Api::AuctionsController < ApplicationController
     def index
-        # @auctions = AuctionSearchBuilder.new(params)
         if params[:auc] == "myauctions"
             @auctions = current_user.auctions
         elsif params[:auc] == "mybids"

@@ -4,11 +4,8 @@ class AuctionChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
   end
 
   def receive
-    # puts "In auction channel"
-    # binding.pry
   end
 end

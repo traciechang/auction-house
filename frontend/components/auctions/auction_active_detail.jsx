@@ -36,8 +36,6 @@ class AuctionActiveDetail extends React.Component {
 
     handleReceiveNewBid(bid) {
         if (bid.end_time) {
-            console.log("it's hitting it!!")
-            console.log(bid.end_time)
             if ((bid.id === this.props.auction.id) && (new Date(bid.end_time) < new Date())) {
                 this.props.fetchAuction(bid.id)
             }
