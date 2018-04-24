@@ -10,31 +10,31 @@ class Auction < ApplicationRecord
     has_many :bids, dependent: :destroy
     belongs_to :inventory_item
 
-    scope :item_name, -> (name) {
+    scope :with_item_name, -> (name) {
         item_ids = Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
     }
 
-    scope :item_quality, -> (quality) { 
+    scope :with_item_quality, -> (quality) { 
         item_ids = Item.where(quality: quality).pluck(:id)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }
 
-     scope :item_level_min, -> (level_min) {
+     scope :with_minimum_item_level, -> (level_min) {
         item_ids = Item.where("level >= ?", level_min)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }
 
-     scope :item_level_max, -> (level_max) {
+     scope :with_maximum_item_level, -> (level_max) {
         item_ids = Item.where("level <= ?", level_max)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }
 
-     scope :item_type, -> (item_type) {
+     scope :with_item_type, -> (item_type) {
         item_ids = Item.where("item_type = ?", item_type)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)

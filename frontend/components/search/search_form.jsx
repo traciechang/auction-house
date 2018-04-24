@@ -14,10 +14,10 @@ class SearchForm extends React.Component {
         super(props);
 
         this.state = {
-            item_level_min: "",
-            item_level_max: "",
-            item_quality: "",
-            item_type: ""
+            with_minimum_item_level: "",
+            with_maximum_item_level: "",
+            with_item_quality: "",
+            with_item_type: ""
         }
 
         this.displayQuality = this.displayQuality.bind(this);
@@ -32,7 +32,7 @@ class SearchForm extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
-                "item_type": nextProps.selectedFilter
+                "with_item_type": nextProps.selectedFilter
             })
         }
     };
@@ -40,11 +40,11 @@ class SearchForm extends React.Component {
     clearFilters(e) {
         e.preventDefault();
         this.props.fetchAuctions().then(this.setState({
-            item_name: "",
-            item_level_min: "",
-            item_level_max: "",
-            item_quality: "",
-            item_type: ""
+            with_item_name: "",
+            with_minimum_item_level: "",
+            with_maximum_item_level: "",
+            with_item_quality: "",
+            with_item_type: ""
         }));
         this.props.handleFilterClick("");
     };
@@ -55,7 +55,7 @@ class SearchForm extends React.Component {
         ))
 
         return (
-            <select onChange={this.update("item_quality")} value={this.state.item_quality}>
+            <select onChange={this.update("with_item_quality")} value={this.state.with_item_quality}>
                 <option value="" selected disabled hidden>--Select--</option>
                 {qualities}
             </select>
@@ -73,13 +73,13 @@ class SearchForm extends React.Component {
                 <form class="form-row align-items-center d-flex justify-content-start" onSubmit={this.handleSubmit}>
                     <div class="col-xs-12 col-md-4 col-lg-3 name-div">
                         <label>Name</label>
-                        <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
+                        <input onChange={this.update("with_item_name")} value={this.state.with_item_name || ""}/>
                     </div>
                     
                     <div class="col-lg-3 col-xs-12 col-md-4 level-div">
                         <label>Level Range</label>
-                        <input onChange={this.update("item_level_min")} value={this.state.item_level_min} type="number" min={1} max={120}/>&nbsp; - &nbsp;
-                        <input onChange={this.update("item_level_max")} value={this.state.item_level_max} type="number" min={1} max={120}/>
+                        <input onChange={this.update("with_minimum_item_level")} value={this.state.with_minimum_item_level} type="number" min={1} max={120}/>&nbsp; - &nbsp;
+                        <input onChange={this.update("with_maximum_item_level")} value={this.state.with_maximum_item_level} type="number" min={1} max={120}/>
                     </div>
                     
 

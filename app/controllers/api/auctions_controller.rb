@@ -47,11 +47,12 @@ class Api::AuctionsController < ApplicationController
     end
 
     def filtering_params(params)
-        params.slice(:item_name, :item_level_min, :item_level_max, :item_type, :item_quality)
+        params.slice(:with_item_name, :with_minimum_item_level, :with_maximum_item_level, :with_item_type, :with_item_quality)
     end
 end
 
-# ===
+# *****************************************************
+# Alternative Auction Search
 
 # def index
 #     if params[:auc] == "myauctions"
@@ -61,11 +62,6 @@ end
 #         @auctions = Auction.where(id: auction_ids)
 #     else
 #       @auctions = AuctionSearch.new(filter_params).search
-#         # @auctions = Auction.all
-
-#         # filtering_params(params).each do |key, val|
-#             # @auctions = @auctions.public_send(key, val) if val.present?
-#         # end
 #     end
 #     @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
 # end
@@ -73,45 +69,25 @@ end
 # app/services/auction_search.rb
 
 # class AuctionSearch
-# def initialize(attributes)
-# @attributes = attributes
+#     def initialize(attributes)
+#         @attributes = attributes
+#     end
+
+#     attr_reader :attributes
+
+#     def search
+#         auctions = Auction.all
+
+#         if attributes[:item_name]
+#         auctions.with_item_name(attributes[:item_name])
+#         end
+
+#         if attributes[:item_level_min]
+#         auctions.with_min_level(attributes[:item_name])
+#         end
+
+#         if attributes(:limit)
+#         auctions.limit(attributes[:limit])
+#         end
+#     end
 # end
-
-# attr_reader :attributes
-
-# # def search
-# # auctions = Auction.all
-
-# # if attributes[:item_name]
-#   # auctions.with_item_name(attributes[:item_name])
-# # end
-
-# # if attributes[:item_level_min]
-#   # auctions.with_min_level(attributes[:item_name])
-# # end
-
-# # if attributes(:limit)
-#   # auctions.limit(attributes[:limit])
-# # end
-# # end
-
-# def search
-# items = Item.all
-
-# attributes.each do |column, val|
-#   items = items.where(column => val)
-# end
-
-# inventory_items = InventoryItem.where(item_id: items.ids)
-# Auction.where(inventory_item_id: inventory_items.ids)
-# end
-# end
-
-# scope naming suggestions for auction.rb
-
-# Auction.with_item_name('hammer')
-#  Auction.with_quality()
-#  Auction.with_minimum_level(level)
-#  Auction.with_max_level(level)
-#  Auction.with_item_type('weapon')
-#  Auction.ended
