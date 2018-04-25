@@ -14,13 +14,6 @@ class AuctionForm extends React.Component {
             selected_inventory_item_id: "",
             errors: []
         }
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.update = this.update.bind(this);
-        this.itemModal = this.itemModal.bind(this);
-        this.handleItemClick = this.handleItemClick.bind(this);
-        this.handleModalSubmit = this.handleModalSubmit.bind(this);
-        this.displayItem = this.displayItem.bind(this);
     }
 
     componentDidMount() {
@@ -45,7 +38,7 @@ class AuctionForm extends React.Component {
         }
     }; 
 
-    displayItem() {
+    displayItem = () => {
         let itm;
         if (this.state.inventory_item_id) {
             itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
@@ -66,20 +59,20 @@ class AuctionForm extends React.Component {
         return this.state.errors.map(err => <li class="text-center text-light" key={err}>{err}</li>)
     }
 
-    handleItemClick(e) {
+    handleItemClick = (e) => {
         this.setState({
             "selected_inventory_item_id": e.currentTarget.value
         })
     };
 
-    handleModalSubmit(e) {
+    handleModalSubmit = (e) => {
         e.preventDefault();
         this.setState({
             "inventory_item_id": this.state.selected_inventory_item_id
         })
     };
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.createAuction(this.state)
         .then(this.props.updateInventoryItem({
@@ -88,7 +81,7 @@ class AuctionForm extends React.Component {
         }))
     }
 
-    itemModal() {
+    itemModal = () => {
         let sellable_items = [];
         const inventoryItems = this.props.currentUser.inventory_items ? this.props.currentUser.inventory_items : {};
 
@@ -195,7 +188,7 @@ class AuctionForm extends React.Component {
         )
     }
 
-    update(key) {
+    update = (key) => {
         return e => this.setState({[key]: parseInt(e.target.value)})
     };
 }

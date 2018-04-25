@@ -4,11 +4,9 @@ import AuctionEndedDetailContainer from "./auction_ended_detail_container";
 class AuctionEndedIndex extends React.Component {
     constructor(props) {
         super(props);
-
-        this.allAuctions = this.allAuctions.bind(this);
     }
 
-    allAuctions() {
+    allAuctions = () => {
         if (Object.keys(this.props.auctions).length === 0) {
             return (
                 <div className="text-center no-auctions">None to display.</div>

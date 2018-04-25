@@ -8,10 +8,6 @@ class AuctionActiveDetail extends React.Component {
         this.state = {
             time: new Date(),
         }
-
-        this.tick = this.tick.bind(this);
-        this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
-        this.displayBuyout = this.displayBuyout.bind(this);
     };
 
     componentDidMount() {
@@ -26,7 +22,7 @@ class AuctionActiveDetail extends React.Component {
         clearInterval(this.intervalId);
     }
 
-    displayBuyout() {
+    displayBuyout = () => {
         if (this.props.auction && this.props.auction.buyout) {
             return <li>{this.props.auction.buyout.toLocaleString()}</li>
         } else {
@@ -34,7 +30,7 @@ class AuctionActiveDetail extends React.Component {
         }
     }
 
-    handleReceiveNewBid(bid) {
+    handleReceiveNewBid = (bid) => {
         if (bid.end_time) {
             if ((bid.id === this.props.auction.id) && (new Date(bid.end_time) < new Date())) {
                 this.props.fetchAuction(bid.id)
@@ -83,7 +79,7 @@ class AuctionActiveDetail extends React.Component {
         )
     }
 
-    tick() {
+    tick = () => {
         this.setState({time: new Date()})
     };
 

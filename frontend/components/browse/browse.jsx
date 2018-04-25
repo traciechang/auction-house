@@ -12,9 +12,6 @@ class Browse extends React.Component {
             selectedAuction: "",
             selectedFilter: ""
         }
-
-        this.handleAuctionClick = this.handleAuctionClick.bind(this);
-        this.handleFilterClick = this.handleFilterClick.bind(this);
     }
 
     componentWillMount() {
@@ -30,11 +27,11 @@ class Browse extends React.Component {
         }
     };
 
-    handleAuctionClick(auction) {
+    handleAuctionClick = (auction) => {
         this.setState({"selectedAuction": auction});
     }
 
-    handleFilterClick(filter) {
+    handleFilterClick = (filter) => {
         this.setState({"selectedFilter": filter})
     };
 

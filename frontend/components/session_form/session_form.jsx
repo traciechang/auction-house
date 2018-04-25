@@ -10,9 +10,6 @@ class SessionForm extends React.Component {
             password: "",
             errors: []
         }
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.updateInput = this.updateInput.bind(this);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -43,7 +40,7 @@ class SessionForm extends React.Component {
         return this.state.errors.map(err => <li class="text-center text-light" key={err}>{err}</li>)
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         this.props.processForm(this.state)
     }
@@ -92,7 +89,7 @@ class SessionForm extends React.Component {
         )
     }
 
-    updateInput(key) {
+    updateInput = (key) => {
         return e => this.setState({[key]: e.currentTarget.value})
     };
 }

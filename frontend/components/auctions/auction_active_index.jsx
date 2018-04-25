@@ -4,11 +4,9 @@ import AuctionActiveDetailContainer from "./auction_active_detail_container";
 class AuctionActiveIndex extends React.Component {
     constructor(props) {
         super(props);
-
-        this.allAuctions = this.allAuctions.bind(this);
     }
 
-    allAuctions() {
+    allAuctions = () => {
         const selectedAuction = this.props.selectedAuction;
 
         if (!this.props.isBrowse && (Object.keys(this.props.auctions).length === 0)) {

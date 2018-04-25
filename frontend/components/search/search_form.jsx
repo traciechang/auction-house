@@ -19,10 +19,6 @@ class SearchForm extends React.Component {
             with_item_quality: "",
             with_item_type: ""
         }
-
-        this.displayQuality = this.displayQuality.bind(this);
-        // this.handleSubmit = this.handleSubmit.bind(this);
-        this.clearFilters = this.clearFilters.bind(this);
     }
 
     componentDidUpdate() {
@@ -37,7 +33,7 @@ class SearchForm extends React.Component {
         }
     };
 
-    clearFilters(e) {
+    clearFilters = (e) => {
         e.preventDefault();
         this.props.fetchAuctions().then(this.setState({
             with_item_name: "",
@@ -49,7 +45,7 @@ class SearchForm extends React.Component {
         this.props.handleFilterClick("");
     };
 
-    displayQuality() {
+    displayQuality = () => {
         const qualities = Object.keys(QUALITY).map(key => (
             <option value={key} key={key}>{QUALITY[key]}</option>
         ))
@@ -62,7 +58,7 @@ class SearchForm extends React.Component {
         )
     };
 
-    // handleSubmit(e) {
+    // handleSubmit = (e) => {
     //     e.preventDefault();
     //     this.props.fetchAuctions(this.state);
     // }

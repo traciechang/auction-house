@@ -17,18 +17,9 @@ class BidForm extends React.Component {
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
             amount: min_bid,
-
             minimum_bid: min_bid,
             modal_message: "",
         }
-        
-        this.handleBid = this.handleBid.bind(this);
-        this.handleUpdate = this.handleUpdate.bind(this);
-        this.handleBuyout = this.handleBuyout.bind(this);
-        this.handleReceiveNewBid = this.handleReceiveNewBid.bind(this);
-        this.calculateDeposit = this.calculateDeposit.bind(this);
-        this.calculateBuyoutDifference = this.calculateBuyoutDifference.bind(this);
-        this.disableBuyoutButton = this.disableBuyoutButton.bind(this);
     }
 
     componentDidMount() {
@@ -62,16 +53,16 @@ class BidForm extends React.Component {
         }
     }
 
-    calculateBuyoutDifference() {
-        // const { selectedAuction } = this.props;
-        return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
-            let amt_owed = response.amount ? this.props.selectedAuction.buyout - response.amount : this.props.selectedAuction.buyout;
+    calculateBuyoutDifference = () => {
+        const { selectedAuction, currentUser } = this.props;
+        return this.props.fetchBid(selectedAuction.id).done(response => {
+            let amt_owed = response.amount ? selectedAuction.buyout - response.amount : selectedAuction.buyout;
 
-            return this.props.updateInventory({"id": this.props.currentUser.inventory.id, "gold": this.props.currentUser.inventory.gold - amt_owed})
+            return this.props.updateInventory({"id": currentUser.inventory.id, "gold": currentUser.inventory.gold - amt_owed})
         })
     }
 
-    calculateDeposit() {
+    calculateDeposit = () => {
         return this.props.fetchBid(this.props.selectedAuction.id).done(response => {
             let deposit_amt = response.amount ? this.state.amount - response.amount : this.state.amount;
 
@@ -79,7 +70,7 @@ class BidForm extends React.Component {
         });
     };
 
-    disableBuyoutButton() {
+    buyoutButton = () => {
         if (this.props.selectedAuction.buyout) {
             return (
                 <button class="buyout-button" onClick={this.handleBuyout}>Buyout</button>
@@ -87,7 +78,7 @@ class BidForm extends React.Component {
         }
     }
 
-    handleBid(e) {
+    handleBid = (e) => {
         e.preventDefault();
         if (this.state.amount > this.props.currentUser.inventory.gold) {
             this.setState({"modal_message": "You do not have enough gold to submit this bid."});
@@ -104,7 +95,7 @@ class BidForm extends React.Component {
         }
     };
 
-    handleBuyout(e) {
+    handleBuyout = (e) => {
         e.preventDefault();
         if (this.props.selectedAuction.buyout > this.props.currentUser.inventory.gold) {
             this.setState({"modal_message": "You do not have enough gold for this buyout."});
@@ -128,13 +119,13 @@ class BidForm extends React.Component {
         }
     };
 
-    handleReceiveNewBid(bid) {
+    handleReceiveNewBid = (bid) => {
         if (bid.auction_id === this.props.selectedAuction.id) {
             this.setState({"minimum_bid": bid.amount + 1})
         }
     }
 
-    handleUpdate(key) {
+    handleUpdate = (key) => {
         return e => this.setState({[key]: e.currentTarget.value})
     };
 
@@ -148,7 +139,7 @@ class BidForm extends React.Component {
                     </div>
                     <div class="col-s-4">
                         <button class="bid-button">Bid</button>
-                        {this.disableBuyoutButton()}
+                        {this.buyoutButton()}
                     </div>
                 </form>
 
