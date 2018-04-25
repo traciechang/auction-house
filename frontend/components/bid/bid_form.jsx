@@ -1,23 +1,15 @@
 import React from "react";
+import BidModal from "../modal/bid_modal";
 
 class BidForm extends React.Component {
     constructor(props) {
         super(props);
 
-        let min_bid;
-        if (this.props.selectedAuction.bid) {
-            min_bid = this.props.selectedAuction.bid.amount + 1
-        } else if (this.props.selectedAuction.starting_bid) {
-            min_bid = this.props.selectedAuction.starting_bid
-        } else {
-            min_bid = 1
-        };
-
         this.state = {
             user_id: this.props.currentUser.id,
             auction_id: this.props.selectedAuction.id,
-            amount: min_bid,
-            minimum_bid: min_bid,
+            amount: this.minimumBid(this.props),
+            minimum_bid: this.minimumBid(this.props),
             modal_message: "",
         }
     }
@@ -29,15 +21,8 @@ class BidForm extends React.Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        let min_bid;
         if (nextProps) {
-            if (nextProps.selectedAuction.bid) {
-                min_bid = nextProps.selectedAuction.bid.amount + 1
-            } else if (nextProps.selectedAuction.starting_bid) {
-                min_bid = nextProps.selectedAuction.starting_bid
-            } else {
-                min_bid = 1
-            };
+            let min_bid = this.minimumBid(nextProps);
 
             if (nextProps.selectedAuction.id === this.props.selectedAuction.id) {
                 this.setState({
@@ -129,6 +114,16 @@ class BidForm extends React.Component {
         return e => this.setState({[key]: e.currentTarget.value})
     };
 
+    minimumBid = (prop) => {
+        if (prop.selectedAuction.bid) {
+            return prop.selectedAuction.bid.amount + 1;
+        } else if (prop.selectedAuction.starting_bid) {
+            return prop.selectedAuction.starting_bid;
+        } else {
+            return 1;
+        };
+    }
+
     render() {
         return (
             <div class="container-fluid bid-form">
@@ -143,25 +138,7 @@ class BidForm extends React.Component {
                     </div>
                 </form>
 
-                {/* Modal */}
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                {this.state.modal_message}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <BidModal message={this.state.modal_message}/>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import ItemsModal from "../modal/items_modal";
 
 class AuctionForm extends React.Component {
     constructor(props) {
@@ -165,25 +166,7 @@ class AuctionForm extends React.Component {
                     </div>
                 </form>
 
-                {/* <!-- Modal --> */}
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content modal-auction-form">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-light" id="exampleModalLabel">My Inventory</h5>
-                        
-                        </div>
-                        <div class="modal-body">
-                        
-                        <ul className="row justify-content-center auction-form-modal-list">{this.itemModal()}</ul>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button onClick={this.handleModalSubmit} type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-                        </div>
-                        </div>
-                    </div>
-                </div>
+                <ItemsModal items={this.itemModal()} handleModalSubmit={this.handleModalSubmit}/>
             </div>
         )
     }
