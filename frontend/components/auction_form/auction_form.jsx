@@ -11,7 +11,6 @@ class AuctionForm extends React.Component {
             starting_bid: "",
             buyout: "",
             duration: "",
-
             selected_inventory_item_id: "",
             errors: []
         }
@@ -53,7 +52,6 @@ class AuctionForm extends React.Component {
                 </div>
             )
         }
-
     }
     
     errors() {
