@@ -30,8 +30,6 @@ class AuctionForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { duration, inventory_item_id } = this.state;
-
         if (nextProps.errors) {
             this.setState({
                 "errors": nextProps.errors
