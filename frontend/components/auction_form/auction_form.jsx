@@ -17,7 +17,9 @@ class AuctionForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.currentUser.id);
+        const { currentUser, fetchUser } = this.props;
+        
+        fetchUser(currentUser.id);
 
         $('#exampleModal').on('hidden.bs.modal', () => {
             this.setState({
@@ -27,7 +29,10 @@ class AuctionForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.state.inventory_item_id && this.state.duration) {
+        const { duration, inventory_item_id } = this.state;
+
+        if (inventory_item_id && duration) {
+            // callback in "onSubmit/handleSubmit" function
             this.props.history.push('/auctions')
         }
 
