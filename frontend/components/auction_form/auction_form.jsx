@@ -37,17 +37,6 @@ class AuctionForm extends React.Component {
         }
     };
 
-    displayItem = () => {
-        let itm;
-        if (this.state.inventory_item_id) {
-            itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
-
-            return (
-                <Item item={itm} />
-            )
-        }
-    }
-    
     errors() {
         return this.state.errors.map(err => <li class="text-center text-light" key={err}>{err}</li>)
     }
