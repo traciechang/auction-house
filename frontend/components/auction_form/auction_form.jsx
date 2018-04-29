@@ -35,7 +35,7 @@ class AuctionForm extends React.Component {
                 "errors": nextProps.errors
             })
         }
-    }; 
+    };
 
     displayItem = () => {
         let itm;
