@@ -32,11 +32,6 @@ class AuctionForm extends React.Component {
     componentWillReceiveProps(nextProps) {
         const { duration, inventory_item_id } = this.state;
 
-        if (inventory_item_id && duration) {
-            // callback in "onSubmit/handleSubmit" function
-            this.props.history.push('/auctions')
-        }
-
         if (nextProps.errors) {
             this.setState({
                 "errors": nextProps.errors
@@ -73,12 +68,17 @@ class AuctionForm extends React.Component {
     };
 
     handleSubmit = (e) => {
+        const { createAuction, history, updateInventoryItem } = this.props;
+
         e.preventDefault();
-        this.props.createAuction(this.state)
-        .then(this.props.updateInventoryItem({
-            id: this.state.inventory_item_id,
-            for_sale: true
-        }))
+        createAuction(this.state).then(() => {
+            updateInventoryItem({
+                id: this.state.inventory_item_id,
+                for_sale: true
+            });
+
+            history.push('/auctions');
+        })
     }
 
     itemModal = () => {
