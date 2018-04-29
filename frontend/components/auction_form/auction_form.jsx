@@ -1,5 +1,6 @@
 import React from "react";
 import ItemsModal from "../modal/items_modal";
+import Item from "./item";
 
 class AuctionForm extends React.Component {
     constructor(props) {
@@ -49,12 +50,7 @@ class AuctionForm extends React.Component {
             itm = this.props.items[this.props.currentUser.inventory_items[this.state.inventory_item_id].item_id];
 
             return (
-                <div class="row item-box">
-                    <div class="item-img">
-                        <img src={itm.image_url}/>
-                    </div>
-                    <div class="item-name">{itm.name}</div>
-                </div>
+                <Item item={itm} />
             )
         }
     }
