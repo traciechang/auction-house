@@ -110,6 +110,11 @@ class AuctionForm extends React.Component {
     }
 
     render() {
+        const { inventory_item_id } = this.state;
+        const { currentUser, items } = this.props;
+
+        const item = inventory_item_id && items[currentUser.inventory_items[inventory_item_id].item_id];
+
         return (
             <div class="container-fluid auction-form">
                 <h1>Create an Auction</h1>
@@ -121,7 +126,7 @@ class AuctionForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div class="row">
                         <div class="auction-form-input col-md-5 mx-auto d-flex">
-                            {this.displayItem()}
+                            {item && <Item item={item} />}
 
                             <div class="button-div ml-auto">
                             <button type="button" class="btn btn-primary auction-form-modal-trigger" data-toggle="modal" data-target="#exampleModal">
