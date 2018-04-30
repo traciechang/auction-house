@@ -7,21 +7,21 @@ class AuctionActiveIndex extends React.Component {
     }
 
     allAuctions = () => {
-        const selectedAuction = this.props.selectedAuction;
+        const { auctions, handleAuctionClick, isBrowse, selectedAuction } = this.props;
 
-        if (!this.props.isBrowse && (Object.keys(this.props.auctions).length === 0)) {
+        if (!isBrowse && (Object.keys(auctions).length === 0)) {
             return (
                 <div className="text-center no-auctions">There are currently no active auctions.</div>
             )
         } else {
-            return Object.keys(this.props.auctions).map(key => {
+            return Object.keys(auctions).map(key => {
                 let auc = "false";
-                if (selectedAuction && (selectedAuction.id === this.props.auctions[key].id)) {
+                if (selectedAuction && (selectedAuction.id === auctions[key].id)) {
                     auc = "true";
                 } 
 
                 return (
-                    <li key={key}><AuctionActiveDetailContainer auction={this.props.auctions[key]} handleAuctionClick={this.props.handleAuctionClick} selectedAuction={auc}/></li>
+                    <li key={key}><AuctionActiveDetailContainer auction={auctions[key]} handleAuctionClick={handleAuctionClick} selectedAuction={auc}/></li>
                 )
             })
         }

@@ -7,7 +7,7 @@ class Api::AuctionsController < ApplicationController
             @auctions = Auction.where(id: auction_ids)
         else
             @auctions = Auction.all
-            filtering_params(params).each do |key, val|
+            filtering_params.each do |key, val|
                 @auctions = @auctions.public_send(key, val) if val.present?
             end
         end
@@ -46,9 +46,13 @@ class Api::AuctionsController < ApplicationController
         params.require(:auction).permit(:user_id, :inventory_item_id, :starting_bid, :buyout, :duration, :paid, :auc)
     end
 
-    def filtering_params(params)
+    def filtering_params
         params.slice(:with_item_name, :with_minimum_item_level, :with_maximum_item_level, :with_item_type, :with_item_quality)
     end
+
+    # def item_params
+        # params.slice(:name, :minimum_item_level, :maximum_item_level, :item_type, :quality)
+    # end
 end
 
 # *****************************************************
@@ -91,3 +95,41 @@ end
 #         end
 #     end
 # end
+
+# class AuctionSearch
+#     def initialize(attributes)
+#         @attributes = attributes
+#     end
+
+#     attr_reader :attributes
+
+#     def call
+#         items = Item
+#         attributes.each do |column, val|
+#             items = items.where(column => val)
+#         end
+#         inventory_items = InventoryItem.where(item_id: items.ids)
+#         Auction.where(:inventory_item_id: inventory_items)
+#     end
+# end
+
+# class AuctionSearch
+#     def initialize(attributes)
+#         @attributes = attributes
+#     end
+
+#     attr_reader :attributes
+
+#     def call
+#         Auction.
+#             with_item_name(attributes[:item_name]).
+#             with_item_quality(attributes[:item_quality]).
+#             with_minimum_item_level(attributes[:minimum_item_level]).
+#             with_maximum_item_level(attributes[:maximum_item_level]).
+#             with_min_level(attributes[:minimum_item_level])
+#     end
+# end
+
+# screenshot of scopes, and screenshot of above method
+# talk about reasoning for why you prefer an explicit approach and chaining scopes, vs dynamically using `public_send`, or using conditionals
+# talk about how this is easier to understand, although more verbose, and is very straight forward to modify or add to if you wanted more scopes in the future
