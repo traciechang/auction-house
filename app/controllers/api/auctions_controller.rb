@@ -8,12 +8,9 @@ class Api::AuctionsController < ApplicationController
             auction_ids = current_user.bids.pluck(:auction_id).uniq
             @auctions = Auction.where(id: auction_ids)
         else
-            # @auctions = AuctionSearchService.new(item_params).call
+            @auctions = AuctionSearchService.new(item_params).call
 
-            @auctions = Auction.all
-            filtering_params.each do |key, val|
-                @auctions = @auctions.public_send(key, val) if val.present?
-            end
+            
         end
         @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
     end

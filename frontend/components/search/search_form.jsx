@@ -13,20 +13,15 @@ class SearchForm extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            with_minimum_item_level: "",
-            with_maximum_item_level: "",
-            with_item_quality: "",
-            with_item_type: ""
-        }
+        
 
-        // this.state = {
-        //     item_name: "",
-        //     minimum_item_level: "",
-        //     maximum_item_level: "",
-        //     item_type: "",
-        //     item_quality: ""
-        // }
+        this.state = {
+            item_name: "",
+            minimum_item_level: "",
+            maximum_item_level: "",
+            item_type: "",
+            item_quality: ""
+        }
     }
 
     componentDidUpdate() {
@@ -36,7 +31,7 @@ class SearchForm extends React.Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
             this.setState({
-                "with_item_type": nextProps.selectedFilter
+                "item_type": nextProps.selectedFilter
             })
         }
     };
@@ -44,11 +39,11 @@ class SearchForm extends React.Component {
     clearFilters = (e) => {
         e.preventDefault();
         this.props.fetchAuctions().then(this.setState({
-            with_item_name: "",
-            with_minimum_item_level: "",
-            with_maximum_item_level: "",
-            with_item_quality: "",
-            with_item_type: ""
+            item_name: "",
+            minimum_item_level: "",
+            maximum_item_level: "",
+            item_quality: "",
+            item_type: ""
         }));
         this.props.handleFilterClick("");
     };
@@ -59,7 +54,7 @@ class SearchForm extends React.Component {
         ))
 
         return (
-            <select onChange={this.update("with_item_quality")} value={this.state.with_item_quality}>
+            <select onChange={this.update("item_quality")} value={this.state.item_quality}>
                 <option value="" selected disabled hidden>--Select--</option>
                 {qualities}
             </select>
@@ -77,13 +72,13 @@ class SearchForm extends React.Component {
                 <form class="form-row align-items-center d-flex justify-content-start" onSubmit={this.handleSubmit}>
                     <div class="col-xs-12 col-md-4 col-lg-3 name-div">
                         <label>Name</label>
-                        <input onChange={this.update("with_item_name")} value={this.state.with_item_name || ""}/>
+                        <input onChange={this.update("item_name")} value={this.state.item_name || ""}/>
                     </div>
                     
                     <div class="col-lg-3 col-xs-12 col-md-4 level-div">
                         <label>Level Range</label>
-                        <input onChange={this.update("with_minimum_item_level")} value={this.state.with_minimum_item_level} type="number" min={1} max={120}/>&nbsp; - &nbsp;
-                        <input onChange={this.update("with_maximum_item_level")} value={this.state.with_maximum_item_level} type="number" min={1} max={120}/>
+                        <input onChange={this.update("minimum_item_level")} value={this.state.minimum_item_level} type="number" min={1} max={120}/>&nbsp; - &nbsp;
+                        <input onChange={this.update("maximum_item_level")} value={this.state.maximum_item_level} type="number" min={1} max={120}/>
                     </div>
                     
 
