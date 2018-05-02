@@ -19,6 +19,14 @@ class SearchForm extends React.Component {
             with_item_quality: "",
             with_item_type: ""
         }
+
+        // this.state = {
+        //     item_name: "",
+        //     minimum_item_level: "",
+        //     maximum_item_level: "",
+        //     item_type: "",
+        //     item_quality: ""
+        // }
     }
 
     componentDidUpdate() {

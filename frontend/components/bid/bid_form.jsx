@@ -15,8 +15,8 @@ class BidForm extends React.Component {
     }
 
     componentDidMount() {
-        this.sub = App.cable.subscriptions.create('AuctionChannel', {
-            received: this.handleReceiveNewBid
+        App.cable.subscriptions.create('BidChannel', {
+            received: this.receiveNewBid
         })
     };
 
@@ -104,7 +104,7 @@ class BidForm extends React.Component {
         }
     };
 
-    handleReceiveNewBid = (bid) => {
+    receiveNewBid = (bid) => {
         if (bid.auction_id === this.props.selectedAuction.id) {
             this.setState({"minimum_bid": bid.amount + 1})
         }

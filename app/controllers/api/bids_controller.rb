@@ -3,7 +3,7 @@ class Api::BidsController < ApplicationController
         @bid = Bid.new(bid_params)
 
         if @bid.save
-            ActionCable.server.broadcast 'auction_channel',
+            ActionCable.server.broadcast 'bid_channel',
                 amount: @bid.amount,
                 auction_id: @bid.auction_id
         else

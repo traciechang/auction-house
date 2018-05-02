@@ -13,8 +13,12 @@ class AuctionActiveDetail extends React.Component {
     componentDidMount() {
         this.intervalId = setInterval(this.tick, 1000);
 
-        this.sub = App.cable.subscriptions.create('AuctionChannel', {
-            received: this.handleReceiveNewBid
+        App.cable.subscriptions.create('BidChannel', {
+            received: this.receiveNewBid
+        })
+
+        App.cable.subscriptions.create('AuctionChannel', {
+            received: this.receiveUpdatedAuction
         })
     };
 
@@ -30,16 +34,17 @@ class AuctionActiveDetail extends React.Component {
         }
     }
 
-    handleReceiveNewBid = (bid) => {
-        if (bid.end_time) {
-            if ((bid.id === this.props.auction.id) && (new Date(bid.end_time) < new Date())) {
-                this.props.fetchAuction(bid.id)
-            }
-        }
-        else if (bid.auction_id === this.props.auction.id) {
+    receiveNewBid = (bid) => {
+        if (bid.auction_id === this.props.auction.id) {
             this.props.fetchAuction(bid.auction_id)
         }
     };
+
+    receiveUpdatedAuction = (auction) => {
+        if ((auction.id === this.props.auction.id) && (new Date(auction.end_time) < new Date())) {
+            this.props.fetchAuction(auction.id)
+        }
+    }
 
     render() {
         const auction = this.props.auction;

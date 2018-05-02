@@ -1,3 +1,5 @@
+require_relative '../../services/auction_search_service'
+
 class Api::AuctionsController < ApplicationController
     def index
         if params[:auc] == "myauctions"
@@ -6,6 +8,8 @@ class Api::AuctionsController < ApplicationController
             auction_ids = current_user.bids.pluck(:auction_id).uniq
             @auctions = Auction.where(id: auction_ids)
         else
+            # @auctions = AuctionSearchService.new(item_params).call
+
             @auctions = Auction.all
             filtering_params.each do |key, val|
                 @auctions = @auctions.public_send(key, val) if val.present?
@@ -50,12 +54,15 @@ class Api::AuctionsController < ApplicationController
         params.slice(:with_item_name, :with_minimum_item_level, :with_maximum_item_level, :with_item_type, :with_item_quality)
     end
 
-    # def item_params
-        # params.slice(:name, :minimum_item_level, :maximum_item_level, :item_type, :quality)
-    # end
+    def item_params
+        params.slice(:item_name, :minimum_item_level, :maximum_item_level, :item_type, :item_quality)
+    end
 end
 
 # *****************************************************
+
+# Notes
+
 # Alternative Auction Search
 
 # def index
