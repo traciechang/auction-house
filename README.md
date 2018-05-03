@@ -19,6 +19,10 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 ### Code Spotlight
 **ActionCable and WebSockets**
 
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378160/auction%20house%20readme/ActionCable/bids_controller_create.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378151/auction%20house%20readme/ActionCable/auction_active_detail_componentDidMount.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378154/auction%20house%20readme/ActionCable/auction_active_detail_receiveNewBid.png)
+
 **The Auction Search Algorithm**
 
 ### ToDo
