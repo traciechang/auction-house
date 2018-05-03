@@ -10,7 +10,7 @@ class Browse extends React.Component {
 
         this.state = {
             selectedAuction: "",
-            selectedFilter: ""
+            selectedFilter: undefined
         }
     }
 

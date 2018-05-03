@@ -16,26 +16,30 @@ class Auction < ApplicationRecord
         where(inventory_item_id: inv_item_ids)
     }
 
-    scope :with_item_quality, -> (quality) { 
+    scope :with_item_quality, -> (quality) {
         item_ids = Item.where(quality: quality).pluck(:id)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }
 
      scope :with_minimum_item_level, -> (level_min) {
-        item_ids = Item.where("level >= ?", level_min)
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        where(inventory_item_id: inv_item_ids)
+        if level_min != ""
+            item_ids = Item.where("level >= ?", level_min)
+            inv_item_ids = InventoryItem.where(item_id: item_ids)
+            where(inventory_item_id: inv_item_ids)
+        end
      }
 
      scope :with_maximum_item_level, -> (level_max) {
-        item_ids = Item.where("level <= ?", level_max)
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        where(inventory_item_id: inv_item_ids)
+        if level_max != ""
+            item_ids = Item.where("level <= ?", level_max)
+            inv_item_ids = InventoryItem.where(item_id: item_ids)
+            where(inventory_item_id: inv_item_ids)
+        end
      }
 
      scope :with_item_type, -> (item_type) {
-        item_ids = Item.where("item_type = ?", item_type)
+        item_ids = Item.where(item_type: item_type)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }

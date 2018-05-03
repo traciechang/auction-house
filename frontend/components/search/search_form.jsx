@@ -13,14 +13,12 @@ class SearchForm extends React.Component {
     constructor(props) {
         super(props);
 
-        
-
         this.state = {
-            item_name: "",
-            minimum_item_level: "",
-            maximum_item_level: "",
-            item_type: "",
-            item_quality: ""
+            item_name: undefined,
+            minimum_item_level: undefined,
+            maximum_item_level: undefined,
+            item_type: undefined,
+            item_quality: undefined
         }
     }
 
@@ -29,6 +27,7 @@ class SearchForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
+        console.log("in componentWillReceiveProps")
         if (nextProps) {
             this.setState({
                 "item_type": nextProps.selectedFilter
@@ -39,13 +38,13 @@ class SearchForm extends React.Component {
     clearFilters = (e) => {
         e.preventDefault();
         this.props.fetchAuctions().then(this.setState({
-            item_name: "",
-            minimum_item_level: "",
-            maximum_item_level: "",
-            item_quality: "",
-            item_type: ""
+            item_name: undefined,
+            minimum_item_level: undefined,
+            maximum_item_level: undefined,
+            item_quality: undefined,
+            item_type: undefined
         }));
-        this.props.handleFilterClick("");
+        this.props.handleFilterClick(undefined);
     };
 
     displayQuality = () => {
@@ -54,7 +53,7 @@ class SearchForm extends React.Component {
         ))
 
         return (
-            <select onChange={this.update("item_quality")} value={this.state.item_quality}>
+            <select onChange={this.update("item_quality")} value={this.state.item_quality || ""}>
                 <option value="" selected disabled hidden>--Select--</option>
                 {qualities}
             </select>
@@ -77,8 +76,8 @@ class SearchForm extends React.Component {
                     
                     <div class="col-lg-3 col-xs-12 col-md-4 level-div">
                         <label>Level Range</label>
-                        <input onChange={this.update("minimum_item_level")} value={this.state.minimum_item_level} type="number" min={1} max={120}/>&nbsp; - &nbsp;
-                        <input onChange={this.update("maximum_item_level")} value={this.state.maximum_item_level} type="number" min={1} max={120}/>
+                        <input onChange={this.update("minimum_item_level")} value={this.state.minimum_item_level || ""} type="number" min={1} max={120}/>&nbsp; - &nbsp;
+                        <input onChange={this.update("maximum_item_level")} value={this.state.maximum_item_level || ""} type="number" min={1} max={120}/>
                     </div>
                     
 
