@@ -25,6 +25,10 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 
 **The Auction Search Algorithm**
 
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_735/v1525714907/auction%20house%20readme/Search/auction_index.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_433/v1525714878/auction%20house%20readme/Search/AuctionService_call.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_515/v1525714878/auction%20house%20readme/Search/auction_scopes.png)
+
 ### ToDo
 * Add a Watching feature to let users follow an auction without having to bid on it.
 * Enhance user Profile with subsections for auctions that are Ending Soon and Recently Listed.
