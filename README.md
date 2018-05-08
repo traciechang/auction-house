@@ -1,4 +1,4 @@
-# README
+# WoW Auction House
 
 [Live Site](https://warm-castle-35814.herokuapp.com)
 
@@ -31,13 +31,17 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378154/auction%20house%20readme/ActionCable/auction_active_detail_receiveNewBid.png)
 * When a new `bid` is received, an Ajax request is made to `fetchAuction` and the component will re-render to reflect the new `bid`.
 * `BidChannel` was originally the only channel, but there was a technical limitation of how an execution of a buyout would be handled. Hence, `AuctionChannel` was created so that each channel has a single responsibility.
-* When a user executes a buyout, the auction's `end_time` is updated, an Ajax request is made to `fetchAuction`, and the component will disappear so that other users can no longer interact with this auction.
+* When a user executes a buyout, the auction's `end_time` is updated, an Ajax request is made to `fetchAuction`, and the component will disappear so that other users can no longer interact with that `auction`.
 
 **The Auction Search Algorithm**
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_735/v1525714907/auction%20house%20readme/Search/auction_index.png)
+* When search values are modified, an Ajax request is made to fetch the items based on the current `item_params`.
+
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_433/v1525714878/auction%20house%20readme/Search/AuctionService_call.png)
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_515/v1525714878/auction%20house%20readme/Search/auction_scopes.png)
+* A new instance of the `AuctionSearchService` service class is initialized with the `item_params` and chains the scopes to the `Auction` class to filter and return the appropriate records.
+* An explicit approach of chaining scopes is preferred over dynamic methods such as “public_send” or using conditionals. Although more verbose, the selected approach improves readability, is easier to understand and maintain, and is an idiomatic use of Rails' `ActiveRecord`.
 
 ### ToDo
 * Add a Watching feature to let users follow an auction without having to bid on it.
