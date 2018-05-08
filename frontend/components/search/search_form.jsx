@@ -27,7 +27,6 @@ class SearchForm extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log("in componentWillReceiveProps")
         if (nextProps) {
             this.setState({
                 "item_type": nextProps.selectedFilter

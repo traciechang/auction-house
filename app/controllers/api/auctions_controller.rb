@@ -9,7 +9,6 @@ class Api::AuctionsController < ApplicationController
             @auctions = Auction.where(id: auction_ids)
         else
             @auctions = AuctionSearchService.new(item_params.to_h.symbolize_keys).call
-
         end
         @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
     end
@@ -53,8 +52,6 @@ end
 
 # *****************************************************
 
-# Notes
-
 # Alternative Auction Search
 
     # @auctions = Auction.all
@@ -65,8 +62,3 @@ end
     # def filtering_params
     #     params.slice(:with_item_name, :with_minimum_item_level, :with_maximum_item_level, :with_item_type, :with_item_quality)
     # end
-
-
-# screenshot of scopes, and screenshot of above method
-# talk about reasoning for why you prefer an explicit approach and chaining scopes, vs dynamically using `public_send`, or using conditionals
-# talk about how this is easier to understand, although more verbose, and is very straight forward to modify or add to if you wanted more scopes in the future
