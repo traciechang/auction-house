@@ -2,7 +2,7 @@
 
 [Live Site](https://warm-castle-35814.herokuapp.com)
 
-giffy here
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/v1525739909/auction%20house%20readme/ezgif.com-video-to-gif_copy.gif)
 
 Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the World of Warcraft game, this remote auction house application allows users to search and bid on items, create auctions, and watch auctions in real time.
 
