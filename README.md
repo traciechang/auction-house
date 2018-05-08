@@ -30,7 +30,8 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378154/auction%20house%20readme/ActionCable/auction_active_detail_receiveNewBid.png)
 * When a new `bid` is received, an Ajax request is made to `fetchAuction` and the component will re-render to reflect the new `bid`.
-* This component also subscribes to the `AuctionChannel`. When an auction's `end_time` is updated, an Ajax request is made to `fetchAuction` and the component will disappear so that other users can no longer interact with this auction. This happens when a user selects the Buyout option, which immediately ends the auction.
+* `BidChannel` was originally the only channel, but there was a technical limitation of how an execution of a buyout would be handled. Hence, `AuctionChannel` was created so that each channel has a single responsibility.
+* When a user executes a buyout, the auction's `end_time` is updated, an Ajax request is made to `fetchAuction`, and the component will disappear so that other users can no longer interact with this auction.
 
 **The Auction Search Algorithm**
 
