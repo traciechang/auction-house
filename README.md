@@ -19,9 +19,18 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 ### Code Spotlight
 **ActionCable and WebSockets**
 
+* Bids are updated in real-time; users will always see the latest bid without having to refresh the page. This is achieved by using ActionCable to implement WebSockets.
+
+
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378160/auction%20house%20readme/ActionCable/bids_controller_create.png)
+* When a user submits a `bid`, a new `bid` is created and is `broadcasted` to the `bid_channel`.
+
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378151/auction%20house%20readme/ActionCable/auction_active_detail_componentDidMount.png)
+* A `subscription` to `BidChannel` is created when the AuctionDetail component mounts. Whenever a bid is broadcasted, this component will `receive` that bid.
+
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378154/auction%20house%20readme/ActionCable/auction_active_detail_receiveNewBid.png)
+* When a new `bid` is received, an Ajax request is made to `fetchAuction` and the component will re-render to reflect the new `bid`.
+* This component also subscribes to the `AuctionChannel`. When an auction's `end_time` is updated, an Ajax request is made to `fetchAuction` and the component will disappear so that other users can no longer interact with this auction. This happens when a user selects the Buyout option, which immediately ends the auction.
 
 **The Auction Search Algorithm**
 
