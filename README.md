@@ -7,7 +7,7 @@
 Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the World of Warcraft game, this remote auction house application allows users to search and bid on items, create auctions, and watch auctions in real time.
 
 ### Features
-* Single-page web application with a `Rails` RESTful API created with `React` and `Redux`.
+* Single-page web application with a `Rails` RESTful API built with `React` and `Redux`.
 * Secure user authentication with `bcrypt` gem.
 * Users can create auctions and search active auctions by name, item level, item quality, item type, or any combination thereof.
 * Users can place unlimited bids throughout the duration of an auction.
