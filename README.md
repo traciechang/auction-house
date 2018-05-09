@@ -13,13 +13,13 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 * Users can place unlimited bids throughout the duration of an auction.
 * When a bid is placed, a deposit is taken from the bidder in the amount of the bid. If a user bids on the same auction multiple times, the difference between the user’s new bid and their previous bid is deducted.
 * When a Buyout is selected, the auction immediately ends and the total buyout amount is deducted from the buyer’s account.
-* ActionCable is used to implement WebSockets and allows users to watch bids update in real-time.
-* Custom scheduled rake tasks check whether an item is sold and if so, changes the ownership of the item, deposits the winning bid amount into the seller’s account, and returns all bid deposits back to non-winners. 
+* `ActionCable` is used to implement WebSockets and allows users to watch bids update in real-time.
+* Custom scheduled `rake` tasks check whether an item is sold and if so, changes the ownership of the item, deposits the winning bid amount into the seller’s account, and returns all bid deposits back to non-winners. 
 
 ### Code Spotlight
 **ActionCable and WebSockets**
 
-* Bids are updated in real-time; users will always see the latest bid without having to refresh the page. This is achieved by using ActionCable to implement WebSockets.
+* Bids are updated in real-time; users will always see the latest bid without having to refresh the page. This is achieved by using `ActionCable` to implement WebSockets.
 
 
 ![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_496/v1525378160/auction%20house%20readme/ActionCable/bids_controller_create.png)
