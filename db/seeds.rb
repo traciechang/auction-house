@@ -136,24 +136,24 @@ InventoryItem.create(item_id: 38, inventory_id: 4)
 InventoryItem.create(item_id: 39, inventory_id: 4)
 
 # Pusheen's Auctions
-Auction.create(user_id: 1, inventory_item_id: 1, starting_bid: 1, buyout: 20, duration: 1)
-Auction.create(user_id: 1, inventory_item_id: 2, starting_bid: 4, buyout: 10, duration: 1)
-Auction.create(user_id: 1, inventory_item_id: 3, starting_bid: 2, buyout: 30, duration: 1)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 1, starting_bid: 1, buyout: 20, duration: 1)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 2, starting_bid: 4, buyout: 10, duration: 1)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 3, starting_bid: 2, buyout: 30, duration: 1)
 
 # Stormy's Auctions
 Auction.create(user_id: 2, inventory_item_id: 5, starting_bid: 2, buyout: 10, duration: 1)
 Auction.create(user_id: 2, inventory_item_id: 6, starting_bid: 2, buyout: 30, duration: 1)
 
 # Pusheen's Auctions cont'd
-Auction.create(user_id: 1, inventory_item_id: 4, starting_bid: 2, buyout: 30, duration: 1)
-Auction.create(user_id: 1, inventory_item_id: 7, starting_bid: 3, buyout: 30, duration: 12)
-Auction.create(user_id: 1, inventory_item_id: 8, starting_bid: 4, buyout: 30, duration: 24)
-Auction.create(user_id: 1, inventory_item_id: 9, starting_bid: 5, buyout: 30, duration: 48)
-Auction.create(user_id: 1, inventory_item_id: 10, starting_bid: 1, buyout: 35, duration: 1)
-Auction.create(user_id: 1, inventory_item_id: 11, starting_bid: 2, buyout: 29, duration: 12)
-Auction.create(user_id: 1, inventory_item_id: 12, starting_bid: 3, buyout: 31, duration: 12)
-Auction.create(user_id: 1, inventory_item_id: 13, starting_bid: 4, buyout: 33, duration: 24)
-Auction.create(user_id: 1, inventory_item_id: 14, starting_bid: 5, buyout: 30, duration: 12)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 4, starting_bid: 2, buyout: 30, duration: 1)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 7, starting_bid: 3, buyout: 30, duration: 12)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 8, starting_bid: 4, buyout: 30, duration: 24)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 9, starting_bid: 5, buyout: 30, duration: 48)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 10, starting_bid: 1, buyout: 35, duration: 1)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 11, starting_bid: 2, buyout: 29, duration: 12)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 12, starting_bid: 3, buyout: 31, duration: 12)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 13, starting_bid: 4, buyout: 33, duration: 24)
+Auction.create(user_id: User.find(1).id, inventory_item_id: 14, starting_bid: 5, buyout: 30, duration: 12)
 # Auction.create(user_id: 1, inventory_item_id: 15, starting_bid: 6, buyout: 40, duration: 48)
 # Auction.create(user_id: 1, inventory_item_id: 16, starting_bid: 10, buyout: 50, duration: 48)
 
