@@ -204,4 +204,3 @@ Auction.create(user_id: 4, inventory_item_id: 50, starting_bid: 2, buyout: 29, d
 # Pusheen's Bids
 # Bid.create(user_id: pusheen.id, auction_id: 4, amount: 1)
 # Bid.create(user_id: pusheen.id, auction_id: 5, amount: 2)
-# Bid.create(user_id: pusheen.id, auction_id: 5, amount: 3)
