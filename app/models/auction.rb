@@ -17,7 +17,7 @@ class Auction < ApplicationRecord
     }
 
     scope :with_item_quality, -> (quality) {
-        item_ids = Item.where(quality: quality).pluck(:id)
+        item_ids = Item.where(quality: quality)
         inv_item_ids = InventoryItem.where(item_id: item_ids)
         where(inventory_item_id: inv_item_ids)
      }

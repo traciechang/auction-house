@@ -14,7 +14,7 @@ class Item < ApplicationRecord
     # }
 
     # scope :with_quality, -> (quality) {
-    #     Item.where(quality: quality).pluck(:id)
+    #     Item.where(quality: quality)
     # }
 
     # scope :with_minimum_level, -> (level_min) {
