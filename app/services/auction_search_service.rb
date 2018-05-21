@@ -24,4 +24,13 @@ class AuctionSearchService
             with_maximum_item_level(maximum_item_level).
             with_item_type(item_type)
     end
+
+    # def call
+    #     Item.
+    #         with_name(item_name).
+    #         with_quality(item_quality).
+    #         with_minimum_level(minimum_item_level).
+    #         with_maximum_level(maximum_item_level).
+    #         with_type(item_type)
+    # end
 end
