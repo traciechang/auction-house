@@ -1,4 +1,4 @@
-class AuctionSearchService
+class ItemSearchService
     def initialize(
         item_name: "",
         minimum_item_level: Item::MIN_LEVEL,
@@ -17,11 +17,14 @@ class AuctionSearchService
     attr_reader :item_name, :item_type, :item_quality, :minimum_item_level, :maximum_item_level
 
     def call
-        Auction.
-            with_item_name(item_name).
-            with_item_quality(item_quality).
-            with_minimum_item_level(minimum_item_level).
-            with_maximum_item_level(maximum_item_level).
-            with_item_type(item_type)
+        item_ids = Item.
+            with_name(item_name).
+            with_quality(item_quality).
+            with_minimum_level(minimum_item_level).
+            with_maximum_level(maximum_item_level).
+            with_type(item_type)
+
+        inv_item_ids = InventoryItem.where(item_id: item_ids)
+        Auction.where(inventory_item_id: inv_item_ids)
     end
 end

@@ -9,27 +9,27 @@ class Item < ApplicationRecord
     validates :level, inclusion: { in: (MIN_LEVEL..MAX_LEVEL) }
     validates :item_type, inclusion: { in: TYPES }
 
-    # scope :with_name, -> (name) {
-    #     Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
-    # }
+    scope :with_name, -> (name) {
+        Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
+    }
 
-    # scope :with_quality, -> (quality) {
-    #     Item.where(quality: quality)
-    # }
+    scope :with_quality, -> (quality) {
+        Item.where(quality: quality)
+    }
 
-    # scope :with_minimum_level, -> (level_min) {
-    #     if level_min != ""
-    #         Item.where("level >= ?", level_min)
-    #     end
-    # }
+    scope :with_minimum_level, -> (level_min) {
+        if level_min != ""
+            Item.where("level >= ?", level_min)
+        end
+    }
 
-    # scope :with_maximum_level, -> (level_max) {
-    #     if level_max != ""
-    #         Item.where("level <= ?", level_max)
-    #     end
-    # }
+    scope :with_maximum_level, -> (level_max) {
+        if level_max != ""
+            Item.where("level <= ?", level_max)
+        end
+    }
 
-    # scope :with_type, -> (item_type) {
-    #     Item.where(item_type: item_type)
-    # }
+    scope :with_type, -> (item_type) {
+        Item.where(item_type: item_type)
+    }
 end

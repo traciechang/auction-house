@@ -10,39 +10,39 @@ class Auction < ApplicationRecord
     has_many :bids, dependent: :destroy
     belongs_to :inventory_item
 
-    scope :with_item_name, -> (name) {
-        item_ids = Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        where(inventory_item_id: inv_item_ids)
-    }
+    # scope :with_item_name, -> (name) {
+    #     item_ids = Item.where("LOWER(name) LIKE ?", "%#{name.downcase}%")
+    #     inv_item_ids = InventoryItem.where(item_id: item_ids)
+    #     where(inventory_item_id: inv_item_ids)
+    # }
 
-    scope :with_item_quality, -> (quality) {
-        item_ids = Item.where(quality: quality)
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        where(inventory_item_id: inv_item_ids)
-     }
+    # scope :with_item_quality, -> (quality) {
+    #     item_ids = Item.where(quality: quality)
+    #     inv_item_ids = InventoryItem.where(item_id: item_ids)
+    #     where(inventory_item_id: inv_item_ids)
+    #  }
 
-     scope :with_minimum_item_level, -> (level_min) {
-        if level_min != ""
-            item_ids = Item.where("level >= ?", level_min)
-            inv_item_ids = InventoryItem.where(item_id: item_ids)
-            where(inventory_item_id: inv_item_ids)
-        end
-     }
+    #  scope :with_minimum_item_level, -> (level_min) {
+    #     if level_min != ""
+    #         item_ids = Item.where("level >= ?", level_min)
+    #         inv_item_ids = InventoryItem.where(item_id: item_ids)
+    #         where(inventory_item_id: inv_item_ids)
+    #     end
+    #  }
 
-     scope :with_maximum_item_level, -> (level_max) {
-        if level_max != ""
-            item_ids = Item.where("level <= ?", level_max)
-            inv_item_ids = InventoryItem.where(item_id: item_ids)
-            where(inventory_item_id: inv_item_ids)
-        end
-     }
+    #  scope :with_maximum_item_level, -> (level_max) {
+    #     if level_max != ""
+    #         item_ids = Item.where("level <= ?", level_max)
+    #         inv_item_ids = InventoryItem.where(item_id: item_ids)
+    #         where(inventory_item_id: inv_item_ids)
+    #     end
+    #  }
 
-     scope :with_item_type, -> (item_type) {
-        item_ids = Item.where(item_type: item_type)
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        where(inventory_item_id: inv_item_ids)
-     }
+    #  scope :with_item_type, -> (item_type) {
+    #     item_ids = Item.where(item_type: item_type)
+    #     inv_item_ids = InventoryItem.where(item_id: item_ids)
+    #     where(inventory_item_id: inv_item_ids)
+    #  }
 
     def duration=(duration)
         @duration = duration
