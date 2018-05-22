@@ -35,12 +35,12 @@ Based on the [Auction House](https://wow.gamepedia.com/Auction_House) in the Wor
 
 **The Auction Search Algorithm**
 
-![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_735/v1525714907/auction%20house%20readme/Search/auction_index.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_735/v1527032303/auction%20house%20readme/Search/auction_index.png)
 * When search values are modified, an Ajax request is made to fetch the items based on the current `item_params`.
 
-![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_433/v1525714878/auction%20house%20readme/Search/AuctionService_call.png)
-![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_515/v1525714878/auction%20house%20readme/Search/auction_scopes.png)
-* A new instance of the `AuctionSearchService` service class is initialized with the `item_params` and chains the scopes to the `Auction` class to filter and return the appropriate records.
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_500/v1527031969/auction%20house%20readme/Search/ItemService_call.png)
+![alt text](http://res.cloudinary.com/dcf4iyb6t/image/upload/c_scale,w_440/v1527031975/auction%20house%20readme/Search/item_scopes.png)
+* A new instance of the `ItemSearchService` service class is initialized with the `item_params` and chains the scopes to the `Item` class to filter and return the appropriate records.
 * An explicit approach of chaining scopes is preferred over dynamic methods such as “public_send” or using conditionals. Although more verbose, the selected approach improves readability, is easier to understand and maintain, and is an idiomatic use of Rails' `ActiveRecord`.
 
 ### ToDo
