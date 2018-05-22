@@ -22,9 +22,9 @@ class ItemSearchService
             with_quality(item_quality).
             with_minimum_level(minimum_item_level).
             with_maximum_level(maximum_item_level).
-            with_type(item_type)
+            with_type(item_type).ids
 
-        inv_item_ids = InventoryItem.where(item_id: item_ids)
-        Auction.where(inventory_item_id: inv_item_ids)
+        inventory_item_ids = InventoryItem.where(item_id: item_ids).ids
+        Auction.where(inventory_item_id: inventory_item_ids)
     end
 end
