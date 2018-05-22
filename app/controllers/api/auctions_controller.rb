@@ -1,5 +1,4 @@
-# require_relative '../../services/auction_search_service'
-# require_relative '../../services/item_search_service'
+require_relative '../../services/item_search_service'
 
 class Api::AuctionsController < ApplicationController
     def index
