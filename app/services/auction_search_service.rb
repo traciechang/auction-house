@@ -1,4 +1,4 @@
-class ItemSearchService
+class AuctionSearchService
     def initialize(
         item_name: "",
         minimum_item_level: Item::MIN_LEVEL,

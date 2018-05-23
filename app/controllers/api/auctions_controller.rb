@@ -1,4 +1,4 @@
-require_relative '../../services/item_search_service'
+require_relative '../../services/auction_search_service'
 
 class Api::AuctionsController < ApplicationController
     def index
@@ -8,7 +8,7 @@ class Api::AuctionsController < ApplicationController
             auction_ids = current_user.bids.pluck(:auction_id).uniq
             @auctions = Auction.where(id: auction_ids)
         else
-            @auctions = ItemSearchService.new(item_params.to_h.symbolize_keys).call
+            @auctions = AuctionSearchService.new(item_params.to_h.symbolize_keys).call
         end
         
         @auctions = @auctions.includes(inventory_item: :item).includes(:user).includes(bids: :user)
