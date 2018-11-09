@@ -22,9 +22,9 @@ class SearchForm extends React.Component {
         }
     }
 
-    componentDidUpdate() {
-        this.props.fetchAuctions(this.state);
-    }
+    // componentDidUpdate() {
+    //     this.props.fetchAuctions(this.state);
+    // }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps) {
@@ -59,10 +59,10 @@ class SearchForm extends React.Component {
         )
     };
 
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.props.fetchAuctions(this.state);
-    // }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.fetchAuctions(this.state);
+    }
 
     render() {
         return (
@@ -86,7 +86,7 @@ class SearchForm extends React.Component {
                     </div>
                     
                     <div class="col-lg-2 col-xs-12 col-md-1 search-reset-buttons">
-                        {/* <button class="mb-md-2 search-button">Search</button> */}
+                        <button class="mb-md-2 search-button" onClick={this.handleSubmit}>Search</button>
                         
                         <button class="reset-button" onClick={this.clearFilters}>Reset</button>
                     </div>
